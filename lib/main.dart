@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
+import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/theme/app_theme.dart';
 import 'package:map_maker_new/types/enum/language.dart';
 
@@ -8,6 +9,7 @@ import 'router/app_router.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setupDependencies();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
