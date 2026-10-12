@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 abstract class ColorConstants {
-  static const Color bgCanvas = Color(0xFFF9FAFC);
-  static const Color bgSurface = Color(0xFFE2E8F0);
+  static const Color bgCanvas = Color(0xFFF8FAFC);
+  static const Color bgSurface = Color(0xFFFFFFFF);
   static const Color bgSurfaceAlt = Color(0xFFF1F5F9);
   static const Color bgInverse = Color(0xFF0B1220);
   static const Color bgBrand = Color(0xFF2563EB);

@@ -40,6 +40,8 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.20.3
+  build_runner: ^2.16.1
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -65,20 +67,24 @@ flutter:
   generate: true
 
   fonts:
+    - family: map-maker-icons
+      fonts:
+        - asset: fonts/map-maker-icons.woff
+
+
     - family: Inter
       fonts:
-        - asset: fonts/Inter-Regular.ttf
+        - asset: fonts/inter/Inter-Regular.ttf
           weight: 400
-        - asset: fonts/Inter-Medium.ttf
+        - asset: fonts/inter/Inter-Medium.ttf
           weight: 500
-        - asset: fonts/Inter-SemiBold.ttf
+        - asset: fonts/inter/Inter-SemiBold.ttf
           weight: 600
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
 
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/svg/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

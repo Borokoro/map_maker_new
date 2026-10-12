@@ -10,5 +10,20 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
-  String get appTitle => 'Map Maker';
+  String get plotFinder => 'PlotFinder';
+
+  @override
+  String get search => 'Szukaj';
+
+  @override
+  String get saved => 'Zapisane';
+
+  @override
+  String get sell => 'Sprzedaj';
+
+  @override
+  String get messages => 'Wiadomości';
+
+  @override
+  String get account => 'Konto';
 }

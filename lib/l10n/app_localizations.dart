@@ -17,7 +17,7 @@ import 'app_localizations_pl.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'generated/app_localizations.dart';
+/// import 'l10n/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -66,8 +66,8 @@ abstract class AppLocalizations {
 
   final String localeName;
 
-  static AppLocalizations of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
+  static AppLocalizations? of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
   static const LocalizationsDelegate<AppLocalizations> delegate =
@@ -94,11 +94,41 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[Locale('pl')];
 
-  /// Application title
+  /// No description provided for @plotFinder.
   ///
   /// In pl, this message translates to:
-  /// **'Map Maker'**
-  String get appTitle;
+  /// **'PlotFinder'**
+  String get plotFinder;
+
+  /// No description provided for @search.
+  ///
+  /// In pl, this message translates to:
+  /// **'Szukaj'**
+  String get search;
+
+  /// No description provided for @saved.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zapisane'**
+  String get saved;
+
+  /// No description provided for @sell.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprzedaj'**
+  String get sell;
+
+  /// No description provided for @messages.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wiadomości'**
+  String get messages;
+
+  /// No description provided for @account.
+  ///
+  /// In pl, this message translates to:
+  /// **'Konto'**
+  String get account;
 }
 
 class _AppLocalizationsDelegate

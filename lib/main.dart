@@ -4,6 +4,8 @@ import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/theme/app_theme.dart';
 import 'package:map_maker_new/types/enum/language.dart';
 
+import 'router/app_router.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -21,6 +23,14 @@ class MapMakerApp extends StatefulWidget {
 }
 
 class _MapMakerAppState extends State<MapMakerApp> {
+  late final AppRouter appRouter;
+
+  @override
+  void initState() {
+    appRouter = AppRouter();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
@@ -29,7 +39,7 @@ class _MapMakerAppState extends State<MapMakerApp> {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       debugShowCheckedModeBanner: false,
       theme: appTheme(context),
-
+      routerConfig: appRouter.config(),
     );
   }
 }
