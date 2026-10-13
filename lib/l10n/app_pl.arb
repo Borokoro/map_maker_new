@@ -5,5 +5,270 @@
   "saved": "Zapisane",
   "sell": "Sprzedaj",
   "messages": "Wiadomości",
-  "account": "Konto"
+  "account": "Konto",
+  "searchPlaceholder": "Miejscowość, gmina lub nr działki",
+  "offersLoadingError": "Nie udało się wczytać ofert",
+  "retry": "Spróbuj ponownie",
+  "allFilters": "Wszystkie filtry",
+  "activeFilters": "{count, plural, =0{Brak aktywnych filtrów} one{{count} aktywny} few{{count} aktywne} other{{count} aktywnych}}",
+  "@activeFilters": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "clear": "Wyczyść",
+  "clearAll": "Wyczyść wszystko",
+  "apply": "Zastosuj",
+  "showOffers": "Pokaż oferty",
+  "location": "Lokalizacja",
+  "voivodeship": "Województwo",
+  "voivodeshipPlaceholder": "Wszystkie województwa",
+  "county": "Powiat",
+  "countyPlaceholder": "Wszystkie powiaty",
+  "commune": "Gmina",
+  "communePlaceholder": "Wszystkie gminy",
+  "pickVoivodeshipFirst": "Najpierw wybierz województwo",
+  "pickCountyFirst": "Najpierw wybierz powiat",
+  "price": "Cena",
+  "goodPrice": "Dobra cena",
+  "goodPriceHint": "poniżej szacunku modelu",
+  "area": "Powierzchnia",
+  "areaAndPlots": "Powierzchnia i liczba działek",
+  "plots": "Liczba działek",
+  "plotsAny": "Dowolna liczba",
+  "plotsOne": "1 działka",
+  "plotsMany": "2 i więcej",
+  "designation": "Przeznaczenie",
+  "designationCount": "Przeznaczenie · {count}",
+  "@designationCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "planBasis": "Podstawa planistyczna",
+  "media": "Media",
+  "mediaCount": "Media · {count}",
+  "@mediaCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "access": "Dojazd i teren",
+  "roadAccess": "Dostęp do drogi publicznej",
+  "roadAccessHint": "bezpośrednio lub przez służebność",
+  "cityDistance": "Do miasta maks.",
+  "cityDistanceKm": "{km} km",
+  "@cityDistanceKm": {
+    "placeholders": {
+      "km": {"type": "int"}
+    }
+  },
+  "rangeUpTo": "Do {value}",
+  "@rangeUpTo": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "rangeFrom": "Od {value}",
+  "@rangeFrom": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "rangeBetween": "{min} – {max}",
+  "@rangeBetween": {
+    "placeholders": {
+      "min": {"type": "String"},
+      "max": {"type": "String"}
+    }
+  },
+  "priceThousands": "{value} tys. zł",
+  "@priceThousands": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "priceMillions": "{value} mln zł",
+  "@priceMillions": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "areaSquareMeters": "{value} m²",
+  "@areaSquareMeters": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "rangeNoLimit": "{value}+",
+  "@rangeNoLimit": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "priceWithGoodPrice": "{price} · {goodPrice}",
+  "@priceWithGoodPrice": {
+    "placeholders": {
+      "price": {"type": "String"},
+      "goodPrice": {"type": "String"}
+    }
+  },
+  "locationWithCount": "{name} ({count})",
+  "@locationWithCount": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+  "mapPriceOnRequest": "Zapytaj",
+  "mapPriceThousands": "{value}k",
+  "@mapPriceThousands": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "mapPriceMillions": "{value} mln",
+  "@mapPriceMillions": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "mapClusterOffersFew": " oferty",
+  "mapClusterOffersMany": " ofert",
+  "offerPlotCount": "{count, plural, one{{count} działka} few{{count} działki} other{{count} działek}}",
+  "@offerPlotCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerNoPrice": "Cena do uzgodnienia",
+  "offerEstimatedPrice": "ok. {range}",
+  "@offerEstimatedPrice": {
+    "placeholders": {
+      "range": {"type": "String"}
+    }
+  },
+  "offerPrice": "{value} zł",
+  "@offerPrice": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "offerPricePerMeter": "{value} zł/m²",
+  "@offerPricePerMeter": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "offerLocation": "{area} · {location}",
+  "@offerLocation": {
+    "placeholders": {
+      "area": {"type": "String"},
+      "location": {"type": "String"}
+    }
+  },
+  "offerMultiLocation": "{plots} · {area} · {location}",
+  "@offerMultiLocation": {
+    "placeholders": {
+      "plots": {"type": "String"},
+      "area": {"type": "String"},
+      "location": {"type": "String"}
+    }
+  },
+  "planDesignationResidential": "Zabudowa mieszkaniowa",
+  "planDesignationResidentialServices": "Mieszkaniowa z usługami",
+  "planDesignationFarmstead": "Zabudowa zagrodowa",
+  "planDesignationRecreation": "Rekreacja / letniskowa",
+  "planDesignationServices": "Usługi",
+  "planDesignationIndustrial": "Produkcja i składy",
+  "planDesignationAgricultural": "Rolna",
+  "planDesignationForest": "Las",
+  "planDesignationGreen": "Zieleń",
+  "planDesignationWater": "Wody",
+  "planDesignationTransport": "Komunikacja",
+  "planDesignationInfrastructure": "Infrastruktura",
+  "planDesignationCemetery": "Cmentarz",
+  "planDesignationOpen": "Strefa otwarta",
+  "planDesignationOther": "Inne",
+  "planDesignationWithOthers": "{designation} +{count}",
+  "@planDesignationWithOthers": {
+    "placeholders": {
+      "designation": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+  "planWithBasisMpzp": "{designation} · MPZP",
+  "@planWithBasisMpzp": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisPog": "{designation} · plan ogólny",
+  "@planWithBasisPog": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisPogDraft": "{designation} · projekt POG",
+  "@planWithBasisPogDraft": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisStudium": "{designation} · studium",
+  "@planWithBasisStudium": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisMixed": "{designation} · różne plany",
+  "@planWithBasisMixed": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planMixedDesignationsMpzp": "Różne przeznaczenia · MPZP",
+  "planMixedDesignationsPog": "Różne przeznaczenia · plan ogólny",
+  "planMixedDesignationsPogDraft": "Różne przeznaczenia · projekt POG",
+  "planMixedDesignationsStudium": "Różne przeznaczenia · studium",
+  "planMixedDesignationsMixed": "Różne przeznaczenia",
+  "planBasisLabelUnknown": "Plan w trakcie sprawdzania",
+  "planBasisLabelMpzp": "MPZP — sprawdź przeznaczenie",
+  "planBasisLabelPog": "Plan ogólny",
+  "planBasisLabelWz": "Decyzja WZ",
+  "planBasisLabelPogDraft": "Projekt POG",
+  "planBasisLabelStudium": "Studium",
+  "planBasisLabelNone": "Brak planu",
+  "planBasisLabelMixed": "Różne przeznaczenia",
+  "planHintWzPossible": "możliwa WZ zgodna z planem",
+  "planHintNeedsMpzp": "budowa po uchwaleniu MPZP",
+  "planHintCheckInfill": "sprawdź obszar uzupełnienia zabudowy",
+  "planHintNoWzWithoutPog": "WZ dopiero po uchwaleniu POG",
+  "planWithHint": "{label} — {hint}",
+  "@planWithHint": {
+    "placeholders": {
+      "label": {"type": "String"},
+      "hint": {"type": "String"}
+    }
+  },
+  "designationResidential": "Mieszkaniowa",
+  "designationResidentialServices": "Z usługami",
+  "designationFarmstead": "Zagrodowa",
+  "designationRecreation": "Rekreacja",
+  "designationServices": "Usługi",
+  "designationIndustrial": "Produkcja",
+  "designationAgricultural": "Rolna",
+  "designationForest": "Las",
+  "designationOpen": "Strefa otwarta",
+  "planBasisMpzp": "MPZP",
+  "planBasisPog": "Plan ogólny",
+  "planBasisWz": "Decyzja WZ",
+  "planBasisPogDraft": "Projekt POG",
+  "planBasisStudium": "Studium",
+  "planBasisNone": "Brak planu",
+  "utilityElectricity": "Prąd",
+  "utilityWater": "Woda",
+  "utilitySewage": "Kanalizacja",
+  "utilityGas": "Gaz",
+  "utilityInternet": "Internet"
 }

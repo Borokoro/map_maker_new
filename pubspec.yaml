@@ -45,7 +45,7 @@ dependencies:
   dio: ^5.11.1
   equatable: ^3.0.0
   get_it: ^9.3.0
-
+  mapbox_maps_flutter: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -56,6 +56,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.8
+  flutter_launcher_icons: ^0.14.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

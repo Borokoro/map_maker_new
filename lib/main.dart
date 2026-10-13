@@ -4,11 +4,15 @@ import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/theme/app_theme.dart';
 import 'package:map_maker_new/types/enum/language.dart';
+import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
 import 'router/app_router.dart';
 
+const String _mapboxAccessToken = String.fromEnvironment('MAPBOX_ACCESS_TOKEN');
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MapboxOptions.setAccessToken(_mapboxAccessToken);
   setupDependencies();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
