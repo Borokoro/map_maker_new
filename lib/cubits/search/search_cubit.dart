@@ -10,7 +10,7 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this._publicOffersService) : super(SearchInitial());
   final PublicOffersService _publicOffersService;
 
-  Future<void> getPublicOffers() async {
+  Future<void> fetchPublicOffers() async {
     emit(SearchLoading());
     try{
       final PublicOffers publicOffers = await _publicOffersService
