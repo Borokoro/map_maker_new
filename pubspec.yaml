@@ -45,6 +45,7 @@ dependencies:
   dio: ^5.11.1
   equatable: ^3.0.0
   get_it: ^9.3.0
+  mapbox_maps_flutter: ^3.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

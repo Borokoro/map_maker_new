@@ -5,5 +5,154 @@
   "saved": "Zapisane",
   "sell": "Sprzedaj",
   "messages": "Wiadomości",
-  "account": "Konto"
+  "account": "Konto",
+  "searchPlaceholder": "Miejscowość, gmina lub nr działki",
+  "offersLoadingError": "Nie udało się wczytać ofert",
+  "retry": "Spróbuj ponownie",
+  "allFilters": "Wszystkie filtry",
+  "activeFilters": "{count, plural, =0{Brak aktywnych filtrów} one{{count} aktywny} few{{count} aktywne} other{{count} aktywnych}}",
+  "@activeFilters": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "clear": "Wyczyść",
+  "clearAll": "Wyczyść wszystko",
+  "apply": "Zastosuj",
+  "showOffers": "Pokaż oferty",
+  "location": "Lokalizacja",
+  "voivodeship": "Województwo",
+  "voivodeshipPlaceholder": "Wszystkie województwa",
+  "county": "Powiat",
+  "countyPlaceholder": "Wszystkie powiaty",
+  "commune": "Gmina",
+  "communePlaceholder": "Wszystkie gminy",
+  "pickVoivodeshipFirst": "Najpierw wybierz województwo",
+  "pickCountyFirst": "Najpierw wybierz powiat",
+  "price": "Cena",
+  "goodPrice": "Dobra cena",
+  "goodPriceHint": "poniżej szacunku modelu",
+  "area": "Powierzchnia",
+  "areaAndPlots": "Powierzchnia i liczba działek",
+  "plots": "Liczba działek",
+  "plotsAny": "Dowolna liczba",
+  "plotsOne": "1 działka",
+  "plotsMany": "2 i więcej",
+  "designation": "Przeznaczenie",
+  "designationCount": "Przeznaczenie · {count}",
+  "@designationCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "planBasis": "Podstawa planistyczna",
+  "media": "Media",
+  "mediaCount": "Media · {count}",
+  "@mediaCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "access": "Dojazd i teren",
+  "roadAccess": "Dostęp do drogi publicznej",
+  "roadAccessHint": "bezpośrednio lub przez służebność",
+  "cityDistance": "Do miasta maks.",
+  "cityDistanceKm": "{km} km",
+  "@cityDistanceKm": {
+    "placeholders": {
+      "km": {"type": "int"}
+    }
+  },
+  "rangeUpTo": "Do {value}",
+  "@rangeUpTo": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "rangeFrom": "Od {value}",
+  "@rangeFrom": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "rangeBetween": "{min} – {max}",
+  "@rangeBetween": {
+    "placeholders": {
+      "min": {"type": "String"},
+      "max": {"type": "String"}
+    }
+  },
+  "priceThousands": "{value} tys. zł",
+  "@priceThousands": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "priceMillions": "{value} mln zł",
+  "@priceMillions": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "areaSquareMeters": "{value} m²",
+  "@areaSquareMeters": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "rangeNoLimit": "{value}+",
+  "@rangeNoLimit": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "priceWithGoodPrice": "{price} · {goodPrice}",
+  "@priceWithGoodPrice": {
+    "placeholders": {
+      "price": {"type": "String"},
+      "goodPrice": {"type": "String"}
+    }
+  },
+  "locationWithCount": "{name} ({count})",
+  "@locationWithCount": {
+    "placeholders": {
+      "name": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+  "mapPriceOnRequest": "Zapytaj",
+  "mapPriceThousands": "{value}k",
+  "@mapPriceThousands": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "mapPriceMillions": "{value} mln",
+  "@mapPriceMillions": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "mapClusterOffersFew": " oferty",
+  "mapClusterOffersMany": " ofert",
+  "designationResidential": "Mieszkaniowa",
+  "designationResidentialServices": "Z usługami",
+  "designationFarmstead": "Zagrodowa",
+  "designationRecreation": "Rekreacja",
+  "designationServices": "Usługi",
+  "designationIndustrial": "Produkcja",
+  "designationAgricultural": "Rolna",
+  "designationForest": "Las",
+  "designationOpen": "Strefa otwarta",
+  "planBasisMpzp": "MPZP",
+  "planBasisPog": "Plan ogólny",
+  "planBasisWz": "Decyzja WZ",
+  "planBasisPogDraft": "Projekt POG",
+  "planBasisStudium": "Studium",
+  "planBasisNone": "Brak planu",
+  "utilityElectricity": "Prąd",
+  "utilityWater": "Woda",
+  "utilitySewage": "Kanalizacja",
+  "utilityGas": "Gaz",
+  "utilityInternet": "Internet"
 }

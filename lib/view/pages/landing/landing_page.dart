@@ -24,7 +24,6 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      lazyLoad: false,
       resizeToAvoidBottomInset: false,
       routes: const [
         SearchRoute(),
