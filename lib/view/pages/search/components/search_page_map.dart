@@ -67,7 +67,7 @@ class _SearchPageMapState extends State<SearchPageMap> {
   @override
   Widget build(BuildContext context) {
     return MapWidget(
-      styleUri: MapboxStyles.STANDARD,
+      styleUri: MapboxStyles.STANDARD_SATELLITE,
       viewport: CameraViewportState(center: SearchPageMap.polandCenter, zoom: SearchPageMap.polandZoom),
       onMapCreated: _onMapCreated,
       onStyleLoadedListener: (_) => _onStyleLoaded(),
