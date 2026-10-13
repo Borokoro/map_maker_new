@@ -135,6 +135,122 @@
   },
   "mapClusterOffersFew": " oferty",
   "mapClusterOffersMany": " ofert",
+  "offerPlotCount": "{count, plural, one{{count} działka} few{{count} działki} other{{count} działek}}",
+  "@offerPlotCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerNoPrice": "Cena do uzgodnienia",
+  "offerEstimatedPrice": "ok. {range}",
+  "@offerEstimatedPrice": {
+    "placeholders": {
+      "range": {"type": "String"}
+    }
+  },
+  "offerPrice": "{value} zł",
+  "@offerPrice": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "offerPricePerMeter": "{value} zł/m²",
+  "@offerPricePerMeter": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "offerLocation": "{area} · {location}",
+  "@offerLocation": {
+    "placeholders": {
+      "area": {"type": "String"},
+      "location": {"type": "String"}
+    }
+  },
+  "offerMultiLocation": "{plots} · {area} · {location}",
+  "@offerMultiLocation": {
+    "placeholders": {
+      "plots": {"type": "String"},
+      "area": {"type": "String"},
+      "location": {"type": "String"}
+    }
+  },
+  "planDesignationResidential": "Zabudowa mieszkaniowa",
+  "planDesignationResidentialServices": "Mieszkaniowa z usługami",
+  "planDesignationFarmstead": "Zabudowa zagrodowa",
+  "planDesignationRecreation": "Rekreacja / letniskowa",
+  "planDesignationServices": "Usługi",
+  "planDesignationIndustrial": "Produkcja i składy",
+  "planDesignationAgricultural": "Rolna",
+  "planDesignationForest": "Las",
+  "planDesignationGreen": "Zieleń",
+  "planDesignationWater": "Wody",
+  "planDesignationTransport": "Komunikacja",
+  "planDesignationInfrastructure": "Infrastruktura",
+  "planDesignationCemetery": "Cmentarz",
+  "planDesignationOpen": "Strefa otwarta",
+  "planDesignationOther": "Inne",
+  "planDesignationWithOthers": "{designation} +{count}",
+  "@planDesignationWithOthers": {
+    "placeholders": {
+      "designation": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+  "planWithBasisMpzp": "{designation} · MPZP",
+  "@planWithBasisMpzp": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisPog": "{designation} · plan ogólny",
+  "@planWithBasisPog": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisPogDraft": "{designation} · projekt POG",
+  "@planWithBasisPogDraft": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisStudium": "{designation} · studium",
+  "@planWithBasisStudium": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planWithBasisMixed": "{designation} · różne plany",
+  "@planWithBasisMixed": {
+    "placeholders": {
+      "designation": {"type": "String"}
+    }
+  },
+  "planMixedDesignationsMpzp": "Różne przeznaczenia · MPZP",
+  "planMixedDesignationsPog": "Różne przeznaczenia · plan ogólny",
+  "planMixedDesignationsPogDraft": "Różne przeznaczenia · projekt POG",
+  "planMixedDesignationsStudium": "Różne przeznaczenia · studium",
+  "planMixedDesignationsMixed": "Różne przeznaczenia",
+  "planBasisLabelUnknown": "Plan w trakcie sprawdzania",
+  "planBasisLabelMpzp": "MPZP — sprawdź przeznaczenie",
+  "planBasisLabelPog": "Plan ogólny",
+  "planBasisLabelWz": "Decyzja WZ",
+  "planBasisLabelPogDraft": "Projekt POG",
+  "planBasisLabelStudium": "Studium",
+  "planBasisLabelNone": "Brak planu",
+  "planBasisLabelMixed": "Różne przeznaczenia",
+  "planHintWzPossible": "możliwa WZ zgodna z planem",
+  "planHintNeedsMpzp": "budowa po uchwaleniu MPZP",
+  "planHintCheckInfill": "sprawdź obszar uzupełnienia zabudowy",
+  "planHintNoWzWithoutPog": "WZ dopiero po uchwaleniu POG",
+  "planWithHint": "{label} — {hint}",
+  "@planWithHint": {
+    "placeholders": {
+      "label": {"type": "String"},
+      "hint": {"type": "String"}
+    }
+  },
   "designationResidential": "Mieszkaniowa",
   "designationResidentialServices": "Z usługami",
   "designationFarmstead": "Zagrodowa",

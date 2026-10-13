@@ -27,6 +27,8 @@ class OffersMapLayer {
   static const String _lineLayerId = 'offers-line';
   static const String _pricePillImageId = 'offer-price-pill';
   static const String _clusterPillImageId = 'offer-cluster-pill';
+  static const String _selectedPricePillImageId = 'offer-selected-price-pill';
+  static const String _selectedProperty = 'selected';
   static const String _labelProperty = 'label';
   static const String _emptyGeoJson =
       '{"type":"FeatureCollection","features":[]}';
@@ -41,7 +43,9 @@ class OffersMapLayer {
   static const double _labelTextSize = 14;
   static const double _maxZoom = 16;
   static const double _offerZoom = 15;
-  static const double _offerCardBottomPadding = 320;
+  static const double _selectedOfferMaxZoom = 16;
+  static const double _selectedShapeFillOpacity = 0.3;
+  static const double _selectedShapeLineWidth = 3;
   static const int flyToDuration = 900;
   static const double _resultsPadding = 48;
   static const double _pillSize = 28;
@@ -53,9 +57,9 @@ class OffersMapLayer {
     await _addPointsLayers();
   }
 
-  Future<void> show(List<Offer> offers) async {
-    await _updateSource(_pointsSourceId, _getPointsFeatureCollection(offers));
-    await _updateSource(_shapesSourceId, _getShapesFeatureCollection(offers));
+  Future<void> show(List<Offer> offers, {String? selectedOfferId}) async {
+    await _updateSource(_pointsSourceId, _getPointsFeatureCollection(offers, selectedOfferId));
+    await _updateSource(_shapesSourceId, _getShapesFeatureCollection(offers, selectedOfferId));
   }
 
   Future<void> expandCluster(FeaturesetFeature cluster) async {
@@ -102,15 +106,37 @@ class OffersMapLayer {
     await _mapboxMap.flyTo(camera, MapAnimationOptions(duration: flyToDuration));
   }
 
-  Future<void> zoomToOffer(FeaturesetFeature offer) async {
-    final Position? center = _getFeaturePosition(offer);
-    if (center == null) return;
-    final double currentZoom = (await _mapboxMap.getCameraState()).zoom;
-    await _flyTo(
-      center,
-      currentZoom > _offerZoom ? currentZoom : _offerZoom,
-      bottomPadding: _offerCardBottomPadding,
+  Future<void> zoomToOffer(Offer offer, {double topPadding = 0, double bottomPadding = 0}) async {
+    final List<Point> shapePoints = [
+      for (final List<List<List<double>>> polygon in offer.previewGeojson?.coordinates ?? const [])
+        for (final List<List<double>> ring in polygon)
+          for (final List<double> point in ring)
+            if (point.length >= 2) Point(coordinates: Position(point[0], point[1])),
+    ];
+    final OfferCenterPoint? centerPoint = offer.centerPoint;
+    if (shapePoints.length < 2) {
+      if (centerPoint == null) return;
+      await _flyTo(
+        Position(centerPoint.lng, centerPoint.lat),
+        _selectedOfferMaxZoom,
+        topPadding: topPadding,
+        bottomPadding: bottomPadding,
+      );
+      return;
+    }
+    final CameraOptions camera = await _mapboxMap.cameraForCoordinatesPadding(
+      shapePoints,
+      CameraOptions(),
+      MbxEdgeInsets(
+        top: topPadding + _resultsPadding,
+        left: _resultsPadding,
+        bottom: bottomPadding + _resultsPadding,
+        right: _resultsPadding,
+      ),
+      _selectedOfferMaxZoom,
+      null,
     );
+    await _mapboxMap.flyTo(camera, MapAnimationOptions(duration: flyToDuration));
   }
 
   Future<void> _addPillImages(double pixelRatio) async {
@@ -118,6 +144,13 @@ class OffersMapLayer {
       _pricePillImageId,
       pixelRatio,
       await _getPillImage(pixelRatio, Colors.white, Colors.black26),
+      stretchX: _getPillStretches(pixelRatio),
+      stretchY: _getPillStretches(pixelRatio),
+    );
+    await _mapboxMap.addImage(
+      _selectedPricePillImageId,
+      pixelRatio,
+      await _getPillImage(pixelRatio, _accentColor, _accentColor),
       stretchX: _getPillStretches(pixelRatio),
       stretchY: _getPillStretches(pixelRatio),
     );
@@ -140,7 +173,7 @@ class OffersMapLayer {
         sourceId: _shapesSourceId,
         minZoom: _shapesMinZoom,
         fillColor: _accentColor.toARGB32(),
-        fillOpacity: _shapesFillOpacity,
+        fillOpacityExpression: _getSelectedCaseExpression(_selectedShapeFillOpacity, _shapesFillOpacity),
       ),
     );
     await _mapboxMap.addLayer(
@@ -149,7 +182,7 @@ class OffersMapLayer {
         sourceId: _shapesSourceId,
         minZoom: _shapesMinZoom,
         lineColor: _accentColor.toARGB32(),
-        lineWidth: _shapesLineWidth,
+        lineWidthExpression: _getSelectedCaseExpression(_selectedShapeLineWidth, _shapesLineWidth),
       ),
     );
   }
@@ -189,20 +222,38 @@ class OffersMapLayer {
         id: offerPricesLayerId,
         sourceId: _pointsSourceId,
         filter: ['!', ['has', 'point_count']],
-        iconImage: _pricePillImageId,
+        iconImageExpression: _getSelectedCaseExpression(_selectedPricePillImageId, _pricePillImageId),
         iconTextFit: IconTextFit.BOTH,
         iconTextFitPadding: [5, 10, 5, 10],
         iconAllowOverlap: true,
         textAllowOverlap: true,
+        symbolSortKeyExpression: _getSelectedCaseExpression(1, 0),
         textFieldExpression: ['get', _labelProperty],
         textSize: _labelTextSize,
-        textColor: Colors.black.toARGB32(),
+        textColorExpression: _getSelectedCaseExpression(
+          _getColorExpression(ColorConstants.textOnBrand),
+          _getColorExpression(Colors.black),
+        ),
         textFont: ['DIN Pro Bold', 'Arial Unicode MS Bold'],
       ),
     );
   }
 
-  Map<String, dynamic> _getPointsFeatureCollection(List<Offer> offers) {
+  List<Object> _getSelectedCaseExpression(Object selectedValue, Object defaultValue) {
+    return ['case', ['==', ['get', _selectedProperty], true], selectedValue, defaultValue];
+  }
+
+  List<Object> _getColorExpression(Color color) {
+    return [
+      'rgba',
+      (color.r * 255).round(),
+      (color.g * 255).round(),
+      (color.b * 255).round(),
+      color.a,
+    ];
+  }
+
+  Map<String, dynamic> _getPointsFeatureCollection(List<Offer> offers, String? selectedOfferId) {
     return {
       'type': 'FeatureCollection',
       'features': [
@@ -217,13 +268,14 @@ class OffersMapLayer {
               'properties': {
                 offerIdProperty: offer.offerId,
                 _labelProperty: _getShortPrice(offer.price),
+                _selectedProperty: offer.offerId == selectedOfferId,
               },
             },
       ],
     };
   }
 
-  Map<String, dynamic> _getShapesFeatureCollection(List<Offer> offers) {
+  Map<String, dynamic> _getShapesFeatureCollection(List<Offer> offers, String? selectedOfferId) {
     return {
       'type': 'FeatureCollection',
       'features': [
@@ -235,7 +287,10 @@ class OffersMapLayer {
                 'type': previewGeojson.type,
                 'coordinates': previewGeojson.coordinates,
               },
-              'properties': {offerIdProperty: offer.offerId},
+              'properties': {
+                offerIdProperty: offer.offerId,
+                _selectedProperty: offer.offerId == selectedOfferId,
+              },
             },
       ],
     };
@@ -244,6 +299,7 @@ class OffersMapLayer {
   Future<void> _flyTo(
     Position center,
     double zoom, {
+    double topPadding = 0,
     double bottomPadding = 0,
   }) {
     return _mapboxMap.flyTo(
@@ -251,7 +307,7 @@ class OffersMapLayer {
         center: Point(coordinates: center),
         zoom: zoom,
         padding: MbxEdgeInsets(
-          top: 0,
+          top: topPadding,
           left: 0,
           bottom: bottomPadding,
           right: 0,

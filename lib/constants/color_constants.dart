@@ -17,6 +17,7 @@ abstract class ColorConstants {
   static const Color textWarning = Color(0xFFB45309);
   static const Color textDanger = Color(0xFFB91C1C);
   static const Color bgSuccessSoft = Color(0xFFF0FDF4);
+  static const Color bgWarningSoft = Color(0xFFFFFBEB);
   static const Color borderDefault = Color(0xFFE2E8F0);
   static const Color borderStrong = Color(0xFFCBD5E1);
   static const Color borderBrand = Color(0xFF2563EB);
