@@ -18,4 +18,6 @@ abstract class IconConstants {
   static const IconData chevronDown = Icons.keyboard_arrow_down;
   static const IconData chevronUp = Icons.keyboard_arrow_up;
   static const IconData recenter = Icons.gps_fixed;
+  static const IconData satelliteMap = Icons.satellite_alt_outlined;
+  static const IconData standardMap = Icons.map_outlined;
 }

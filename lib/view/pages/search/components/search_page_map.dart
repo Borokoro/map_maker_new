@@ -11,6 +11,7 @@ class SearchPageMap extends StatefulWidget {
     required this.onOfferTap,
     required this.onMapTap,
     required this.initMapController,
+    required this.styleUri,
     this.selectedOfferId,
     this.searchedLocation,
     this.topPadding = 0,
@@ -21,6 +22,7 @@ class SearchPageMap extends StatefulWidget {
   final void Function(String) onOfferTap;
   final void Function() onMapTap;
   final void Function(MapboxMap) initMapController;
+  final String styleUri;
   final String? selectedOfferId;
   final String? searchedLocation;
   final double topPadding;
@@ -67,7 +69,7 @@ class _SearchPageMapState extends State<SearchPageMap> {
   @override
   Widget build(BuildContext context) {
     return MapWidget(
-      styleUri: MapboxStyles.STANDARD_SATELLITE,
+      styleUri: widget.styleUri,
       viewport: CameraViewportState(center: SearchPageMap.polandCenter, zoom: SearchPageMap.polandZoom),
       onMapCreated: _onMapCreated,
       onStyleLoadedListener: (_) => _onStyleLoaded(),

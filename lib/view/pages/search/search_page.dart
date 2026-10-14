@@ -30,6 +30,7 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   final SearchCubit _cubit = serviceLocator.get<SearchCubit>();
   MapboxMap? _mapboxMap;
+  String _mapStyleUri = MapboxStyles.STANDARD_SATELLITE;
 
   @override
   void initState() {
@@ -87,6 +88,7 @@ class _SearchPageState extends State<SearchPage> {
           onOfferTap: _cubit.onOfferTapped,
           onMapTap: _cubit.unselectOffer,
           initMapController: (MapboxMap mapboxMap) => _mapboxMap = mapboxMap,
+          styleUri: _mapStyleUri,
           searchedLocation: _getSearchedLocation(state.searchCriteria),
           topPadding: _searchControlsHeight,
           bottomPadding: _offerPreviewHeight,
@@ -97,8 +99,16 @@ class _SearchPageState extends State<SearchPage> {
         ),
         Positioned(
           right: _offerPreviewMargin,
+          top: _searchControlsHeight + _offerPreviewMargin,
+          child: _getMapStyleButton(),
+        ),
+        Positioned(
+          right: _offerPreviewMargin,
           bottom: selectedOffer != null ? _offerPreviewHeight : _offerPreviewMargin,
-          child: _getRecenterButton(),
+          child: _getMapActionButton(
+            icon: IconConstants.recenter,
+            onPressed: _onRecenterClick,
+          ),
         ),
         if (selectedOffer != null)
           Positioned(
@@ -111,23 +121,40 @@ class _SearchPageState extends State<SearchPage> {
     );
   }
 
-  Widget _getRecenterButton() {
+  Widget _getMapStyleButton() {
+    final bool isSatellite = _mapStyleUri == MapboxStyles.STANDARD_SATELLITE;
+    return _getMapActionButton(
+      icon: isSatellite ? IconConstants.standardMap : IconConstants.satelliteMap,
+      onPressed: _onMapStyleClick,
+    );
+  }
+
+  Widget _getMapActionButton({required IconData icon, required VoidCallback onPressed}) {
     return FloatingActionButton(
+      heroTag: null,
       elevation: 3,
       highlightElevation: 3,
       backgroundColor: ColorConstants.bgSurface,
-      onPressed: _onRecenterClick,
+      onPressed: onPressed,
       shape: const RoundedRectangleBorder(
         borderRadius: StyleConstants.radius100,
       ),
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       mini: true,
-      child: const Icon(
-        IconConstants.recenter,
+      child: Icon(
+        icon,
         color: ColorConstants.textPrimary,
         size: _mapActionsIconSize,
       ),
     );
+  }
+
+  void _onMapStyleClick() {
+    final String styleUri = _mapStyleUri == MapboxStyles.STANDARD_SATELLITE
+        ? MapboxStyles.STANDARD
+        : MapboxStyles.STANDARD_SATELLITE;
+    setState(() => _mapStyleUri = styleUri);
+    _mapboxMap?.loadStyleURI(styleUri);
   }
 
   void _onRecenterClick() {
