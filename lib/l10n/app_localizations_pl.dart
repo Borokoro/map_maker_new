@@ -449,4 +449,205 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get utilityInternet => 'Internet';
+
+  @override
+  String get loginTitle => 'Zaloguj się';
+
+  @override
+  String get loginSubtitle => 'Zarządzaj ofertami i zapisanymi działkami.';
+
+  @override
+  String get loginIdentifier => 'E-mail lub nazwa użytkownika';
+
+  @override
+  String get password => 'Hasło';
+
+  @override
+  String get loginSubmit => 'Zaloguj się';
+
+  @override
+  String get showPassword => 'Pokaż hasło';
+
+  @override
+  String get hidePassword => 'Ukryj hasło';
+
+  @override
+  String get fieldRequired => 'Uzupełnij to pole';
+
+  @override
+  String get loginInvalidCredentials =>
+      'Nieprawidłowy e-mail, nazwa użytkownika lub hasło.';
+
+  @override
+  String get tooManyRequestsError =>
+      'Zbyt wiele prób. Spróbuj ponownie później.';
+
+  @override
+  String get networkError => 'Brak połączenia z internetem. Spróbuj ponownie.';
+
+  @override
+  String get unknownError => 'Coś poszło nie tak. Spróbuj ponownie później.';
+
+  @override
+  String get loggedIn => 'Jesteś zalogowany';
+
+  @override
+  String loggedInAs(String username) {
+    return 'Zalogowano jako $username';
+  }
+
+  @override
+  String get logout => 'Wyloguj się';
+
+  @override
+  String get invalidDataError => 'Sprawdź poprawność wprowadzonych danych.';
+
+  @override
+  String get invalidEmail => 'Podaj poprawny adres e-mail';
+
+  @override
+  String passwordTooShort(int count) {
+    return 'Hasło musi mieć co najmniej $count znaków';
+  }
+
+  @override
+  String get forgotPassword => 'Nie pamiętasz hasła?';
+
+  @override
+  String get noAccount => 'Nie masz konta?';
+
+  @override
+  String get hasAccount => 'Masz już konto?';
+
+  @override
+  String get email => 'E-mail';
+
+  @override
+  String get resetPasswordTitle => 'Nie pamiętasz hasła?';
+
+  @override
+  String get resetPasswordSubtitle =>
+      'Wyślemy link do ustawienia nowego hasła.';
+
+  @override
+  String get resetPasswordSubmit => 'Wyślij link';
+
+  @override
+  String get resetPasswordSentTitle => 'Sprawdź skrzynkę';
+
+  @override
+  String resetPasswordSent(String email) {
+    return 'Jeśli konto z adresem $email istnieje, wysłaliśmy na nie link do ustawienia nowego hasła. Link jest ważny przez ograniczony czas.';
+  }
+
+  @override
+  String get backToLogin => 'Wróć do logowania';
+
+  @override
+  String get signupTitle => 'Załóż konto';
+
+  @override
+  String get signupSubtitle => 'Konto jest bezpłatne.';
+
+  @override
+  String get signupSubmit => 'Załóż konto';
+
+  @override
+  String get signupSuccess => 'Konto założone. Witamy w PlotFinder!';
+
+  @override
+  String get firstName => 'Imię';
+
+  @override
+  String get lastName => 'Nazwisko';
+
+  @override
+  String optionalField(String field) {
+    return '$field (opcjonalnie)';
+  }
+
+  @override
+  String get username => 'Nazwa użytkownika';
+
+  @override
+  String passwordRules(int count) {
+    return 'Minimum $count znaków';
+  }
+
+  @override
+  String get termsAcceptPrefix => 'Akceptuję ';
+
+  @override
+  String get termsLink => 'regulamin';
+
+  @override
+  String get termsAnd => ' i ';
+
+  @override
+  String get privacyPolicyLink => 'politykę prywatności';
+
+  @override
+  String get termsRequired => 'Zaakceptuj regulamin, aby założyć konto';
+
+  @override
+  String get termsTitle => 'Regulamin';
+
+  @override
+  String get privacyPolicyTitle => 'Polityka prywatności';
+
+  @override
+  String get addToSaved => 'Dodaj do zapisanych';
+
+  @override
+  String get removeFromSaved => 'Usuń z zapisanych';
+
+  @override
+  String get saveOfferError =>
+      'Nie udało się zaktualizować zapisanych ofert. Spróbuj ponownie.';
+
+  @override
+  String get savedTitle => 'Zapisane działki';
+
+  @override
+  String get savedSubtitle =>
+      'Oferty oznaczone serduszkiem. Kliknij serce ponownie, aby usunąć ofertę z listy.';
+
+  @override
+  String savedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count zapisanych ofert',
+      few: '$count zapisane oferty',
+      one: '$count zapisana oferta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get savedEmptyTitle => 'Nie masz jeszcze zapisanych działek';
+
+  @override
+  String get savedEmptyDescription =>
+      'Kliknij serce na karcie oferty, aby wrócić do niej później.';
+
+  @override
+  String get browseOffers => 'Przeglądaj oferty';
+
+  @override
+  String get savedLoadingError => 'Nie udało się wczytać zapisanych ofert';
+
+  @override
+  String utilityAvailable(String name) {
+    return '$name: dostępne';
+  }
+
+  @override
+  String utilityUnavailable(String name) {
+    return '$name: brak';
+  }
+
+  @override
+  String get loadMoreRetry =>
+      'Nie udało się wczytać kolejnych ofert. Spróbuj ponownie';
 }

@@ -27,6 +27,15 @@ class PublicOffers extends Equatable {
 
   bool get hasNextPage => next != null;
 
+  PublicOffers copyWith({List<Offer>? results}) {
+    return PublicOffers(
+      count: count,
+      next: next,
+      previous: previous,
+      results: results ?? this.results,
+    );
+  }
+
   @override
   List<Object?> get props => [count, next, previous, results];
 }

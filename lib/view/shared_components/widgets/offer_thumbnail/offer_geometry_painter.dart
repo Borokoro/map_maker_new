@@ -2,57 +2,14 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:map_maker_new/constants/color_constants.dart';
-import 'package:map_maker_new/constants/style_constants.dart';
 import 'package:map_maker_new/types/models/preview_geojson.dart';
 
-class OfferThumbnail extends StatelessWidget {
-  const OfferThumbnail({
-    super.key,
-    required this.size,
-    this.photoUrl,
-    this.geometry,
-  });
-
-  final double size;
-  final String? photoUrl;
-  final PreviewGeojson? geometry;
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: StyleConstants.radius12,
-      child: SizedBox(
-        width: size,
-        height: size,
-        child: _getContent(),
-      ),
-    );
-  }
-
-  Widget _getContent() {
-    final String? url = photoUrl;
-    if (url == null || url.isEmpty) return _getGeometry();
-    return Image.network(
-      url,
-      fit: BoxFit.cover,
-      errorBuilder: (_, _, _) => _getGeometry(),
-    );
-  }
-
-  Widget _getGeometry() {
-    return ColoredBox(
-      color: ColorConstants.bgSurfaceAlt,
-      child: CustomPaint(painter: _GeometryPainter(geometry)),
-    );
-  }
-}
-
-class _GeometryPainter extends CustomPainter {
-  _GeometryPainter(this.geometry);
+class OfferGeometryPainter extends CustomPainter {
+  OfferGeometryPainter(this.geometry, this.padding);
 
   final PreviewGeojson? geometry;
+  final double padding;
 
-  static const double _padding = 12;
   static const double _strokeWidth = 1.5;
   static const double _fillOpacity = 0.15;
 
@@ -73,7 +30,7 @@ class _GeometryPainter extends CustomPainter {
     final double lngScale = math.cos((minLat + maxLat) / 2 * math.pi / 180);
     final double width = math.max((maxLng - minLng) * lngScale, 1e-9);
     final double height = math.max(maxLat - minLat, 1e-9);
-    final double scale = math.min((size.width - _padding * 2) / width, (size.height - _padding * 2) / height);
+    final double scale = math.min((size.width - padding * 2) / width, (size.height - padding * 2) / height);
     final double offsetX = (size.width - width * scale) / 2;
     final double offsetY = (size.height - height * scale) / 2;
 
@@ -100,5 +57,6 @@ class _GeometryPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _GeometryPainter oldDelegate) => oldDelegate.geometry != geometry;
+  bool shouldRepaint(covariant OfferGeometryPainter oldDelegate) =>
+      oldDelegate.geometry != geometry || oldDelegate.padding != padding;
 }

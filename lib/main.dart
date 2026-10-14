@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:map_maker_new/constants/env_constants.dart';
+import 'package:map_maker_new/cubits/auth/auth_cubit.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/theme/app_theme.dart';
@@ -8,12 +10,11 @@ import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
 import 'router/app_router.dart';
 
-const String _mapboxAccessToken = String.fromEnvironment('MAPBOX_ACCESS_TOKEN');
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  MapboxOptions.setAccessToken(_mapboxAccessToken);
+  MapboxOptions.setAccessToken(EnvConstants.mapboxAccessToken);
   setupDependencies();
+  await serviceLocator.get<AuthCubit>().restoreSession();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

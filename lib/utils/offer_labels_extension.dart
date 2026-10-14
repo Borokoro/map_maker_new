@@ -28,15 +28,26 @@ extension OfferLabelsExtension on Offer {
     return localizations.offerPricePerMeter(_formatNumber(localizations, offerPricePerMeter));
   }
 
+  int get plotsCountOrOne => plotsCount > 0 ? plotsCount : 1;
+
   String metaLabel(AppLocalizations localizations) {
-    final String area = formatArea(localizations, (totalArea ?? 0).round());
-    final String location = locationLabel.isNotEmpty ? locationLabel : address;
-    final int plots = plotsCount > 0 ? plotsCount : 1;
-    if (plots > 1) {
-      return localizations.offerMultiLocation(localizations.offerPlotCount(plots), area, location);
+    if (plotsCountOrOne > 1) {
+      return localizations.offerMultiLocation(
+        localizations.offerPlotCount(plotsCountOrOne),
+        _areaLabel(localizations),
+        _locationName,
+      );
     }
-    return localizations.offerLocation(area, location);
+    return areaLocationLabel(localizations);
   }
+
+  String areaLocationLabel(AppLocalizations localizations) {
+    return localizations.offerLocation(_areaLabel(localizations), _locationName);
+  }
+
+  String _areaLabel(AppLocalizations localizations) => formatArea(localizations, (totalArea ?? 0).round());
+
+  String get _locationName => locationLabel.isNotEmpty ? locationLabel : address;
 
   String _formatNumber(AppLocalizations localizations, double value) {
     return NumberFormat.decimalPattern(localizations.localeName).format(value.round());

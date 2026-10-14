@@ -2,16 +2,19 @@ import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:map_maker_new/services/public_offers_service.dart';
+import 'package:map_maker_new/services/saved_offers_service.dart';
 import 'package:map_maker_new/types/custom_types/offer_search_criteria.dart';
 import 'package:map_maker_new/types/enum/filter_category.dart';
+import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/types/models/offer_locations.dart';
 import 'package:map_maker_new/types/models/public_offers.dart';
 
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
-  SearchCubit(this._publicOffersService) : super(SearchInitial());
+  SearchCubit(this._publicOffersService, this._savedOffersService) : super(SearchInitial());
   final PublicOffersService _publicOffersService;
+  final SavedOffersService _savedOffersService;
 
   OfferSearchCriteria get searchCriteria {
     final SearchState currentState = state;
@@ -25,6 +28,11 @@ class SearchCubit extends Cubit<SearchState> {
     final OfferSearchCriteria criteria = searchCriteria;
     emit(SearchLoading(searchCriteria: criteria));
     await _search(criteria);
+  }
+
+  Future<void> refreshPublicOffers() {
+    if (state is SearchLoaded) return onSearchCriteriaChanged(searchCriteria);
+    return fetchPublicOffers();
   }
 
   Future<void> onSearchCriteriaChanged(OfferSearchCriteria criteria) async {
@@ -72,6 +80,41 @@ class SearchCubit extends Cubit<SearchState> {
         currentState.selectedOfferId != null) {
       emit(currentState.copyWith(selectedOfferId: () => null));
     }
+  }
+
+  Future<bool> onSaveOfferPressed(String offerId) async {
+    final bool? isSaved = _getOfferSavedState(offerId);
+    if (isSaved == null) return true;
+    onOfferSavedChanged(offerId, !isSaved);
+    try {
+      if (isSaved) {
+        await _savedOffersService.unsaveOffer(offerId);
+      } else {
+        await _savedOffersService.saveOffer(offerId);
+      }
+      return true;
+    } catch (_) {
+      onOfferSavedChanged(offerId, isSaved);
+      return false;
+    }
+  }
+
+  bool? _getOfferSavedState(String offerId) {
+    final SearchState currentState = state;
+    if (currentState is! SearchLoaded || currentState is SearchFiltersLoading) return null;
+    for (final Offer offer in currentState.publicOffers.results) {
+      if (offer.offerId == offerId) return offer.isSaved;
+    }
+    return null;
+  }
+
+  void onOfferSavedChanged(String offerId, bool isSaved) {
+    final SearchState currentState = state;
+    if (currentState is! SearchLoaded || currentState is SearchFiltersLoading) return;
+    final List<Offer> offers = currentState.publicOffers.results
+        .map((Offer offer) => offer.offerId == offerId ? offer.copyWith(isSaved: isSaved) : offer)
+        .toList();
+    emit(currentState.copyWith(publicOffers: currentState.publicOffers.copyWith(results: offers)));
   }
 
   Future<void> _search(OfferSearchCriteria criteria) async {

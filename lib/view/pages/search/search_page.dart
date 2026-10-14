@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:map_maker_new/constants/color_constants.dart';
 import 'package:map_maker_new/constants/icon_constants.dart';
 import 'package:map_maker_new/constants/style_constants.dart';
+import 'package:map_maker_new/cubits/auth/auth_cubit.dart';
+import 'package:map_maker_new/cubits/saved_offers/saved_offers_cubit.dart';
 import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/service_locator.dart';
@@ -29,6 +31,8 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final SearchCubit _cubit = serviceLocator.get<SearchCubit>();
+  final AuthCubit _authCubit = serviceLocator.get<AuthCubit>();
+  final SavedOffersCubit _savedOffersCubit = serviceLocator.get<SavedOffersCubit>();
   MapboxMap? _mapboxMap;
   String _mapStyleUri = MapboxStyles.STANDARD_SATELLITE;
 
@@ -55,9 +59,14 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       appBar: UniversalAppBarWidget(),
       body: SafeArea(
-        child: BlocBuilder<SearchCubit, SearchState>(
-          bloc: _cubit,
-          builder: _mapStateToWidget,
+        child: BlocListener<AuthCubit, AuthState>(
+          bloc: _authCubit,
+          listenWhen: (AuthState previous, AuthState current) => previous.runtimeType != current.runtimeType,
+          listener: (_, _) => _cubit.refreshPublicOffers(),
+          child: BlocBuilder<SearchCubit, SearchState>(
+            bloc: _cubit,
+            builder: _mapStateToWidget,
+          ),
         ),
       ),
     );
@@ -115,7 +124,10 @@ class _SearchPageState extends State<SearchPage> {
             left: _offerPreviewMargin,
             right: _offerPreviewMargin,
             bottom: _offerPreviewMargin,
-            child: OfferPreviewCard(offer: selectedOffer),
+            child: OfferPreviewCard(
+              offer: selectedOffer,
+              onSavePressed: () => _onSaveOfferPressed(selectedOffer.offerId),
+            ),
           ),
       ],
     );
@@ -162,6 +174,18 @@ class _SearchPageState extends State<SearchPage> {
     _mapboxMap?.flyTo(
       CameraOptions(center: SearchPageMap.polandCenter, zoom: SearchPageMap.polandZoom),
       MapAnimationOptions(duration: OffersMapLayer.flyToDuration),
+    );
+  }
+
+  Future<void> _onSaveOfferPressed(String offerId) async {
+    final bool isSuccess = await _cubit.onSaveOfferPressed(offerId);
+    if (isSuccess) {
+      _savedOffersCubit.refreshSavedOffers();
+      return;
+    }
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(AppLocalizations.of(context)!.saveOfferError)),
     );
   }
 
