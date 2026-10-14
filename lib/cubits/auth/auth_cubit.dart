@@ -18,6 +18,11 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthAuthenticated(user: user));
   }
 
+  void onSessionExpired() {
+    if (state is AuthUnauthenticated) return;
+    emit(const AuthUnauthenticated());
+  }
+
   Future<void> logout() async {
     emit(const AuthUnauthenticated());
     await _authService.logout();

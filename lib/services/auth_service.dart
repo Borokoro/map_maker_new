@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:map_maker_new/services/auth_interceptor.dart';
 import 'package:map_maker_new/services/token_storage.dart';
 import 'package:map_maker_new/types/models/auth_tokens.dart';
 import 'package:map_maker_new/types/models/auth_user.dart';
@@ -13,6 +14,8 @@ class AuthService {
   static const String _refreshUrl = "$_apiBaseUrl/api/auth/token/refresh/";
   static const String _logoutUrl = "$_apiBaseUrl/api/auth/logout/";
   static const String _passwordResetUrl = "$_apiBaseUrl/api/auth/password-reset/";
+
+  static final Options _withoutAuth = Options(extra: {AuthInterceptor.skipAuthKey: true});
 
   final Dio dio;
   final TokenStorage tokenStorage;
@@ -33,6 +36,7 @@ class AuthService {
         "username": identifier.trim(),
         "password": password,
       },
+      options: _withoutAuth,
     );
     final LoginResponse loginResponse = LoginResponse.fromJson(_getData(response));
     await tokenStorage.saveTokens(loginResponse.tokens);
@@ -55,6 +59,7 @@ class AuthService {
         "first_name": ?firstName?.trim(),
         "last_name": ?lastName?.trim(),
       },
+      options: _withoutAuth,
     );
   }
 
@@ -67,6 +72,7 @@ class AuthService {
       final Response<Map<String, dynamic>> response = await dio.post(
         _refreshUrl,
         data: {"refresh": refreshToken},
+        options: _withoutAuth,
       );
       final AuthTokens tokens = AuthTokens.fromJson(
         _getData(response),
@@ -89,7 +95,7 @@ class AuthService {
       await dio.post(
         _logoutUrl,
         data: {"refresh": tokens.refresh},
-        options: Options(
+        options: _withoutAuth.copyWith(
           headers: {HttpHeaders.authorizationHeader: "Bearer ${tokens.access}"},
         ),
       );
@@ -100,7 +106,7 @@ class AuthService {
   }
 
   Future<void> requestPasswordReset(String email) async {
-    await dio.post(_passwordResetUrl, data: {"email": email.trim()});
+    await dio.post(_passwordResetUrl, data: {"email": email.trim()}, options: _withoutAuth);
   }
 
   Map<String, dynamic> _getData(Response<Map<String, dynamic>> response) {

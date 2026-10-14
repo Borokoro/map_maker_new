@@ -102,6 +102,38 @@ class Offer extends Equatable {
     );
   }
 
+  Offer copyWith({bool? isSaved}) {
+    return Offer(
+      offerId: offerId,
+      title: title,
+      status: status,
+      address: address,
+      locationLabel: locationLabel,
+      price: price,
+      priceNegotiable: priceNegotiable,
+      pricePerMeter: pricePerMeter,
+      totalArea: totalArea,
+      plotsCount: plotsCount,
+      buildable: buildable,
+      planBasis: planBasis,
+      designation: designation,
+      designations: designations,
+      infillArea: infillArea,
+      zoneSymbols: zoneSymbols,
+      pogZoneSymbols: pogZoneSymbols,
+      planTypes: planTypes,
+      utilities: utilities,
+      hasRoadAccess: hasRoadAccess,
+      distanceToCityM: distanceToCityM,
+      estimate: estimate,
+      isSaved: isSaved ?? this.isSaved,
+      coverPhotoUrl: coverPhotoUrl,
+      centerPoint: centerPoint,
+      previewGeojson: previewGeojson,
+      publishedAt: publishedAt,
+    );
+  }
+
   static double? _parseDecimal(Object? value) {
     if (value == null) return null;
     return double.tryParse(value.toString());

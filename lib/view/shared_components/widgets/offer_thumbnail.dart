@@ -8,19 +8,23 @@ import 'package:map_maker_new/types/models/preview_geojson.dart';
 class OfferThumbnail extends StatelessWidget {
   const OfferThumbnail({
     super.key,
-    required this.size,
+    this.size,
     this.photoUrl,
     this.geometry,
+    this.borderRadius = StyleConstants.radius12,
+    this.geometryPadding = 12,
   });
 
-  final double size;
+  final double? size;
   final String? photoUrl;
   final PreviewGeojson? geometry;
+  final BorderRadius borderRadius;
+  final double geometryPadding;
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: StyleConstants.radius12,
+      borderRadius: borderRadius,
       child: SizedBox(
         width: size,
         height: size,
@@ -42,17 +46,17 @@ class OfferThumbnail extends StatelessWidget {
   Widget _getGeometry() {
     return ColoredBox(
       color: ColorConstants.bgSurfaceAlt,
-      child: CustomPaint(painter: _GeometryPainter(geometry)),
+      child: CustomPaint(painter: _GeometryPainter(geometry, geometryPadding)),
     );
   }
 }
 
 class _GeometryPainter extends CustomPainter {
-  _GeometryPainter(this.geometry);
+  _GeometryPainter(this.geometry, this.padding);
 
   final PreviewGeojson? geometry;
+  final double padding;
 
-  static const double _padding = 12;
   static const double _strokeWidth = 1.5;
   static const double _fillOpacity = 0.15;
 
@@ -73,7 +77,7 @@ class _GeometryPainter extends CustomPainter {
     final double lngScale = math.cos((minLat + maxLat) / 2 * math.pi / 180);
     final double width = math.max((maxLng - minLng) * lngScale, 1e-9);
     final double height = math.max(maxLat - minLat, 1e-9);
-    final double scale = math.min((size.width - _padding * 2) / width, (size.height - _padding * 2) / height);
+    final double scale = math.min((size.width - padding * 2) / width, (size.height - padding * 2) / height);
     final double offsetX = (size.width - width * scale) / 2;
     final double offsetY = (size.height - height * scale) / 2;
 
@@ -100,5 +104,6 @@ class _GeometryPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _GeometryPainter oldDelegate) => oldDelegate.geometry != geometry;
+  bool shouldRepaint(covariant _GeometryPainter oldDelegate) =>
+      oldDelegate.geometry != geometry || oldDelegate.padding != padding;
 }

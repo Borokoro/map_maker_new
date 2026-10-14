@@ -594,4 +594,56 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get privacyPolicyTitle => 'Polityka prywatności';
+
+  @override
+  String get addToSaved => 'Dodaj do zapisanych';
+
+  @override
+  String get removeFromSaved => 'Usuń z zapisanych';
+
+  @override
+  String get saveOfferError =>
+      'Nie udało się zaktualizować zapisanych ofert. Spróbuj ponownie.';
+
+  @override
+  String get savedTitle => 'Zapisane działki';
+
+  @override
+  String get savedSubtitle =>
+      'Oferty oznaczone serduszkiem. Kliknij serce ponownie, aby usunąć ofertę z listy.';
+
+  @override
+  String savedCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count zapisanych ofert',
+      few: '$count zapisane oferty',
+      one: '$count zapisana oferta',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get savedEmptyTitle => 'Nie masz jeszcze zapisanych działek';
+
+  @override
+  String get savedEmptyDescription =>
+      'Kliknij serce na karcie oferty, aby wrócić do niej później.';
+
+  @override
+  String get browseOffers => 'Przeglądaj oferty';
+
+  @override
+  String get savedLoadingError => 'Nie udało się wczytać zapisanych ofert';
+
+  @override
+  String utilityAvailable(String name) {
+    return '$name: dostępne';
+  }
+
+  @override
+  String utilityUnavailable(String name) {
+    return '$name: brak';
+  }
 }

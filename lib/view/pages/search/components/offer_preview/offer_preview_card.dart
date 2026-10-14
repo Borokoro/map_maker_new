@@ -7,16 +7,19 @@ import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/utils/offer_labels_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
-import 'package:map_maker_new/view/pages/search/components/offer_preview/offer_thumbnail.dart';
-import 'package:map_maker_new/view/pages/search/components/offer_preview/plan_badge_widget.dart';
+import 'package:map_maker_new/view/shared_components/widgets/offer_save_button.dart';
+import 'package:map_maker_new/view/shared_components/widgets/offer_thumbnail.dart';
+import 'package:map_maker_new/view/shared_components/widgets/plan_badge_widget.dart';
 
 class OfferPreviewCard extends StatelessWidget {
   const OfferPreviewCard({
     super.key,
     required this.offer,
+    required this.onSavePressed,
   });
 
   final Offer offer;
+  final VoidCallback onSavePressed;
 
   static const double height = 120;
   static const double _thumbnailSize = 96;
@@ -39,6 +42,10 @@ class OfferPreviewCard extends StatelessWidget {
             geometry: offer.previewGeojson,
           ),
           Expanded(child: _getDetails(context)),
+          Align(
+            alignment: Alignment.topCenter,
+            child: OfferSaveButton(isSaved: offer.isSaved, onPressed: onSavePressed),
+          ),
         ].withHorizontalElementsSpacing(12),
       ),
     );

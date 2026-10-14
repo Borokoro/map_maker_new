@@ -10,6 +10,7 @@ abstract class IconConstants {
   static const IconData account = IconData(0xAD04, fontFamily: _fontFamilyIcons);
   static const IconData menu = IconData(0xAD05, fontFamily: _fontFamilyIcons);
   static const IconData filter = IconData(0xAD06, fontFamily: _fontFamilyIcons);
+  static const IconData savedFilled = IconData(0xAD07, fontFamily: _fontFamilyIcons);
 
 
   static const IconData add = Icons.add;
@@ -27,4 +28,10 @@ abstract class IconConstants {
   static const IconData back = Icons.arrow_back;
   static const IconData lock = Icons.lock_outline;
   static const IconData mail = Icons.mail_outline;
+  static const IconData plots = Icons.view_column_outlined;
+  static const IconData electricity = Icons.bolt;
+  static const IconData water = Icons.water_drop_outlined;
+  static const IconData gas = Icons.local_fire_department_outlined;
+  static const IconData sewage = Icons.waves;
+  static const IconData internet = Icons.wifi;
 }

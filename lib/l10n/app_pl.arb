@@ -339,5 +339,32 @@
   "privacyPolicyLink": "politykę prywatności",
   "termsRequired": "Zaakceptuj regulamin, aby założyć konto",
   "termsTitle": "Regulamin",
-  "privacyPolicyTitle": "Polityka prywatności"
+  "privacyPolicyTitle": "Polityka prywatności",
+  "addToSaved": "Dodaj do zapisanych",
+  "removeFromSaved": "Usuń z zapisanych",
+  "saveOfferError": "Nie udało się zaktualizować zapisanych ofert. Spróbuj ponownie.",
+  "savedTitle": "Zapisane działki",
+  "savedSubtitle": "Oferty oznaczone serduszkiem. Kliknij serce ponownie, aby usunąć ofertę z listy.",
+  "savedCount": "{count, plural, one{{count} zapisana oferta} few{{count} zapisane oferty} other{{count} zapisanych ofert}}",
+  "@savedCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "savedEmptyTitle": "Nie masz jeszcze zapisanych działek",
+  "savedEmptyDescription": "Kliknij serce na karcie oferty, aby wrócić do niej później.",
+  "browseOffers": "Przeglądaj oferty",
+  "savedLoadingError": "Nie udało się wczytać zapisanych ofert",
+  "utilityAvailable": "{name}: dostępne",
+  "@utilityAvailable": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+  "utilityUnavailable": "{name}: brak",
+  "@utilityUnavailable": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  }
 }

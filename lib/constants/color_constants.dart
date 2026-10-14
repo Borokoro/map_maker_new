@@ -23,4 +23,5 @@ abstract class ColorConstants {
   static const Color borderStrong = Color(0xFFCBD5E1);
   static const Color borderBrand = Color(0xFF2563EB);
   static const Color iconDefault = Color(0xFF64748B);
+  static const Color iconSaved = Color(0xFFEF4444);
 }

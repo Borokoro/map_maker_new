@@ -1095,6 +1095,78 @@ abstract class AppLocalizations {
   /// In pl, this message translates to:
   /// **'Polityka prywatności'**
   String get privacyPolicyTitle;
+
+  /// No description provided for @addToSaved.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dodaj do zapisanych'**
+  String get addToSaved;
+
+  /// No description provided for @removeFromSaved.
+  ///
+  /// In pl, this message translates to:
+  /// **'Usuń z zapisanych'**
+  String get removeFromSaved;
+
+  /// No description provided for @saveOfferError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie udało się zaktualizować zapisanych ofert. Spróbuj ponownie.'**
+  String get saveOfferError;
+
+  /// No description provided for @savedTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zapisane działki'**
+  String get savedTitle;
+
+  /// No description provided for @savedSubtitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Oferty oznaczone serduszkiem. Kliknij serce ponownie, aby usunąć ofertę z listy.'**
+  String get savedSubtitle;
+
+  /// No description provided for @savedCount.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{{count} zapisana oferta} few{{count} zapisane oferty} other{{count} zapisanych ofert}}'**
+  String savedCount(int count);
+
+  /// No description provided for @savedEmptyTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie masz jeszcze zapisanych działek'**
+  String get savedEmptyTitle;
+
+  /// No description provided for @savedEmptyDescription.
+  ///
+  /// In pl, this message translates to:
+  /// **'Kliknij serce na karcie oferty, aby wrócić do niej później.'**
+  String get savedEmptyDescription;
+
+  /// No description provided for @browseOffers.
+  ///
+  /// In pl, this message translates to:
+  /// **'Przeglądaj oferty'**
+  String get browseOffers;
+
+  /// No description provided for @savedLoadingError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie udało się wczytać zapisanych ofert'**
+  String get savedLoadingError;
+
+  /// No description provided for @utilityAvailable.
+  ///
+  /// In pl, this message translates to:
+  /// **'{name}: dostępne'**
+  String utilityAvailable(String name);
+
+  /// No description provided for @utilityUnavailable.
+  ///
+  /// In pl, this message translates to:
+  /// **'{name}: brak'**
+  String utilityUnavailable(String name);
 }
 
 class _AppLocalizationsDelegate

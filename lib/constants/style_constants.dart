@@ -9,6 +9,8 @@ abstract class StyleConstants {
   static const EdgeInsets edgeInsets12 = EdgeInsets.all(12);
   static const EdgeInsets edgeInsets20 = EdgeInsets.all(20);
   static const EdgeInsets edgeInsetsL48 = EdgeInsets.only(left: 48);
+  static const EdgeInsets edgeInsetsH10V4 = EdgeInsets.symmetric(horizontal: 10, vertical: 4);
+  static const EdgeInsets edgeInsetsH16V20 = EdgeInsets.symmetric(horizontal: 16, vertical: 20);
   static const EdgeInsets edgeInsetsH20V24 = EdgeInsets.symmetric(horizontal: 20, vertical: 24);
   static const EdgeInsets edgeInsetsH24V32 = EdgeInsets.symmetric(horizontal: 24, vertical: 32);
   static const EdgeInsets edgeInsetsH24B16 = EdgeInsets.fromLTRB(24, 0, 24, 16);
