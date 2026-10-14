@@ -5,8 +5,9 @@ import 'package:map_maker_new/types/models/offer_locations.dart';
 import 'package:map_maker_new/types/models/public_offers.dart';
 
 class PublicOffersService {
-  static const String _publicOffersUrl = "https://api.plotfinder.xyz/api/offers/public/";
-  static const String _locationsUrl = "https://api.plotfinder.xyz/api/offers/public/locations/";
+  static const String _apiBaseUrl = String.fromEnvironment('API_BASE_URL');
+  static const String _publicOffersUrl = "$_apiBaseUrl/api/offers/public/";
+  static const String _locationsUrl = "$_apiBaseUrl/api/offers/public/locations/";
 
   final Dio dio;
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:map_maker_new/app_config.dart';
 import 'package:map_maker_new/constants/color_constants.dart';
 import 'package:map_maker_new/constants/icon_constants.dart';
 import 'package:map_maker_new/constants/style_constants.dart';
@@ -38,7 +37,7 @@ class UniversalAppBarWidget extends StatelessWidget
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _getTitleAndIconWidgetWidget(context),
-            if (AppConfig.shouldShowButtonsOnAppBar) ...{_getButtons()},
+            _getButtons(),
           ],
         ),
       ),
