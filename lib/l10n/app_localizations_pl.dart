@@ -646,4 +646,8 @@ class AppLocalizationsPl extends AppLocalizations {
   String utilityUnavailable(String name) {
     return '$name: brak';
   }
+
+  @override
+  String get loadMoreRetry =>
+      'Nie udało się wczytać kolejnych ofert. Spróbuj ponownie';
 }

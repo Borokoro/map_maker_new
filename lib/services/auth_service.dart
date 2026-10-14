@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:map_maker_new/constants/env_constants.dart';
 import 'package:map_maker_new/services/auth_interceptor.dart';
 import 'package:map_maker_new/services/token_storage.dart';
 import 'package:map_maker_new/types/models/auth_tokens.dart';
@@ -8,12 +9,11 @@ import 'package:map_maker_new/types/models/auth_user.dart';
 import 'package:map_maker_new/types/models/login_response.dart';
 
 class AuthService {
-  static const String _apiBaseUrl = String.fromEnvironment('API_BASE_URL');
-  static const String _loginUrl = "$_apiBaseUrl/api/auth/login/";
-  static const String _registerUrl = "$_apiBaseUrl/api/auth/register/";
-  static const String _refreshUrl = "$_apiBaseUrl/api/auth/token/refresh/";
-  static const String _logoutUrl = "$_apiBaseUrl/api/auth/logout/";
-  static const String _passwordResetUrl = "$_apiBaseUrl/api/auth/password-reset/";
+  static const String _loginUrl = "${EnvConstants.apiBaseUrl}/api/auth/login/";
+  static const String _registerUrl = "${EnvConstants.apiBaseUrl}/api/auth/register/";
+  static const String _refreshUrl = "${EnvConstants.apiBaseUrl}/api/auth/token/refresh/";
+  static const String _logoutUrl = "${EnvConstants.apiBaseUrl}/api/auth/logout/";
+  static const String _passwordResetUrl = "${EnvConstants.apiBaseUrl}/api/auth/password-reset/";
 
   static final Options _withoutAuth = Options(extra: {AuthInterceptor.skipAuthKey: true});
 

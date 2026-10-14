@@ -2,57 +2,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:map_maker_new/constants/color_constants.dart';
-import 'package:map_maker_new/constants/style_constants.dart';
 import 'package:map_maker_new/types/models/preview_geojson.dart';
 
-class OfferThumbnail extends StatelessWidget {
-  const OfferThumbnail({
-    super.key,
-    this.size,
-    this.photoUrl,
-    this.geometry,
-    this.borderRadius = StyleConstants.radius12,
-    this.geometryPadding = 12,
-  });
-
-  final double? size;
-  final String? photoUrl;
-  final PreviewGeojson? geometry;
-  final BorderRadius borderRadius;
-  final double geometryPadding;
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: borderRadius,
-      child: SizedBox(
-        width: size,
-        height: size,
-        child: _getContent(),
-      ),
-    );
-  }
-
-  Widget _getContent() {
-    final String? url = photoUrl;
-    if (url == null || url.isEmpty) return _getGeometry();
-    return Image.network(
-      url,
-      fit: BoxFit.cover,
-      errorBuilder: (_, _, _) => _getGeometry(),
-    );
-  }
-
-  Widget _getGeometry() {
-    return ColoredBox(
-      color: ColorConstants.bgSurfaceAlt,
-      child: CustomPaint(painter: _GeometryPainter(geometry, geometryPadding)),
-    );
-  }
-}
-
-class _GeometryPainter extends CustomPainter {
-  _GeometryPainter(this.geometry, this.padding);
+class OfferGeometryPainter extends CustomPainter {
+  OfferGeometryPainter(this.geometry, this.padding);
 
   final PreviewGeojson? geometry;
   final double padding;
@@ -104,6 +57,6 @@ class _GeometryPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(covariant _GeometryPainter oldDelegate) =>
+  bool shouldRepaint(covariant OfferGeometryPainter oldDelegate) =>
       oldDelegate.geometry != geometry || oldDelegate.padding != padding;
 }

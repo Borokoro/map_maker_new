@@ -1167,6 +1167,12 @@ abstract class AppLocalizations {
   /// In pl, this message translates to:
   /// **'{name}: brak'**
   String utilityUnavailable(String name);
+
+  /// No description provided for @loadMoreRetry.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie udało się wczytać kolejnych ofert. Spróbuj ponownie'**
+  String get loadMoreRetry;
 }
 
 class _AppLocalizationsDelegate

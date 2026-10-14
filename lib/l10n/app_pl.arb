@@ -366,5 +366,6 @@
     "placeholders": {
       "name": {"type": "String"}
     }
-  }
+  },
+  "loadMoreRetry": "Nie udało się wczytać kolejnych ofert. Spróbuj ponownie"
 }

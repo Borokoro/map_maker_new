@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:map_maker_new/constants/env_constants.dart';
 import 'package:map_maker_new/cubits/auth/auth_cubit.dart';
 import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/services/auth_service.dart';
@@ -12,6 +13,7 @@ class AuthInterceptor extends Interceptor {
 
   static const String skipAuthKey = "skipAuth";
   static const String _retriedKey = "authRetried";
+  static final Uri _apiUri = Uri.parse(EnvConstants.apiBaseUrl);
 
   final Dio _dio;
   Future<String?>? _refreshRequest;
@@ -21,7 +23,7 @@ class AuthInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     final String? accessToken = _tokenStorage.accessToken;
-    if (accessToken != null && options.extra[skipAuthKey] != true) {
+    if (accessToken != null && options.extra[skipAuthKey] != true && _isApiRequest(options)) {
       options.headers[HttpHeaders.authorizationHeader] = _getBearer(accessToken);
     }
     handler.next(options);
@@ -75,6 +77,11 @@ class AuthInterceptor extends Interceptor {
       options.extra[skipAuthKey] = true;
     }
     return _dio.fetch<dynamic>(options);
+  }
+
+  bool _isApiRequest(RequestOptions options) {
+    final Uri uri = options.uri;
+    return uri.scheme == _apiUri.scheme && uri.host == _apiUri.host && uri.port == _apiUri.port;
   }
 
   String _getBearer(String accessToken) => "Bearer $accessToken";

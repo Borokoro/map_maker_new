@@ -9,7 +9,7 @@ import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/utils/offer_labels_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
 import 'package:map_maker_new/view/shared_components/widgets/offer_save_button.dart';
-import 'package:map_maker_new/view/shared_components/widgets/offer_thumbnail.dart';
+import 'package:map_maker_new/view/shared_components/widgets/offer_thumbnail/offer_thumbnail.dart';
 import 'package:map_maker_new/view/shared_components/widgets/offer_utilities_widget.dart';
 import 'package:map_maker_new/view/shared_components/widgets/plan_badge_widget.dart';
 

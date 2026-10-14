@@ -1,13 +1,13 @@
 import 'package:dio/dio.dart';
+import 'package:map_maker_new/constants/env_constants.dart';
 import 'package:map_maker_new/types/custom_types/offer_search_criteria.dart';
 import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/types/models/offer_locations.dart';
 import 'package:map_maker_new/types/models/public_offers.dart';
 
 class PublicOffersService {
-  static const String _apiBaseUrl = String.fromEnvironment('API_BASE_URL');
-  static const String _publicOffersUrl = "$_apiBaseUrl/api/offers/public/";
-  static const String _locationsUrl = "$_apiBaseUrl/api/offers/public/locations/";
+  static const String _publicOffersUrl = "${EnvConstants.apiBaseUrl}/api/offers/public/";
+  static const String _locationsUrl = "${EnvConstants.apiBaseUrl}/api/offers/public/locations/";
 
   final Dio dio;
 

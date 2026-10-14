@@ -12,6 +12,7 @@ import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
+import 'package:map_maker_new/view/shared_components/widgets/infinite_scroll/infinite_scroll_refresh_widget.dart';
 import 'package:map_maker_new/view/shared_components/widgets/offer_card.dart';
 import 'package:map_maker_new/view/shared_components/widgets/primary_button.dart';
 
@@ -46,27 +47,27 @@ class _SavedOffersListState extends State<SavedOffersList> {
 
   Widget _mapStateToWidget(BuildContext context, SavedOffersState state) {
     if (state is SavedOffersLoaded) {
-      return state.offers.isEmpty ? _getEmptyBody(context) : _getOffersList(context, state.offers);
+      return state.items.isEmpty ? _getEmptyBody(context) : _getOffersList(context, state);
     } else if (state is SavedOffersError) {
       return _getErrorBody(context);
     }
     return const Center(child: CircularProgressIndicator(color: ColorConstants.bgBrand));
   }
 
-  Widget _getOffersList(BuildContext context, List<Offer> offers) {
-    return RefreshIndicator(
-      color: ColorConstants.bgBrand,
-      onRefresh: _cubit.refreshSavedOffers,
-      child: ListView.separated(
-        padding: StyleConstants.edgeInsetsH16V20,
-        itemCount: offers.length + 1,
-        separatorBuilder: (_, _) => const SizedBox(height: _cardsSpacing),
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 0) return _getHeader(context, offers.length);
-          final Offer offer = offers[index - 1];
-          return OfferCard(offer: offer, onSavePressed: () => _onUnsavePressed(offer.offerId));
-        },
-      ),
+  Widget _getOffersList(BuildContext context, SavedOffersLoaded state) {
+    return InfiniteScrollRefreshWidget(
+      items: [
+        _getHeader(context, state.itemsCount),
+        ...state.items.map(
+          (Offer offer) => OfferCard(offer: offer, onSavePressed: () => _onUnsavePressed(offer.offerId)),
+        ),
+      ],
+      hasReachedEnd: state.hasReachedEnd,
+      hasLoadMoreError: state.hasLoadMoreError,
+      loadMore: _cubit.loadMore,
+      refreshContent: _cubit.refreshSavedOffers,
+      itemSpacing: _cardsSpacing,
+      padding: StyleConstants.edgeInsetsH16V20,
     );
   }
 

@@ -4,6 +4,7 @@ import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/types/custom_types/offer_search_criteria.dart';
+import 'package:map_maker_new/types/models/offer_location_count.dart';
 import 'package:map_maker_new/types/models/offer_locations.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 
