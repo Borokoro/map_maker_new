@@ -20,4 +20,11 @@ abstract class IconConstants {
   static const IconData recenter = Icons.gps_fixed;
   static const IconData satelliteMap = Icons.satellite_alt_outlined;
   static const IconData standardMap = Icons.map_outlined;
+  static const IconData passwordHidden = Icons.visibility_outlined;
+  static const IconData passwordVisible = Icons.visibility_off_outlined;
+  static const IconData alert = Icons.error_outline;
+  static const IconData logout = Icons.logout;
+  static const IconData back = Icons.arrow_back;
+  static const IconData lock = Icons.lock_outline;
+  static const IconData mail = Icons.mail_outline;
 }

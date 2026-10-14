@@ -4,6 +4,7 @@ import 'package:map_maker_new/constants/icon_constants.dart';
 import 'package:map_maker_new/constants/style_constants.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
+import 'package:map_maker_new/view/shared_components/widgets/primary_button.dart';
 
 class FilterSheetLayout extends StatelessWidget {
   const FilterSheetLayout({
@@ -89,13 +90,9 @@ class FilterSheetLayout extends StatelessWidget {
               child: Text(clearText),
             ),
             Expanded(
-              child: FilledButton(
+              child: PrimaryButton(
+                text: applyText,
                 onPressed: onApply,
-                style: FilledButton.styleFrom(
-                  backgroundColor: ColorConstants.bgBrand,
-                  minimumSize: const Size.fromHeight(48),
-                ),
-                child: Text(applyText),
               ),
             ),
           ].withHorizontalElementsSpacing(12),

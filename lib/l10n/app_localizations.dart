@@ -831,6 +831,270 @@ abstract class AppLocalizations {
   /// In pl, this message translates to:
   /// **'Internet'**
   String get utilityInternet;
+
+  /// No description provided for @loginTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zaloguj się'**
+  String get loginTitle;
+
+  /// No description provided for @loginSubtitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zarządzaj ofertami i zapisanymi działkami.'**
+  String get loginSubtitle;
+
+  /// No description provided for @loginIdentifier.
+  ///
+  /// In pl, this message translates to:
+  /// **'E-mail lub nazwa użytkownika'**
+  String get loginIdentifier;
+
+  /// No description provided for @password.
+  ///
+  /// In pl, this message translates to:
+  /// **'Hasło'**
+  String get password;
+
+  /// No description provided for @loginSubmit.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zaloguj się'**
+  String get loginSubmit;
+
+  /// No description provided for @showPassword.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pokaż hasło'**
+  String get showPassword;
+
+  /// No description provided for @hidePassword.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ukryj hasło'**
+  String get hidePassword;
+
+  /// No description provided for @fieldRequired.
+  ///
+  /// In pl, this message translates to:
+  /// **'Uzupełnij to pole'**
+  String get fieldRequired;
+
+  /// No description provided for @loginInvalidCredentials.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nieprawidłowy e-mail, nazwa użytkownika lub hasło.'**
+  String get loginInvalidCredentials;
+
+  /// No description provided for @tooManyRequestsError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zbyt wiele prób. Spróbuj ponownie później.'**
+  String get tooManyRequestsError;
+
+  /// No description provided for @networkError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Brak połączenia z internetem. Spróbuj ponownie.'**
+  String get networkError;
+
+  /// No description provided for @unknownError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Coś poszło nie tak. Spróbuj ponownie później.'**
+  String get unknownError;
+
+  /// No description provided for @loggedIn.
+  ///
+  /// In pl, this message translates to:
+  /// **'Jesteś zalogowany'**
+  String get loggedIn;
+
+  /// No description provided for @loggedInAs.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zalogowano jako {username}'**
+  String loggedInAs(String username);
+
+  /// No description provided for @logout.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wyloguj się'**
+  String get logout;
+
+  /// No description provided for @invalidDataError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprawdź poprawność wprowadzonych danych.'**
+  String get invalidDataError;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In pl, this message translates to:
+  /// **'Podaj poprawny adres e-mail'**
+  String get invalidEmail;
+
+  /// No description provided for @passwordTooShort.
+  ///
+  /// In pl, this message translates to:
+  /// **'Hasło musi mieć co najmniej {count} znaków'**
+  String passwordTooShort(int count);
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie pamiętasz hasła?'**
+  String get forgotPassword;
+
+  /// No description provided for @noAccount.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie masz konta?'**
+  String get noAccount;
+
+  /// No description provided for @hasAccount.
+  ///
+  /// In pl, this message translates to:
+  /// **'Masz już konto?'**
+  String get hasAccount;
+
+  /// No description provided for @email.
+  ///
+  /// In pl, this message translates to:
+  /// **'E-mail'**
+  String get email;
+
+  /// No description provided for @resetPasswordTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie pamiętasz hasła?'**
+  String get resetPasswordTitle;
+
+  /// No description provided for @resetPasswordSubtitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wyślemy link do ustawienia nowego hasła.'**
+  String get resetPasswordSubtitle;
+
+  /// No description provided for @resetPasswordSubmit.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wyślij link'**
+  String get resetPasswordSubmit;
+
+  /// No description provided for @resetPasswordSentTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprawdź skrzynkę'**
+  String get resetPasswordSentTitle;
+
+  /// No description provided for @resetPasswordSent.
+  ///
+  /// In pl, this message translates to:
+  /// **'Jeśli konto z adresem {email} istnieje, wysłaliśmy na nie link do ustawienia nowego hasła. Link jest ważny przez ograniczony czas.'**
+  String resetPasswordSent(String email);
+
+  /// No description provided for @backToLogin.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wróć do logowania'**
+  String get backToLogin;
+
+  /// No description provided for @signupTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Załóż konto'**
+  String get signupTitle;
+
+  /// No description provided for @signupSubtitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Konto jest bezpłatne.'**
+  String get signupSubtitle;
+
+  /// No description provided for @signupSubmit.
+  ///
+  /// In pl, this message translates to:
+  /// **'Załóż konto'**
+  String get signupSubmit;
+
+  /// No description provided for @signupSuccess.
+  ///
+  /// In pl, this message translates to:
+  /// **'Konto założone. Witamy w PlotFinder!'**
+  String get signupSuccess;
+
+  /// No description provided for @firstName.
+  ///
+  /// In pl, this message translates to:
+  /// **'Imię'**
+  String get firstName;
+
+  /// No description provided for @lastName.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nazwisko'**
+  String get lastName;
+
+  /// No description provided for @optionalField.
+  ///
+  /// In pl, this message translates to:
+  /// **'{field} (opcjonalnie)'**
+  String optionalField(String field);
+
+  /// No description provided for @username.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nazwa użytkownika'**
+  String get username;
+
+  /// No description provided for @passwordRules.
+  ///
+  /// In pl, this message translates to:
+  /// **'Minimum {count} znaków'**
+  String passwordRules(int count);
+
+  /// No description provided for @termsAcceptPrefix.
+  ///
+  /// In pl, this message translates to:
+  /// **'Akceptuję '**
+  String get termsAcceptPrefix;
+
+  /// No description provided for @termsLink.
+  ///
+  /// In pl, this message translates to:
+  /// **'regulamin'**
+  String get termsLink;
+
+  /// No description provided for @termsAnd.
+  ///
+  /// In pl, this message translates to:
+  /// **' i '**
+  String get termsAnd;
+
+  /// No description provided for @privacyPolicyLink.
+  ///
+  /// In pl, this message translates to:
+  /// **'politykę prywatności'**
+  String get privacyPolicyLink;
+
+  /// No description provided for @termsRequired.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zaakceptuj regulamin, aby założyć konto'**
+  String get termsRequired;
+
+  /// No description provided for @termsTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Regulamin'**
+  String get termsTitle;
+
+  /// No description provided for @privacyPolicyTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Polityka prywatności'**
+  String get privacyPolicyTitle;
 }
 
 class _AppLocalizationsDelegate

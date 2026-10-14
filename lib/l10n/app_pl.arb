@@ -270,5 +270,74 @@
   "utilityWater": "Woda",
   "utilitySewage": "Kanalizacja",
   "utilityGas": "Gaz",
-  "utilityInternet": "Internet"
+  "utilityInternet": "Internet",
+  "loginTitle": "Zaloguj się",
+  "loginSubtitle": "Zarządzaj ofertami i zapisanymi działkami.",
+  "loginIdentifier": "E-mail lub nazwa użytkownika",
+  "password": "Hasło",
+  "loginSubmit": "Zaloguj się",
+  "showPassword": "Pokaż hasło",
+  "hidePassword": "Ukryj hasło",
+  "fieldRequired": "Uzupełnij to pole",
+  "loginInvalidCredentials": "Nieprawidłowy e-mail, nazwa użytkownika lub hasło.",
+  "tooManyRequestsError": "Zbyt wiele prób. Spróbuj ponownie później.",
+  "networkError": "Brak połączenia z internetem. Spróbuj ponownie.",
+  "unknownError": "Coś poszło nie tak. Spróbuj ponownie później.",
+  "loggedIn": "Jesteś zalogowany",
+  "loggedInAs": "Zalogowano jako {username}",
+  "@loggedInAs": {
+    "placeholders": {
+      "username": {"type": "String"}
+    }
+  },
+  "logout": "Wyloguj się",
+  "invalidDataError": "Sprawdź poprawność wprowadzonych danych.",
+  "invalidEmail": "Podaj poprawny adres e-mail",
+  "passwordTooShort": "Hasło musi mieć co najmniej {count} znaków",
+  "@passwordTooShort": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "forgotPassword": "Nie pamiętasz hasła?",
+  "noAccount": "Nie masz konta?",
+  "hasAccount": "Masz już konto?",
+  "email": "E-mail",
+  "resetPasswordTitle": "Nie pamiętasz hasła?",
+  "resetPasswordSubtitle": "Wyślemy link do ustawienia nowego hasła.",
+  "resetPasswordSubmit": "Wyślij link",
+  "resetPasswordSentTitle": "Sprawdź skrzynkę",
+  "resetPasswordSent": "Jeśli konto z adresem {email} istnieje, wysłaliśmy na nie link do ustawienia nowego hasła. Link jest ważny przez ograniczony czas.",
+  "@resetPasswordSent": {
+    "placeholders": {
+      "email": {"type": "String"}
+    }
+  },
+  "backToLogin": "Wróć do logowania",
+  "signupTitle": "Załóż konto",
+  "signupSubtitle": "Konto jest bezpłatne.",
+  "signupSubmit": "Załóż konto",
+  "signupSuccess": "Konto założone. Witamy w PlotFinder!",
+  "firstName": "Imię",
+  "lastName": "Nazwisko",
+  "optionalField": "{field} (opcjonalnie)",
+  "@optionalField": {
+    "placeholders": {
+      "field": {"type": "String"}
+    }
+  },
+  "username": "Nazwa użytkownika",
+  "passwordRules": "Minimum {count} znaków",
+  "@passwordRules": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "termsAcceptPrefix": "Akceptuję ",
+  "termsLink": "regulamin",
+  "termsAnd": " i ",
+  "privacyPolicyLink": "politykę prywatności",
+  "termsRequired": "Zaakceptuj regulamin, aby założyć konto",
+  "termsTitle": "Regulamin",
+  "privacyPolicyTitle": "Polityka prywatności"
 }

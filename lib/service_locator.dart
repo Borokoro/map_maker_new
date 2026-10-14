@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:map_maker_new/cubits/auth/auth_cubit.dart';
 import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/services/auth_service.dart';
 import 'package:map_maker_new/services/public_offers_service.dart';
@@ -18,6 +19,9 @@ void _initializeServices() {
 }
 
 void _initializeCubits() {
+  serviceLocator.registerLazySingleton<AuthCubit>(
+    () => AuthCubit(serviceLocator()),
+  );
   serviceLocator.registerLazySingleton<SearchCubit>(
     () => SearchCubit(serviceLocator()),
   );
