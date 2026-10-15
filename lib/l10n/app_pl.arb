@@ -367,5 +367,307 @@
       "name": {"type": "String"}
     }
   },
-  "loadMoreRetry": "Nie udało się wczytać kolejnych ofert. Spróbuj ponownie"
+  "loadMoreRetry": "Nie udało się wczytać kolejnych ofert. Spróbuj ponownie",
+  "offerCopyLink": "Kopiuj link do oferty",
+  "offerLinkCopied": "Skopiowano link do oferty",
+  "offerLoadingError": "Nie udało się wczytać oferty.",
+  "offerNotFound": "Nie znaleźliśmy tej oferty",
+  "offerNotFoundHint": "Oferta mogła zostać sprzedana albo wycofana przez sprzedającego.",
+  "offerFallbackTitle": "{count, plural, one{Działka budowlana} few{{count} działki budowlane} other{{count} działek budowlanych}}",
+  "@offerFallbackTitle": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerTitleWithArea": "{title} · {area}",
+  "@offerTitleWithArea": {
+    "placeholders": {
+      "title": {"type": "String"},
+      "area": {"type": "String"}
+    }
+  },
+  "offerPlotsTogether": "{count, plural, one{{count} działka} few{{count} sąsiednie działki sprzedawane razem} other{{count} sąsiednich działek sprzedawanych razem}}",
+  "@offerPlotsTogether": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerPlotsSeparately": "{count, plural, one{{count} działka} few{{count} działki — każdą można kupić osobno} other{{count} działek — każdą można kupić osobno}}",
+  "@offerPlotsSeparately": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerPhotoCounter": "{index} / {total}",
+  "@offerPhotoCounter": {
+    "placeholders": {
+      "index": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "offerPhotoTakenOnPlot": "Zrobione na działce",
+  "offerPhotoTakenOnPlotDate": "Zrobione na działce · {date}",
+  "@offerPhotoTakenOnPlotDate": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "offerMapLabelMany": "{count, plural, one{{count} działka · {area}} few{{count} działki · {area}} other{{count} działek · {area}}}",
+  "@offerMapLabelMany": {
+    "placeholders": {
+      "count": {"type": "int"},
+      "area": {"type": "String"}
+    }
+  },
+  "offerNumbersOverline": "W skrócie",
+  "offerNumbersTitle": "Najważniejsze liczby",
+  "offerNumbersTotalArea": "łączna powierzchnia",
+  "offerNumbersPricePerMeter": "cena za m²",
+  "offerNumbersPlots": "{count, plural, one{działka w ofercie} few{działki w ofercie} other{działek w ofercie}}",
+  "@offerNumbersPlots": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerNumbersPlanSymbol": "{count, plural, one{symbol planu} few{symbole planu} other{symboli planu}}",
+  "@offerNumbersPlanSymbol": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerNumbersPogSymbol": "{count, plural, one{strefa planu ogólnego} few{strefy planu ogólnego} other{stref planu ogólnego}}",
+  "@offerNumbersPogSymbol": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerEmptyValue": "—",
+  "offerPriceTitle": "Cena",
+  "offerPriceNegotiable": "Do negocjacji",
+  "offerPriceFixed": "Cena stała",
+  "offerPriceEstimateHint": "Sprzedający nie podał ceny. To szacunkowa wartość według modelu PlotFinder, liczona z transakcji działek w okolicy.",
+  "offerShowValuation": "Zobacz szacunek PlotFinder",
+  "offerHideValuation": "Ukryj szacunek",
+  "offerPricePerMeterWithArea": "{perMeter} · {area}",
+  "@offerPricePerMeterWithArea": {
+    "placeholders": {
+      "perMeter": {"type": "String"},
+      "area": {"type": "String"}
+    }
+  },
+  "offerPriceSeparately": "Ceny działek kupowanych osobno",
+  "offerPriceNote": "Cena podana przez sprzedającego. Kupujesz bezpośrednio, bez prowizji.",
+  "offerValuationTitle": "Ocena ceny",
+  "offerValuationVerdictBelow": "Dobra cena",
+  "offerValuationVerdictMarket": "Cena rynkowa",
+  "offerValuationVerdictAbove": "Powyżej rynku",
+  "offerValuationEstimate": "Szacunek: {range}",
+  "@offerValuationEstimate": {
+    "placeholders": {
+      "range": {"type": "String"}
+    }
+  },
+  "offerValuationPerMeter": "{range} dla podobnych działek w okolicy.",
+  "@offerValuationPerMeter": {
+    "placeholders": {
+      "range": {"type": "String"}
+    }
+  },
+  "offerValuationPositionBelow": "Ta oferta jest poniżej przedziału.",
+  "offerValuationPositionMarket": "Ta oferta jest w środku przedziału.",
+  "offerValuationPositionAbove": "Ta oferta jest powyżej przedziału.",
+  "offerValuationMarker": "Ta oferta {price}",
+  "@offerValuationMarker": {
+    "placeholders": {
+      "price": {"type": "String"}
+    }
+  },
+  "offerValuationNote": "Szacunek modelu na podstawie podobnych działek, nie operat rzeczoznawcy.",
+  "offerBuildOverline": "Analiza PlotFinder",
+  "offerBuildTitle": "Co możesz tu zbudować",
+  "offerBuildHeading": "Przeznaczenie: {label}",
+  "@offerBuildHeading": {
+    "placeholders": {
+      "label": {"type": "String"}
+    }
+  },
+  "offerBuildHintWzPossible": "Działka leży w obszarze uzupełnienia zabudowy planu ogólnego — można wystąpić o decyzję o warunkach zabudowy zgodną z planem ogólnym.",
+  "offerBuildHintNeedsMpzp": "Działka leży poza obszarem uzupełnienia zabudowy — decyzji o warunkach zabudowy nie można wydać, nowa zabudowa będzie możliwa po uchwaleniu planu miejscowego.",
+  "offerBuildHintCheckInfill": "Plan ogólny sam nie daje prawa do budowy: decyzję o warunkach zabudowy wydaje się tylko w obszarze uzupełnienia zabudowy, zgodnie z planem ogólnym. Sprawdź, czy działka w nim leży.",
+  "offerBuildHintNoWzWithoutPog": "Gmina nie ma jeszcze uchwalonego planu ogólnego — od 1 września 2026 r. nowej decyzji o warunkach zabudowy nie można uzyskać, dopóki go nie uchwali. Wydane wcześniej decyzje pozostają ważne.",
+  "offerBuildZones": "Przeznaczenie w planie: {zones}",
+  "@offerBuildZones": {
+    "placeholders": {
+      "zones": {"type": "String"}
+    }
+  },
+  "offerBuildPogZones": "Strefy w planie ogólnym: {zones}",
+  "@offerBuildPogZones": {
+    "placeholders": {
+      "zones": {"type": "String"}
+    }
+  },
+  "offerBuildPlanTypeMpzp": "Obowiązuje miejscowy plan zagospodarowania przestrzennego",
+  "offerBuildPlanTypePog": "Działka jest objęta planem ogólnym gminy",
+  "offerBuildPlanTypePogDraft": "Działka jest objęta projektem planu ogólnego gminy — POG (projekt)",
+  "offerBuildPlanTypeStudium": "Kierunek zabudowy wskazuje studium gminy",
+  "offerBuildPlanTypeWz": "Wydano decyzję o warunkach zabudowy",
+  "offerBuildPlanTypeNone": "Brak planu miejscowego i decyzji WZ",
+  "offerBuildSeeReport": "Pełna analiza działki — plan, media, ryzyka i wycena w raporcie PlotFinder →",
+  "offerBuildPlotResult": "Działka {number}: {result}",
+  "@offerBuildPlotResult": {
+    "placeholders": {
+      "number": {"type": "String"},
+      "result": {"type": "String"}
+    }
+  },
+  "offerBuildMore": "i {count} więcej",
+  "@offerBuildMore": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerSourceOfficial": "Dane urzędowe",
+  "offerSourceOwner": "Od właściciela",
+  "offerReportCtaTitle": "Pełny raport dla każdej działki · za darmo",
+  "offerReportCtaBody": "Ryzyko powodzi, grunt, media, nasłonecznienie i wszystkie wpisy z rejestrów. Bezpłatnie, dla każdej działki.",
+  "offerReportCtaButton": "Otwórz raport",
+  "offerReportCtaPending": "Raport jest w przygotowaniu",
+  "offerPlotsOverline": "Ta oferta",
+  "offerPlotsTitleSingle": "Działka w tej ofercie",
+  "offerPlotsTitleTogether": "{count, plural, one{{count} działka} few{{count} działki sprzedawane razem} other{{count} działek sprzedawanych razem}}",
+  "@offerPlotsTitleTogether": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerPlotsTitleSeparately": "{count, plural, one{{count} działka} few{{count} działki, każdą kupisz osobno} other{{count} działek, każdą kupisz osobno}}",
+  "@offerPlotsTitleSeparately": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerPlotsOpenReport": "Otwórz raport →",
+  "offerPlotsReportPending": "Raport w przygotowaniu",
+  "offerUtilitiesOverline": "Media i dojazd",
+  "offerUtilitiesTitle": "Co jest na działce",
+  "offerUtilitiesSubtitle": "Stan według właściciela, sprawdzony z mapą uzbrojenia terenu.",
+  "offerUtilitiesRoad": "Dojazd",
+  "offerUtilityStatusAvailable": "Podłączone",
+  "offerUtilityStatusListed": "Dostępne",
+  "offerUtilityStatusAtBoundary": "Przy granicy",
+  "offerUtilityStatusInProgress": "W trakcie podłączania",
+  "offerUtilityStatusPlanned": "Planowane",
+  "offerUtilityStatusNotAvailable": "Brak",
+  "offerUtilityStatusUnknown": "Brak danych",
+  "offerRoadAsphalt": "Droga asfaltowa",
+  "offerRoadGravel": "Droga utwardzona",
+  "offerRoadDirt": "Droga gruntowa",
+  "offerRoadEasement": "Dojazd przez służebność",
+  "offerRoadEstimatePublic": "Droga dojazdowa: publiczna (szacunek z OpenStreetMap)",
+  "offerRoadEstimatePrivate": "Droga dojazdowa: prywatna (szacunek z OpenStreetMap)",
+  "offerUtilityNetworkDistance": "Sieć {distance} od działki",
+  "@offerUtilityNetworkDistance": {
+    "placeholders": {
+      "distance": {"type": "String"}
+    }
+  },
+  "offerConnectionOnPlot": "Na działce",
+  "offerConnectionAtBoundary": "Przy granicy",
+  "offerConnectionPublicRoad": "W drodze publicznej",
+  "offerConnectionPrivateRoad": "W drodze prywatnej",
+  "offerConnectionAccepted": "przyłącze odebrane",
+  "offerConnectionNotAccepted": "przyłącze nieodebrane",
+  "offerSellerDeclaration": "Deklaracja sprzedającego",
+  "offerUtilitySourceOwner": "potwierdzone przez sprzedającego",
+  "offerUtilitySourceDetected": "wykryte w rejestrze",
+  "offerLegalOverline": "Stan prawny",
+  "offerLegalTitle": "Własność i dokumenty",
+  "offerLegalLandRegister": "Księga wieczysta",
+  "offerLegalOwnership": "Własność",
+  "offerLegalBuildingConditions": "Warunki zabudowy",
+  "offerLegalEncumbrances": "Obciążenia",
+  "offerOwnershipFull": "Pełna własność",
+  "offerOwnershipPerpetualUsufruct": "Użytkowanie wieczyste",
+  "offerOwnershipShare": "Współwłasność (udział)",
+  "offerConditionsNone": "Brak decyzji",
+  "offerConditionsZoningDecision": "Decyzja o warunkach zabudowy",
+  "offerConditionsBuildingPermit": "Pozwolenie na budowę",
+  "offerEncumbranceMortgage": "Hipoteka",
+  "offerEncumbranceEasement": "Służebność",
+  "offerEncumbranceOther": "Inne obciążenia",
+  "offerLegalNoneReported": "Brak zgłoszonych",
+  "offerLegalNotProvided": "Nie podano",
+  "offerDocumentsTitle": "Dokumenty od sprzedającego",
+  "offerDocumentsHint": "Zaloguj się i napisz do sprzedającego, aby pobrać dokumenty.",
+  "offerDocumentsHintSignedIn": "Dokumenty pobierzesz po wysłaniu wiadomości do sprzedającego z tego konta.",
+  "offerDocumentVerified": "Zweryfikowany",
+  "offerDocumentPlot": "działka {number}",
+  "@offerDocumentPlot": {
+    "placeholders": {
+      "number": {"type": "String"}
+    }
+  },
+  "offerDocumentDownload": "Pobierz",
+  "documentTypeLandRegisterExtract": "Odpis z księgi wieczystej",
+  "documentTypeZoningExtract": "Wypis z planu miejscowego",
+  "documentTypeSurveyMap": "Mapa geodezyjna",
+  "documentTypeZoningDecision": "Decyzja o warunkach zabudowy",
+  "documentTypeConnectionAcceptance": "Protokół odbioru przyłącza",
+  "fileSizeKb": "{value} KB",
+  "@fileSizeKb": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "fileSizeMb": "{value} MB",
+  "@fileSizeMb": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "distanceMeters": "{value} m",
+  "@distanceMeters": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "distanceKilometers": "{value} km",
+  "@distanceKilometers": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "offerDescriptionOverline": "Od właściciela",
+  "offerDescriptionTitle": "Opis",
+  "offerSellerForAll": "{count, plural, one{Za działkę} other{Za wszystkie działki}}",
+  "@offerSellerForAll": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "offerSellerNegotiable": "do negocjacji",
+  "offerSellerNoCommission": "bez prowizji",
+  "offerSellerWrite": "Napisz do właściciela",
+  "offerSellerViewing": "Umów oglądanie",
+  "offerSellerMessagesOff": "Sprzedający nie przyjmuje wiadomości przez PlotFinder — skorzystaj z telefonu lub e-maila.",
+  "offerSellerFallbackName": "Sprzedający",
+  "offerSellerMemberSince": "Osoba prywatna · na PlotFinder od {date}",
+  "@offerSellerMemberSince": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "offerSellerAdded": "Dodano {date}",
+  "@offerSellerAdded": {
+    "placeholders": {
+      "date": {"type": "String"}
+    }
+  },
+  "offerSellerSource": "Zobacz ogłoszenie źródłowe",
+  "offerContactShowPhone": "Pokaż telefon",
+  "offerContactShowEmail": "Pokaż e-mail",
+  "offerContactMissing": "Sprzedający nie podał danych kontaktowych.",
+  "offerContactError": "Nie udało się pobrać danych kontaktowych. Spróbuj ponownie.",
+  "textSeparator": " · "
 }

@@ -28,12 +28,13 @@ class FilterButton extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           _getFilterButton(context),
-          if (searchCriteria.isAnyFiltersApplied)
+          if (searchCriteria.isAnyFiltersApplied) ...{
             Positioned(
               top: -4,
               right: -4,
               child: _getFilterHighlighter(context),
             ),
+          },
         ],
       ),
     );

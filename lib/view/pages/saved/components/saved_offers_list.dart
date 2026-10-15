@@ -9,6 +9,7 @@ import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/router/app_router.gr.dart';
 import 'package:map_maker_new/service_locator.dart';
+import 'package:map_maker_new/types/enum/offer_view_source.dart';
 import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
@@ -59,7 +60,13 @@ class _SavedOffersListState extends State<SavedOffersList> {
       items: [
         _getHeader(context, state.itemsCount),
         ...state.items.map(
-          (Offer offer) => OfferCard(offer: offer, onSavePressed: () => _onUnsavePressed(offer.offerId)),
+          (Offer offer) => OfferCard(
+            offer: offer,
+            onSavePressed: () => _onUnsavePressed(offer.offerId),
+            onPressed: () => AutoRouter.of(context).push(
+              OfferRoute(offerId: offer.offerId, viewSource: OfferViewSource.other),
+            ),
+          ),
         ),
       ],
       hasReachedEnd: state.hasReachedEnd,
@@ -134,12 +141,13 @@ class _SavedOffersListState extends State<SavedOffersList> {
           children: [
             Icon(icon, size: _emptyIconSize, color: ColorConstants.iconDefault),
             Text(title, style: textTheme.headingH4_20, textAlign: TextAlign.center),
-            if (description != null)
+            if (description != null) ...{
               Text(
                 description,
                 style: textTheme.bodyBase16.copyWith(color: ColorConstants.textMuted),
                 textAlign: TextAlign.center,
               ),
+            },
             action,
           ].withVerticalElementsSpacing(12),
         ),
@@ -152,8 +160,9 @@ class _SavedOffersListState extends State<SavedOffersList> {
     if (isSuccess) {
       _searchCubit.onOfferSavedChanged(offerId, false);
       return;
+    } else if (!mounted) {
+      return;
     }
-    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(AppLocalizations.of(context)!.saveOfferError)),
     );

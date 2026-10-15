@@ -46,10 +46,14 @@ class _ResetPasswordDialogState extends State<ResetPasswordDialog> {
       shape: const RoundedRectangleBorder(borderRadius: StyleConstants.radius12),
       insetPadding: StyleConstants.edgeInsets16,
       child: BlocProvider<ResetPasswordCubit>(
-        create: (_) => ResetPasswordCubit(serviceLocator.get<AuthService>()),
+        create: _createResetPasswordCubit,
         child: BlocBuilder<ResetPasswordCubit, ResetPasswordState>(builder: _getDialogBody),
       ),
     );
+  }
+
+  ResetPasswordCubit _createResetPasswordCubit(BuildContext context) {
+    return ResetPasswordCubit(serviceLocator.get<AuthService>());
   }
 
   Widget _getDialogBody(BuildContext context, ResetPasswordState state) {
@@ -92,7 +96,9 @@ class _ResetPasswordDialogState extends State<ResetPasswordDialog> {
         description: localizations.resetPasswordSubtitle,
       ),
       Form(key: _formKey, child: _getEmailField(context, state)),
-      if (failure != null) FailureBox(text: failure.label(localizations)),
+      if (failure != null) ...{
+        FailureBox(text: failure.label(localizations)),
+      },
       PrimaryButton(
         text: localizations.resetPasswordSubmit,
         onPressed: () => _onSendPressed(context),

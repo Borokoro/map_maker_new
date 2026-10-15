@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:map_maker_new/services/public_offers_service.dart';
@@ -118,17 +117,11 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   Future<void> _search(OfferSearchCriteria criteria) async {
-    try{
-      final PublicOffers publicOffers = await _publicOffersService
-          .getAllPublicOffers(searchCriteria: criteria);
+    try {
+      final PublicOffers publicOffers = await _publicOffersService.getAllPublicOffers(searchCriteria: criteria);
       if (_isOutdated(criteria)) return;
       emit(SearchLoaded(publicOffers: publicOffers, searchCriteria: criteria));
-    }
-    on DioException catch(e) {
-      if (_isOutdated(criteria)) return;
-      emit(SearchError(exception: e, searchCriteria: criteria));
-    }
-    catch(_) {
+    } catch (_) {
       if (_isOutdated(criteria)) return;
       emit(SearchError(searchCriteria: criteria));
     }

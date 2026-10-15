@@ -17,6 +17,8 @@ abstract class StyleConstants {
   static const EdgeInsets edgeInsetsH16V14 = EdgeInsets.symmetric(horizontal: 16, vertical: 14);
   static const EdgeInsets edgeInsetsH20V12 = EdgeInsets.symmetric(horizontal: 20, vertical: 12);
   static const EdgeInsets edgeInsetsH16T12 = EdgeInsets.fromLTRB(16, 12, 16, 0);
+  static const EdgeInsets edgeInsetsH16V12 = EdgeInsets.symmetric(horizontal: 16, vertical: 12);
+  static const EdgeInsets edgeInsetsB24 = EdgeInsets.only(bottom: 24);
 
   static const BorderRadius radius12 = BorderRadius.all(Radius.circular(12));
   static const BorderRadius radius17 = BorderRadius.all(Radius.circular(17));

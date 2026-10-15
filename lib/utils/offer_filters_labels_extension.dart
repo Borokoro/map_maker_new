@@ -1,4 +1,3 @@
-import 'package:intl/intl.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
 import 'package:map_maker_new/types/custom_types/offer_search_criteria.dart';
 import 'package:map_maker_new/types/enum/filter_category.dart';
@@ -6,6 +5,7 @@ import 'package:map_maker_new/types/enum/offer_designation.dart';
 import 'package:map_maker_new/types/enum/offer_plan_basis.dart';
 import 'package:map_maker_new/types/enum/offer_plots_count.dart';
 import 'package:map_maker_new/types/enum/offer_utility.dart';
+import 'package:map_maker_new/utils/offer_formatters.dart';
 
 extension OfferDesignationLabelExtension on OfferDesignation {
   String label(AppLocalizations localizations) {
@@ -102,20 +102,20 @@ extension FilterCategoryLabelExtension on FilterCategory {
       case FilterCategory.location:
         return criteria.commune ?? criteria.county ?? criteria.voivodeship ?? title(localizations);
       case FilterCategory.price:
-        final String? priceRange = formatRange(
+        final String? priceRange = OfferFormatters.formatRange(
           localizations,
           criteria.priceMin,
           criteria.priceMax,
-          (int value) => formatPrice(localizations, value),
+          (int value) => OfferFormatters.formatPrice(localizations, value),
         );
         final String priceLabel = priceRange ?? title(localizations);
         return criteria.goodPrice ? localizations.priceWithGoodPrice(priceLabel, localizations.goodPrice) : priceLabel;
       case FilterCategory.area:
-        return formatRange(
+        return OfferFormatters.formatRange(
               localizations,
               criteria.areaMin,
               criteria.areaMax,
-              (int value) => formatArea(localizations, value),
+              (int value) => OfferFormatters.formatArea(localizations, value),
             ) ??
             title(localizations);
       case FilterCategory.designation:
@@ -127,24 +127,4 @@ extension FilterCategoryLabelExtension on FilterCategory {
         return title(localizations);
     }
   }
-}
-
-String? formatRange(AppLocalizations localizations, int? min, int? max, String Function(int) format) {
-  if (min != null && max != null) return localizations.rangeBetween(format(min), format(max));
-  if (max != null) return localizations.rangeUpTo(format(max));
-  if (min != null) return localizations.rangeFrom(format(min));
-  return null;
-}
-
-String formatPrice(AppLocalizations localizations, int price) {
-  if (price >= 1000000) {
-    final NumberFormat millionsFormat = NumberFormat("0.#", localizations.localeName);
-    return localizations.priceMillions(millionsFormat.format(price / 1000000));
-  }
-  return localizations.priceThousands((price / 1000).round().toString());
-}
-
-String formatArea(AppLocalizations localizations, int area) {
-  final NumberFormat areaFormat = NumberFormat.decimalPattern(localizations.localeName);
-  return localizations.areaSquareMeters(areaFormat.format(area));
 }

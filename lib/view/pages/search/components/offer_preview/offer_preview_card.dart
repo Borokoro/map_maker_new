@@ -16,16 +16,26 @@ class OfferPreviewCard extends StatelessWidget {
     super.key,
     required this.offer,
     required this.onSavePressed,
+    required this.onPressed,
   });
 
   final Offer offer;
   final VoidCallback onSavePressed;
+  final VoidCallback onPressed;
 
   static const double height = 120;
   static const double _thumbnailSize = 96;
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      behavior: HitTestBehavior.opaque,
+      child: _getCard(context),
+    );
+  }
+
+  Widget _getCard(BuildContext context) {
     return Container(
       height: height,
       padding: const EdgeInsets.all(12),
@@ -91,11 +101,12 @@ class OfferPreviewCard extends StatelessWidget {
             style: textTheme.headingH4_20,
           ),
         ),
-        if (pricePerMeter != null)
+        if (pricePerMeter != null) ...{
           Text(
             pricePerMeter,
             style: textTheme.caption12.copyWith(color: ColorConstants.textMuted),
           ),
+        },
       ].withHorizontalElementsSpacing(6),
     );
   }

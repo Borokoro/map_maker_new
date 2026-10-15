@@ -16,48 +16,37 @@ class PublicOffersService {
   Future<PublicOffers> getAllPublicOffers({
     OfferSearchCriteria searchCriteria = const OfferSearchCriteria(),
   }) async {
-    try{
-      final List<Offer> offers = [];
-      String? nextPageUrl = _publicOffersUrl;
-      Map<String, dynamic>? queryParameters = searchCriteria.toQueryParameters();
-      int count = 0;
+    final List<Offer> offers = [];
+    String? nextPageUrl = _publicOffersUrl;
+    Map<String, dynamic>? queryParameters = searchCriteria.toQueryParameters();
+    int count = 0;
 
-      while (nextPageUrl != null) {
-        final Response<Map<String, dynamic>> response = await dio.get(
-            nextPageUrl, queryParameters: queryParameters);
-        final PublicOffers page = PublicOffers.fromJson(response.data!);
+    while (nextPageUrl != null) {
+      final Response<Map<String, dynamic>> response = await dio.get(nextPageUrl, queryParameters: queryParameters);
+      final PublicOffers page = PublicOffers.fromJson(response.data!);
 
-        offers.addAll(page.results);
-        count = page.count;
-        nextPageUrl = page.next;
-        queryParameters = null;
-      }
-
-      return PublicOffers(
-        count: count,
-        next: null,
-        previous: null,
-        results: offers,
-      );
+      offers.addAll(page.results);
+      count = page.count;
+      nextPageUrl = page.next;
+      queryParameters = null;
     }
-    on DioException catch (e) {
-      throw Exception("Error ${e.response}");
-    }
+
+    return PublicOffers(
+      count: count,
+      next: null,
+      previous: null,
+      results: offers,
+    );
   }
 
   Future<OfferLocations> getLocations({String? voivodeship, String? county}) async {
-    try{
-      final Response<Map<String, dynamic>> response = await dio.get(
-        _locationsUrl,
-        queryParameters: {
-          "voivodeship": ?voivodeship,
-          if (voivodeship != null) "county": ?county,
-        },
-      );
-      return OfferLocations.fromJson(response.data!["data"] as Map<String, dynamic>);
-    }
-    on DioException catch (e) {
-      throw Exception("Error ${e.response}");
-    }
+    final Response<Map<String, dynamic>> response = await dio.get(
+      _locationsUrl,
+      queryParameters: {
+        "voivodeship": ?voivodeship,
+        if (voivodeship != null) "county": ?county,
+      },
+    );
+    return OfferLocations.fromJson(response.data!["data"] as Map<String, dynamic>);
   }
 }

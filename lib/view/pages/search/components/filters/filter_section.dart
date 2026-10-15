@@ -33,7 +33,9 @@ class _FilterSectionState extends State<FilterSection> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _getHeader(context),
-          if (_isExpanded) widget.child,
+          if (_isExpanded) ...{
+            widget.child,
+          },
         ],
       ),
     );
@@ -49,7 +51,9 @@ class _FilterSectionState extends State<FilterSection> {
         child: Row(
           children: [
             Text(widget.title, style: textTheme.bodyBase16.copyWith(fontWeight: FontWeight.w600)),
-            if (widget.appliedFiltersCount > 0) _getCountBadge(context),
+            if (widget.appliedFiltersCount > 0) ...{
+              _getCountBadge(context),
+            },
             const Spacer(),
             Icon(
               _isExpanded ? IconConstants.chevronUp : IconConstants.chevronDown,

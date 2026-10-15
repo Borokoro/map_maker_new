@@ -7,7 +7,7 @@ import 'package:map_maker_new/types/enum/plan_designation.dart';
 import 'package:map_maker_new/types/enum/plan_hint.dart';
 import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/types/models/offer_estimate.dart';
-import 'package:map_maker_new/utils/offer_filters_labels_extension.dart';
+import 'package:map_maker_new/utils/offer_formatters.dart';
 
 extension OfferLabelsExtension on Offer {
   String priceLabel(AppLocalizations localizations) {
@@ -16,8 +16,8 @@ extension OfferLabelsExtension on Offer {
     final OfferEstimate? offerEstimate = estimate;
     if (offerEstimate == null) return localizations.offerNoPrice;
     final String range = localizations.rangeBetween(
-      formatPrice(localizations, offerEstimate.low.round()),
-      formatPrice(localizations, offerEstimate.high.round()),
+      OfferFormatters.formatPrice(localizations, offerEstimate.low.round()),
+      OfferFormatters.formatPrice(localizations, offerEstimate.high.round()),
     );
     return localizations.offerEstimatedPrice(range);
   }
@@ -45,7 +45,7 @@ extension OfferLabelsExtension on Offer {
     return localizations.offerLocation(_areaLabel(localizations), _locationName);
   }
 
-  String _areaLabel(AppLocalizations localizations) => formatArea(localizations, (totalArea ?? 0).round());
+  String _areaLabel(AppLocalizations localizations) => OfferFormatters.formatArea(localizations, (totalArea ?? 0).round());
 
   String get _locationName => locationLabel.isNotEmpty ? locationLabel : address;
 

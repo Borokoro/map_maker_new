@@ -18,10 +18,12 @@ class OfferCard extends StatelessWidget {
     super.key,
     required this.offer,
     required this.onSavePressed,
+    required this.onPressed,
   });
 
   final Offer offer;
   final VoidCallback onSavePressed;
+  final VoidCallback onPressed;
 
   static const double _mediaHeight = 176;
   static const double _mediaGeometryPadding = 32;
@@ -31,6 +33,14 @@ class OfferCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      behavior: HitTestBehavior.opaque,
+      child: _getCard(context),
+    );
+  }
+
+  Widget _getCard(BuildContext context) {
     return Container(
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
@@ -61,8 +71,9 @@ class OfferCard extends StatelessWidget {
             borderRadius: BorderRadius.zero,
             geometryPadding: _mediaGeometryPadding,
           ),
-          if (offer.plotsCountOrOne > 1)
+          if (offer.plotsCountOrOne > 1) ...{
             Positioned(top: _plotsChipOffset, left: _plotsChipOffset, child: _getPlotsCountChip(context)),
+          },
           Positioned(
             top: _saveButtonOffset,
             right: _saveButtonOffset,
@@ -136,8 +147,9 @@ class OfferCard extends StatelessWidget {
             style: textTheme.headingH3_24,
           ),
         ),
-        if (pricePerMeter != null)
+        if (pricePerMeter != null) ...{
           Text(pricePerMeter, style: textTheme.caption12.copyWith(color: ColorConstants.textMuted)),
+        },
       ].withHorizontalElementsSpacing(8),
     );
   }

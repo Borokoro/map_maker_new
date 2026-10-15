@@ -8,8 +8,10 @@ import 'package:map_maker_new/cubits/auth/auth_cubit.dart';
 import 'package:map_maker_new/cubits/saved_offers/saved_offers_cubit.dart';
 import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
+import 'package:map_maker_new/router/app_router.gr.dart';
 import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/types/custom_types/offer_search_criteria.dart';
+import 'package:map_maker_new/types/enum/offer_view_source.dart';
 import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/view/pages/search/components/filter_button.dart';
@@ -18,6 +20,7 @@ import 'package:map_maker_new/view/pages/search/components/offers_map_layer.dart
 import 'package:map_maker_new/view/pages/search/components/quick_filters_horizontal_scrollable.dart';
 import 'package:map_maker_new/view/pages/search/components/search_page_map.dart';
 import 'package:map_maker_new/view/pages/search/components/searchbar/searchbar_wrapper.dart';
+import 'package:map_maker_new/view/shared_components/widgets/map_action_button.dart';
 import 'package:map_maker_new/view/shared_components/widgets/universal_app_bar_widget.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
@@ -48,7 +51,6 @@ class _SearchPageState extends State<SearchPage> {
   static const double _searchControlsSpacing = 8;
   static const double _offerPreviewMargin = 16;
   static const double _offerPreviewHeight = OfferPreviewCard.height + _offerPreviewMargin * 2;
-  static const double _mapActionsIconSize = 20;
   static const double _searchControlsHeight = _searchControlsTopMargin +
       FilterButton.size +
       _searchControlsSpacing +
@@ -114,12 +116,12 @@ class _SearchPageState extends State<SearchPage> {
         Positioned(
           right: _offerPreviewMargin,
           bottom: selectedOffer != null ? _offerPreviewHeight : _offerPreviewMargin,
-          child: _getMapActionButton(
+          child: MapActionButton(
             icon: IconConstants.recenter,
             onPressed: _onRecenterClick,
           ),
         ),
-        if (selectedOffer != null)
+        if (selectedOffer != null) ...{
           Positioned(
             left: _offerPreviewMargin,
             right: _offerPreviewMargin,
@@ -127,37 +129,21 @@ class _SearchPageState extends State<SearchPage> {
             child: OfferPreviewCard(
               offer: selectedOffer,
               onSavePressed: () => _onSaveOfferPressed(selectedOffer.offerId),
+              onPressed: () => AutoRouter.of(context).push(
+                OfferRoute(offerId: selectedOffer.offerId, viewSource: OfferViewSource.map),
+              ),
             ),
           ),
+        },
       ],
     );
   }
 
   Widget _getMapStyleButton() {
     final bool isSatellite = _mapStyleUri == MapboxStyles.STANDARD_SATELLITE;
-    return _getMapActionButton(
+    return MapActionButton(
       icon: isSatellite ? IconConstants.standardMap : IconConstants.satelliteMap,
       onPressed: _onMapStyleClick,
-    );
-  }
-
-  Widget _getMapActionButton({required IconData icon, required VoidCallback onPressed}) {
-    return FloatingActionButton(
-      heroTag: null,
-      elevation: 3,
-      highlightElevation: 3,
-      backgroundColor: ColorConstants.bgSurface,
-      onPressed: onPressed,
-      shape: const RoundedRectangleBorder(
-        borderRadius: StyleConstants.radius100,
-      ),
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      mini: true,
-      child: Icon(
-        icon,
-        color: ColorConstants.textPrimary,
-        size: _mapActionsIconSize,
-      ),
     );
   }
 
@@ -182,8 +168,9 @@ class _SearchPageState extends State<SearchPage> {
     if (isSuccess) {
       _savedOffersCubit.refreshSavedOffers();
       return;
+    } else if (!mounted) {
+      return;
     }
-    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(AppLocalizations.of(context)!.saveOfferError)),
     );
@@ -232,7 +219,7 @@ class _SearchPageState extends State<SearchPage> {
           child: SearchbarWrapper(searchCriteria: searchCriteria),
         ),
         QuickFiltersHorizontalScrollable(searchCriteria: searchCriteria),
-        if (isLoading)
+        if (isLoading) ...{
           const Padding(
             padding: StyleConstants.edgeInsetsH16,
             child: LinearProgressIndicator(
@@ -240,6 +227,7 @@ class _SearchPageState extends State<SearchPage> {
               backgroundColor: ColorConstants.bgBrandSoft,
             ),
           ),
+        },
       ].withVerticalElementsSpacing(_searchControlsSpacing),
     );
   }

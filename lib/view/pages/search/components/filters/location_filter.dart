@@ -123,7 +123,9 @@ class _LocationFilterState extends State<LocationFilter> {
       hint: Text(placeholder),
       items: [
         DropdownMenuItem<String?>(value: null, child: Text(placeholder)),
-        if (isValueMissing) DropdownMenuItem<String?>(value: value, child: Text(value)),
+        if (isValueMissing) ...{
+          DropdownMenuItem<String?>(value: value, child: Text(value)),
+        },
         for (final OfferLocationCount option in options)
           DropdownMenuItem<String?>(
             value: option.name,

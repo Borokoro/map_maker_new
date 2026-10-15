@@ -60,11 +60,10 @@ class SearchFiltersLoading extends SearchLoaded {
 }
 
 class SearchError extends SearchState {
-  final DioException? exception;
   final OfferSearchCriteria searchCriteria;
 
-  const SearchError({this.exception, required this.searchCriteria});
+  const SearchError({required this.searchCriteria});
 
   @override
-  List<Object?> get props => [exception, searchCriteria];
+  List<Object?> get props => [searchCriteria];
 }

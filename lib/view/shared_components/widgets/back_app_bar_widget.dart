@@ -6,9 +6,10 @@ import 'package:map_maker_new/constants/style_constants.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
 
 class BackAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  const BackAppBarWidget({super.key, this.title});
+  const BackAppBarWidget({super.key, this.title, this.actions});
 
   final String? title;
+  final List<Widget>? actions;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -29,6 +30,7 @@ class BackAppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         onPressed: () => AutoRouter.of(context).maybePop(),
         icon: const Icon(IconConstants.back, color: ColorConstants.textPrimary),
       ),
+      actions: actions,
     );
   }
 }

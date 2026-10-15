@@ -15,7 +15,7 @@ class SearchBarWidget extends StatefulWidget {
   final String? query;
   final void Function(String) onSearchSubmitted;
 
-  static const double height = 48;
+  static const double _height = 48;
 
   @override
   State<SearchBarWidget> createState() => _SearchBarWidgetState();
@@ -38,7 +38,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
     final TextTheme textTheme = Theme.of(context).textTheme;
 
     return Container(
-      height: SearchBarWidget.height,
+      height: SearchBarWidget._height,
       decoration: const BoxDecoration(
         color: ColorConstants.bgSurface,
         borderRadius: StyleConstants.radius100,

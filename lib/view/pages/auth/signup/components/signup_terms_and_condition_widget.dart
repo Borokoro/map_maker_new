@@ -48,7 +48,9 @@ class _SignupTermsAndConditionWidgetState extends State<SignupTermsAndConditionW
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _getCheckboxRow(field),
-        if (errorText != null) _getErrorText(errorText),
+        if (errorText != null) ...{
+          _getErrorText(errorText),
+        },
       ].withVerticalElementsSpacing(4),
     );
   }

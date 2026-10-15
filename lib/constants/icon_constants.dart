@@ -34,4 +34,17 @@ abstract class IconConstants {
   static const IconData gas = Icons.local_fire_department_outlined;
   static const IconData sewage = Icons.waves;
   static const IconData internet = Icons.wifi;
+  static const IconData share = Icons.share_outlined;
+  static const IconData price = Icons.sell_outlined;
+  static const IconData valuation = Icons.auto_awesome_outlined;
+  static const IconData info = Icons.info_outline;
+  static const IconData warning = Icons.warning_amber_rounded;
+  static const IconData phone = Icons.phone_outlined;
+  static const IconData road = Icons.add_road;
+  static const IconData document = Icons.description_outlined;
+  static const IconData verified = Icons.verified_user_outlined;
+  static const IconData mapPin = Icons.place_outlined;
+  static const IconData openExternal = Icons.open_in_new;
+  static const IconData owner = Icons.person_outline;
+  static const IconData detected = Icons.layers_outlined;
 }

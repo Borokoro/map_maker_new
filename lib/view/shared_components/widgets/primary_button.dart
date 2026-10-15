@@ -14,7 +14,7 @@ class PrimaryButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool isLoading;
 
-  static const double height = 48;
+  static const double _height = 48;
   static const double _loaderSize = 20;
   static const double _loaderStrokeWidth = 2;
 
@@ -26,10 +26,10 @@ class PrimaryButton extends StatelessWidget {
         backgroundColor: ColorConstants.bgBrand,
         disabledBackgroundColor: ColorConstants.bgBrand,
         foregroundColor: ColorConstants.textOnBrand,
-        minimumSize: const Size.fromHeight(height),
+        minimumSize: const Size.fromHeight(_height),
         shape: const RoundedRectangleBorder(borderRadius: StyleConstants.radius100),
       ),
-      child: isLoading ? _getLoader() : Text(text),
+      child: isLoading ? _getLoader() : Text(text, textAlign: TextAlign.center),
     );
   }
 
