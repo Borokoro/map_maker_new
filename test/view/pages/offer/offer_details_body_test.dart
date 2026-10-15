@@ -21,7 +21,7 @@ void main() {
   });
 
   testWidgets("renders offer details sections", (WidgetTester tester) async {
-    final OfferDetails offerDetails = OfferDetailsFixture.load();
+    final OfferDetails offerDetails = OfferDetailsFixture.loadWithoutMap();
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);

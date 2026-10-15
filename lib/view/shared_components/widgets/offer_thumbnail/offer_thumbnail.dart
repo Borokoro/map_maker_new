@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:map_maker_new/constants/color_constants.dart';
 import 'package:map_maker_new/constants/style_constants.dart';
 import 'package:map_maker_new/types/models/preview_geojson.dart';
+import 'package:map_maker_new/view/shared_components/widgets/network_image_widget.dart';
 import 'package:map_maker_new/view/shared_components/widgets/offer_thumbnail/offer_geometry_painter.dart';
 
 class OfferThumbnail extends StatelessWidget {
@@ -35,11 +36,7 @@ class OfferThumbnail extends StatelessWidget {
   Widget _getContent() {
     final String? url = photoUrl;
     if (url == null || url.isEmpty) return _getGeometry();
-    return Image.network(
-      url,
-      fit: BoxFit.cover,
-      errorBuilder: (_, _, _) => _getGeometry(),
-    );
+    return NetworkImageWidget(imageUrl: url, errorWidget: _getGeometry());
   }
 
   Widget _getGeometry() {

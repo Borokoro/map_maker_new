@@ -20,6 +20,7 @@ import 'package:map_maker_new/view/pages/search/components/offers_map_layer.dart
 import 'package:map_maker_new/view/pages/search/components/quick_filters_horizontal_scrollable.dart';
 import 'package:map_maker_new/view/pages/search/components/search_page_map.dart';
 import 'package:map_maker_new/view/pages/search/components/searchbar/searchbar_wrapper.dart';
+import 'package:map_maker_new/view/shared_components/widgets/map_action_button.dart';
 import 'package:map_maker_new/view/shared_components/widgets/universal_app_bar_widget.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
@@ -50,7 +51,6 @@ class _SearchPageState extends State<SearchPage> {
   static const double _searchControlsSpacing = 8;
   static const double _offerPreviewMargin = 16;
   static const double _offerPreviewHeight = OfferPreviewCard.height + _offerPreviewMargin * 2;
-  static const double _mapActionsIconSize = 20;
   static const double _searchControlsHeight = _searchControlsTopMargin +
       FilterButton.size +
       _searchControlsSpacing +
@@ -116,7 +116,7 @@ class _SearchPageState extends State<SearchPage> {
         Positioned(
           right: _offerPreviewMargin,
           bottom: selectedOffer != null ? _offerPreviewHeight : _offerPreviewMargin,
-          child: _getMapActionButton(
+          child: MapActionButton(
             icon: IconConstants.recenter,
             onPressed: _onRecenterClick,
           ),
@@ -141,29 +141,9 @@ class _SearchPageState extends State<SearchPage> {
 
   Widget _getMapStyleButton() {
     final bool isSatellite = _mapStyleUri == MapboxStyles.STANDARD_SATELLITE;
-    return _getMapActionButton(
+    return MapActionButton(
       icon: isSatellite ? IconConstants.standardMap : IconConstants.satelliteMap,
       onPressed: _onMapStyleClick,
-    );
-  }
-
-  Widget _getMapActionButton({required IconData icon, required VoidCallback onPressed}) {
-    return FloatingActionButton(
-      heroTag: null,
-      elevation: 3,
-      highlightElevation: 3,
-      backgroundColor: ColorConstants.bgSurface,
-      onPressed: onPressed,
-      shape: const RoundedRectangleBorder(
-        borderRadius: StyleConstants.radius100,
-      ),
-      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-      mini: true,
-      child: Icon(
-        icon,
-        color: ColorConstants.textPrimary,
-        size: _mapActionsIconSize,
-      ),
     );
   }
 

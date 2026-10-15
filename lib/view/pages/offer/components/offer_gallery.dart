@@ -3,13 +3,18 @@ import 'package:map_maker_new/constants/color_constants.dart';
 import 'package:map_maker_new/constants/icon_constants.dart';
 import 'package:map_maker_new/constants/style_constants.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
+import 'package:map_maker_new/types/models/offer_center_point.dart';
 import 'package:map_maker_new/types/models/offer_details.dart';
 import 'package:map_maker_new/types/models/offer_photo.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/utils/offer_details_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
-import 'package:map_maker_new/view/shared_components/widgets/offer_thumbnail/offer_thumbnail.dart';
 import 'package:map_maker_new/utils/offer_formatters.dart';
+import 'package:map_maker_new/view/pages/offer/components/offer_plots_map.dart';
+import 'package:map_maker_new/view/shared_components/widgets/map_action_button.dart';
+import 'package:map_maker_new/view/shared_components/widgets/network_image_widget.dart';
+import 'package:map_maker_new/view/shared_components/widgets/offer_thumbnail/offer_thumbnail.dart';
+import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 
 class OfferGallery extends StatefulWidget {
   const OfferGallery({super.key, required this.offerDetails});
@@ -27,23 +32,44 @@ class _OfferGalleryState extends State<OfferGallery> {
   static const double _badgeIconSize = 14;
 
   int _currentIndex = 0;
+  String _mapStyleUri = MapboxStyles.STANDARD_SATELLITE;
 
   @override
   Widget build(BuildContext context) {
     final List<OfferPhoto> photos = widget.offerDetails.visiblePhotos;
     final int pagesCount = photos.length + 1;
+    final OfferCenterPoint? centerPoint = widget.offerDetails.offer.centerPoint;
 
     return SizedBox(
       height: _height,
       child: Stack(
         fit: StackFit.expand,
         children: [
+          if (centerPoint != null) ...{
+            OfferPlotsMap(
+              geometry: widget.offerDetails.offer.previewGeojson,
+              centerPoint: centerPoint,
+              styleUri: _mapStyleUri,
+            ),
+          },
           PageView.builder(
             itemCount: pagesCount,
             onPageChanged: (int index) => setState(() => _currentIndex = index),
             itemBuilder: (BuildContext context, int index) =>
-                index < photos.length ? _getPhoto(photos[index]) : _getGeometry(),
+                index < photos.length ? _getPhoto(photos[index]) : _getMapPage(centerPoint),
           ),
+          if (_currentIndex == photos.length && centerPoint != null) ...{
+            Positioned(
+              top: _overlayOffset,
+              right: _overlayOffset,
+              child: MapActionButton(
+                icon: _mapStyleUri == MapboxStyles.STANDARD_SATELLITE
+                    ? IconConstants.standardMap
+                    : IconConstants.satelliteMap,
+                onPressed: _onMapStylePressed,
+              ),
+            ),
+          },
           if (_currentIndex < photos.length && photos[_currentIndex].takenOnPlot) ...{
             Positioned(
               top: _overlayOffset,
@@ -74,7 +100,20 @@ class _OfferGalleryState extends State<OfferGallery> {
   }
 
   Widget _getPhoto(OfferPhoto photo) {
-    return Image.network(photo.url ?? "", fit: BoxFit.cover, errorBuilder: (_, _, _) => _getGeometry());
+    return NetworkImageWidget(imageUrl: photo.url ?? "", errorWidget: _getGeometry());
+  }
+
+  Widget _getMapPage(OfferCenterPoint? centerPoint) {
+    if (centerPoint == null) return _getGeometry();
+    return const SizedBox.expand();
+  }
+
+  void _onMapStylePressed() {
+    setState(() {
+      _mapStyleUri = _mapStyleUri == MapboxStyles.STANDARD_SATELLITE
+          ? MapboxStyles.STANDARD
+          : MapboxStyles.STANDARD_SATELLITE;
+    });
   }
 
   Widget _getGeometry() {
