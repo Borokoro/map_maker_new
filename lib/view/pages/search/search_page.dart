@@ -8,8 +8,10 @@ import 'package:map_maker_new/cubits/auth/auth_cubit.dart';
 import 'package:map_maker_new/cubits/saved_offers/saved_offers_cubit.dart';
 import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/l10n/app_localizations.dart';
+import 'package:map_maker_new/router/app_router.gr.dart';
 import 'package:map_maker_new/service_locator.dart';
 import 'package:map_maker_new/types/custom_types/offer_search_criteria.dart';
+import 'package:map_maker_new/types/enum/offer_view_source.dart';
 import 'package:map_maker_new/types/models/offer.dart';
 import 'package:map_maker_new/utils/elements_spacing_extension.dart';
 import 'package:map_maker_new/view/pages/search/components/filter_button.dart';
@@ -119,7 +121,7 @@ class _SearchPageState extends State<SearchPage> {
             onPressed: _onRecenterClick,
           ),
         ),
-        if (selectedOffer != null)
+        if (selectedOffer != null) ...{
           Positioned(
             left: _offerPreviewMargin,
             right: _offerPreviewMargin,
@@ -127,8 +129,12 @@ class _SearchPageState extends State<SearchPage> {
             child: OfferPreviewCard(
               offer: selectedOffer,
               onSavePressed: () => _onSaveOfferPressed(selectedOffer.offerId),
+              onPressed: () => AutoRouter.of(context).push(
+                OfferRoute(offerId: selectedOffer.offerId, viewSource: OfferViewSource.map),
+              ),
             ),
           ),
+        },
       ],
     );
   }
@@ -182,8 +188,9 @@ class _SearchPageState extends State<SearchPage> {
     if (isSuccess) {
       _savedOffersCubit.refreshSavedOffers();
       return;
+    } else if (!mounted) {
+      return;
     }
-    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(AppLocalizations.of(context)!.saveOfferError)),
     );
@@ -232,7 +239,7 @@ class _SearchPageState extends State<SearchPage> {
           child: SearchbarWrapper(searchCriteria: searchCriteria),
         ),
         QuickFiltersHorizontalScrollable(searchCriteria: searchCriteria),
-        if (isLoading)
+        if (isLoading) ...{
           const Padding(
             padding: StyleConstants.edgeInsetsH16,
             child: LinearProgressIndicator(
@@ -240,6 +247,7 @@ class _SearchPageState extends State<SearchPage> {
               backgroundColor: ColorConstants.bgBrandSoft,
             ),
           ),
+        },
       ].withVerticalElementsSpacing(_searchControlsSpacing),
     );
   }

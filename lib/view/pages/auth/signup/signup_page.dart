@@ -57,10 +57,7 @@ class _SignupPageState extends State<SignupPage> {
       appBar: const BackAppBarWidget(),
       body: SafeArea(
         child: BlocProvider<SignupCubit>(
-          create: (_) => SignupCubit(
-            serviceLocator.get<AuthService>(),
-            serviceLocator.get<AuthCubit>(),
-          ),
+          create: _createSignupCubit,
           child: BlocConsumer<SignupCubit, SignupState>(
             listenWhen: (SignupState previous, SignupState current) =>
                 !previous.isRegistered && current.isRegistered,
@@ -69,6 +66,13 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
       ),
+    );
+  }
+
+  SignupCubit _createSignupCubit(BuildContext context) {
+    return SignupCubit(
+      serviceLocator.get<AuthService>(),
+      serviceLocator.get<AuthCubit>(),
     );
   }
 
@@ -86,7 +90,9 @@ class _SignupPageState extends State<SignupPage> {
               _getHeader(context),
               ..._getSignupFormFields(context, state),
               SignupTermsAndConditionWidget(enabled: !state.isLoading),
-              if (failure != null) FailureBox(text: failure.label(AppLocalizations.of(context)!)),
+              if (failure != null) ...{
+                FailureBox(text: failure.label(AppLocalizations.of(context)!)),
+              },
               _getSignupButton(context, state),
               SignupFooterWidget(onLoginPressed: state.isLoading ? null : () => _goBack(context)),
             ].withVerticalElementsSpacing(_elementsSpacing),

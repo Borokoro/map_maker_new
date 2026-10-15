@@ -46,11 +46,15 @@ class _LoginPageBodyState extends State<LoginPageBody> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<LoginCubit>(
-      create: (_) => LoginCubit(
-        serviceLocator.get<AuthService>(),
-        serviceLocator.get<AuthCubit>(),
-      ),
+      create: _createLoginCubit,
       child: BlocBuilder<LoginCubit, LoginState>(builder: _getLoginBody),
+    );
+  }
+
+  LoginCubit _createLoginCubit(BuildContext context) {
+    return LoginCubit(
+      serviceLocator.get<AuthService>(),
+      serviceLocator.get<AuthCubit>(),
     );
   }
 
@@ -80,7 +84,9 @@ class _LoginPageBodyState extends State<LoginPageBody> {
               _getHeader(context),
               _getIdentifierField(context, state),
               _getPasswordField(context, state),
-              if (failure != null) FailureBox(text: failure.label(AppLocalizations.of(context)!)),
+              if (failure != null) ...{
+                FailureBox(text: failure.label(AppLocalizations.of(context)!)),
+              },
               _getLoginButton(context, state),
               _getForgotPasswordButton(context, state),
             ].withVerticalElementsSpacing(_elementsSpacing),

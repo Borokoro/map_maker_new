@@ -1173,6 +1173,888 @@ abstract class AppLocalizations {
   /// In pl, this message translates to:
   /// **'Nie udało się wczytać kolejnych ofert. Spróbuj ponownie'**
   String get loadMoreRetry;
+
+  /// No description provided for @offerCopyLink.
+  ///
+  /// In pl, this message translates to:
+  /// **'Kopiuj link do oferty'**
+  String get offerCopyLink;
+
+  /// No description provided for @offerLinkCopied.
+  ///
+  /// In pl, this message translates to:
+  /// **'Skopiowano link do oferty'**
+  String get offerLinkCopied;
+
+  /// No description provided for @offerLoadingError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie udało się wczytać oferty.'**
+  String get offerLoadingError;
+
+  /// No description provided for @offerNotFound.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie znaleźliśmy tej oferty'**
+  String get offerNotFound;
+
+  /// No description provided for @offerNotFoundHint.
+  ///
+  /// In pl, this message translates to:
+  /// **'Oferta mogła zostać sprzedana albo wycofana przez sprzedającego.'**
+  String get offerNotFoundHint;
+
+  /// No description provided for @offerFallbackTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{Działka budowlana} few{{count} działki budowlane} other{{count} działek budowlanych}}'**
+  String offerFallbackTitle(int count);
+
+  /// No description provided for @offerTitleWithArea.
+  ///
+  /// In pl, this message translates to:
+  /// **'{title} · {area}'**
+  String offerTitleWithArea(String title, String area);
+
+  /// No description provided for @offerPlotsTogether.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{{count} działka} few{{count} sąsiednie działki sprzedawane razem} other{{count} sąsiednich działek sprzedawanych razem}}'**
+  String offerPlotsTogether(int count);
+
+  /// No description provided for @offerPlotsSeparately.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{{count} działka} few{{count} działki — każdą można kupić osobno} other{{count} działek — każdą można kupić osobno}}'**
+  String offerPlotsSeparately(int count);
+
+  /// No description provided for @offerPhotoCounter.
+  ///
+  /// In pl, this message translates to:
+  /// **'{index} / {total}'**
+  String offerPhotoCounter(int index, int total);
+
+  /// No description provided for @offerPhotoTakenOnPlot.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zrobione na działce'**
+  String get offerPhotoTakenOnPlot;
+
+  /// No description provided for @offerPhotoTakenOnPlotDate.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zrobione na działce · {date}'**
+  String offerPhotoTakenOnPlotDate(String date);
+
+  /// No description provided for @offerMapLabelMany.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{{count} działka · {area}} few{{count} działki · {area}} other{{count} działek · {area}}}'**
+  String offerMapLabelMany(int count, String area);
+
+  /// No description provided for @offerNumbersOverline.
+  ///
+  /// In pl, this message translates to:
+  /// **'W skrócie'**
+  String get offerNumbersOverline;
+
+  /// No description provided for @offerNumbersTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Najważniejsze liczby'**
+  String get offerNumbersTitle;
+
+  /// No description provided for @offerNumbersTotalArea.
+  ///
+  /// In pl, this message translates to:
+  /// **'łączna powierzchnia'**
+  String get offerNumbersTotalArea;
+
+  /// No description provided for @offerNumbersPricePerMeter.
+  ///
+  /// In pl, this message translates to:
+  /// **'cena za m²'**
+  String get offerNumbersPricePerMeter;
+
+  /// No description provided for @offerNumbersPlots.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{działka w ofercie} few{działki w ofercie} other{działek w ofercie}}'**
+  String offerNumbersPlots(int count);
+
+  /// No description provided for @offerNumbersPlanSymbol.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{symbol planu} few{symbole planu} other{symboli planu}}'**
+  String offerNumbersPlanSymbol(int count);
+
+  /// No description provided for @offerNumbersPogSymbol.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{strefa planu ogólnego} few{strefy planu ogólnego} other{stref planu ogólnego}}'**
+  String offerNumbersPogSymbol(int count);
+
+  /// No description provided for @offerEmptyValue.
+  ///
+  /// In pl, this message translates to:
+  /// **'—'**
+  String get offerEmptyValue;
+
+  /// No description provided for @offerPriceTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Cena'**
+  String get offerPriceTitle;
+
+  /// No description provided for @offerPriceNegotiable.
+  ///
+  /// In pl, this message translates to:
+  /// **'Do negocjacji'**
+  String get offerPriceNegotiable;
+
+  /// No description provided for @offerPriceFixed.
+  ///
+  /// In pl, this message translates to:
+  /// **'Cena stała'**
+  String get offerPriceFixed;
+
+  /// No description provided for @offerPriceEstimateHint.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprzedający nie podał ceny. To szacunkowa wartość według modelu PlotFinder, liczona z transakcji działek w okolicy.'**
+  String get offerPriceEstimateHint;
+
+  /// No description provided for @offerShowValuation.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zobacz szacunek PlotFinder'**
+  String get offerShowValuation;
+
+  /// No description provided for @offerHideValuation.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ukryj szacunek'**
+  String get offerHideValuation;
+
+  /// No description provided for @offerPricePerMeterWithArea.
+  ///
+  /// In pl, this message translates to:
+  /// **'{perMeter} · {area}'**
+  String offerPricePerMeterWithArea(String perMeter, String area);
+
+  /// No description provided for @offerPriceSeparately.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ceny działek kupowanych osobno'**
+  String get offerPriceSeparately;
+
+  /// No description provided for @offerPriceNote.
+  ///
+  /// In pl, this message translates to:
+  /// **'Cena podana przez sprzedającego. Kupujesz bezpośrednio, bez prowizji.'**
+  String get offerPriceNote;
+
+  /// No description provided for @offerValuationTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ocena ceny'**
+  String get offerValuationTitle;
+
+  /// No description provided for @offerValuationVerdictBelow.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dobra cena'**
+  String get offerValuationVerdictBelow;
+
+  /// No description provided for @offerValuationVerdictMarket.
+  ///
+  /// In pl, this message translates to:
+  /// **'Cena rynkowa'**
+  String get offerValuationVerdictMarket;
+
+  /// No description provided for @offerValuationVerdictAbove.
+  ///
+  /// In pl, this message translates to:
+  /// **'Powyżej rynku'**
+  String get offerValuationVerdictAbove;
+
+  /// No description provided for @offerValuationEstimate.
+  ///
+  /// In pl, this message translates to:
+  /// **'Szacunek: {range}'**
+  String offerValuationEstimate(String range);
+
+  /// No description provided for @offerValuationPerMeter.
+  ///
+  /// In pl, this message translates to:
+  /// **'{range} dla podobnych działek w okolicy.'**
+  String offerValuationPerMeter(String range);
+
+  /// No description provided for @offerValuationPositionBelow.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ta oferta jest poniżej przedziału.'**
+  String get offerValuationPositionBelow;
+
+  /// No description provided for @offerValuationPositionMarket.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ta oferta jest w środku przedziału.'**
+  String get offerValuationPositionMarket;
+
+  /// No description provided for @offerValuationPositionAbove.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ta oferta jest powyżej przedziału.'**
+  String get offerValuationPositionAbove;
+
+  /// No description provided for @offerValuationMarker.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ta oferta {price}'**
+  String offerValuationMarker(String price);
+
+  /// No description provided for @offerValuationNote.
+  ///
+  /// In pl, this message translates to:
+  /// **'Szacunek modelu na podstawie podobnych działek, nie operat rzeczoznawcy.'**
+  String get offerValuationNote;
+
+  /// No description provided for @offerBuildOverline.
+  ///
+  /// In pl, this message translates to:
+  /// **'Analiza PlotFinder'**
+  String get offerBuildOverline;
+
+  /// No description provided for @offerBuildTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Co możesz tu zbudować'**
+  String get offerBuildTitle;
+
+  /// No description provided for @offerBuildHeading.
+  ///
+  /// In pl, this message translates to:
+  /// **'Przeznaczenie: {label}'**
+  String offerBuildHeading(String label);
+
+  /// No description provided for @offerBuildHintWzPossible.
+  ///
+  /// In pl, this message translates to:
+  /// **'Działka leży w obszarze uzupełnienia zabudowy planu ogólnego — można wystąpić o decyzję o warunkach zabudowy zgodną z planem ogólnym.'**
+  String get offerBuildHintWzPossible;
+
+  /// No description provided for @offerBuildHintNeedsMpzp.
+  ///
+  /// In pl, this message translates to:
+  /// **'Działka leży poza obszarem uzupełnienia zabudowy — decyzji o warunkach zabudowy nie można wydać, nowa zabudowa będzie możliwa po uchwaleniu planu miejscowego.'**
+  String get offerBuildHintNeedsMpzp;
+
+  /// No description provided for @offerBuildHintCheckInfill.
+  ///
+  /// In pl, this message translates to:
+  /// **'Plan ogólny sam nie daje prawa do budowy: decyzję o warunkach zabudowy wydaje się tylko w obszarze uzupełnienia zabudowy, zgodnie z planem ogólnym. Sprawdź, czy działka w nim leży.'**
+  String get offerBuildHintCheckInfill;
+
+  /// No description provided for @offerBuildHintNoWzWithoutPog.
+  ///
+  /// In pl, this message translates to:
+  /// **'Gmina nie ma jeszcze uchwalonego planu ogólnego — od 1 września 2026 r. nowej decyzji o warunkach zabudowy nie można uzyskać, dopóki go nie uchwali. Wydane wcześniej decyzje pozostają ważne.'**
+  String get offerBuildHintNoWzWithoutPog;
+
+  /// No description provided for @offerBuildZones.
+  ///
+  /// In pl, this message translates to:
+  /// **'Przeznaczenie w planie: {zones}'**
+  String offerBuildZones(String zones);
+
+  /// No description provided for @offerBuildPogZones.
+  ///
+  /// In pl, this message translates to:
+  /// **'Strefy w planie ogólnym: {zones}'**
+  String offerBuildPogZones(String zones);
+
+  /// No description provided for @offerBuildPlanTypeMpzp.
+  ///
+  /// In pl, this message translates to:
+  /// **'Obowiązuje miejscowy plan zagospodarowania przestrzennego'**
+  String get offerBuildPlanTypeMpzp;
+
+  /// No description provided for @offerBuildPlanTypePog.
+  ///
+  /// In pl, this message translates to:
+  /// **'Działka jest objęta planem ogólnym gminy'**
+  String get offerBuildPlanTypePog;
+
+  /// No description provided for @offerBuildPlanTypePogDraft.
+  ///
+  /// In pl, this message translates to:
+  /// **'Działka jest objęta projektem planu ogólnego gminy — POG (projekt)'**
+  String get offerBuildPlanTypePogDraft;
+
+  /// No description provided for @offerBuildPlanTypeStudium.
+  ///
+  /// In pl, this message translates to:
+  /// **'Kierunek zabudowy wskazuje studium gminy'**
+  String get offerBuildPlanTypeStudium;
+
+  /// No description provided for @offerBuildPlanTypeWz.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wydano decyzję o warunkach zabudowy'**
+  String get offerBuildPlanTypeWz;
+
+  /// No description provided for @offerBuildPlanTypeNone.
+  ///
+  /// In pl, this message translates to:
+  /// **'Brak planu miejscowego i decyzji WZ'**
+  String get offerBuildPlanTypeNone;
+
+  /// No description provided for @offerBuildSeeReport.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pełna analiza działki — plan, media, ryzyka i wycena w raporcie PlotFinder →'**
+  String get offerBuildSeeReport;
+
+  /// No description provided for @offerBuildPlotResult.
+  ///
+  /// In pl, this message translates to:
+  /// **'Działka {number}: {result}'**
+  String offerBuildPlotResult(String number, String result);
+
+  /// No description provided for @offerBuildMore.
+  ///
+  /// In pl, this message translates to:
+  /// **'i {count} więcej'**
+  String offerBuildMore(int count);
+
+  /// No description provided for @offerSourceOfficial.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dane urzędowe'**
+  String get offerSourceOfficial;
+
+  /// No description provided for @offerSourceOwner.
+  ///
+  /// In pl, this message translates to:
+  /// **'Od właściciela'**
+  String get offerSourceOwner;
+
+  /// No description provided for @offerReportCtaTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pełny raport dla każdej działki · za darmo'**
+  String get offerReportCtaTitle;
+
+  /// No description provided for @offerReportCtaBody.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ryzyko powodzi, grunt, media, nasłonecznienie i wszystkie wpisy z rejestrów. Bezpłatnie, dla każdej działki.'**
+  String get offerReportCtaBody;
+
+  /// No description provided for @offerReportCtaButton.
+  ///
+  /// In pl, this message translates to:
+  /// **'Otwórz raport'**
+  String get offerReportCtaButton;
+
+  /// No description provided for @offerReportCtaPending.
+  ///
+  /// In pl, this message translates to:
+  /// **'Raport jest w przygotowaniu'**
+  String get offerReportCtaPending;
+
+  /// No description provided for @offerPlotsOverline.
+  ///
+  /// In pl, this message translates to:
+  /// **'Ta oferta'**
+  String get offerPlotsOverline;
+
+  /// No description provided for @offerPlotsTitleSingle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Działka w tej ofercie'**
+  String get offerPlotsTitleSingle;
+
+  /// No description provided for @offerPlotsTitleTogether.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{{count} działka} few{{count} działki sprzedawane razem} other{{count} działek sprzedawanych razem}}'**
+  String offerPlotsTitleTogether(int count);
+
+  /// No description provided for @offerPlotsTitleSeparately.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{{count} działka} few{{count} działki, każdą kupisz osobno} other{{count} działek, każdą kupisz osobno}}'**
+  String offerPlotsTitleSeparately(int count);
+
+  /// No description provided for @offerPlotsOpenReport.
+  ///
+  /// In pl, this message translates to:
+  /// **'Otwórz raport →'**
+  String get offerPlotsOpenReport;
+
+  /// No description provided for @offerPlotsReportPending.
+  ///
+  /// In pl, this message translates to:
+  /// **'Raport w przygotowaniu'**
+  String get offerPlotsReportPending;
+
+  /// No description provided for @offerUtilitiesOverline.
+  ///
+  /// In pl, this message translates to:
+  /// **'Media i dojazd'**
+  String get offerUtilitiesOverline;
+
+  /// No description provided for @offerUtilitiesTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Co jest na działce'**
+  String get offerUtilitiesTitle;
+
+  /// No description provided for @offerUtilitiesSubtitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Stan według właściciela, sprawdzony z mapą uzbrojenia terenu.'**
+  String get offerUtilitiesSubtitle;
+
+  /// No description provided for @offerUtilitiesRoad.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dojazd'**
+  String get offerUtilitiesRoad;
+
+  /// No description provided for @offerUtilityStatusAvailable.
+  ///
+  /// In pl, this message translates to:
+  /// **'Podłączone'**
+  String get offerUtilityStatusAvailable;
+
+  /// No description provided for @offerUtilityStatusListed.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dostępne'**
+  String get offerUtilityStatusListed;
+
+  /// No description provided for @offerUtilityStatusAtBoundary.
+  ///
+  /// In pl, this message translates to:
+  /// **'Przy granicy'**
+  String get offerUtilityStatusAtBoundary;
+
+  /// No description provided for @offerUtilityStatusInProgress.
+  ///
+  /// In pl, this message translates to:
+  /// **'W trakcie podłączania'**
+  String get offerUtilityStatusInProgress;
+
+  /// No description provided for @offerUtilityStatusPlanned.
+  ///
+  /// In pl, this message translates to:
+  /// **'Planowane'**
+  String get offerUtilityStatusPlanned;
+
+  /// No description provided for @offerUtilityStatusNotAvailable.
+  ///
+  /// In pl, this message translates to:
+  /// **'Brak'**
+  String get offerUtilityStatusNotAvailable;
+
+  /// No description provided for @offerUtilityStatusUnknown.
+  ///
+  /// In pl, this message translates to:
+  /// **'Brak danych'**
+  String get offerUtilityStatusUnknown;
+
+  /// No description provided for @offerRoadAsphalt.
+  ///
+  /// In pl, this message translates to:
+  /// **'Droga asfaltowa'**
+  String get offerRoadAsphalt;
+
+  /// No description provided for @offerRoadGravel.
+  ///
+  /// In pl, this message translates to:
+  /// **'Droga utwardzona'**
+  String get offerRoadGravel;
+
+  /// No description provided for @offerRoadDirt.
+  ///
+  /// In pl, this message translates to:
+  /// **'Droga gruntowa'**
+  String get offerRoadDirt;
+
+  /// No description provided for @offerRoadEasement.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dojazd przez służebność'**
+  String get offerRoadEasement;
+
+  /// No description provided for @offerRoadEstimatePublic.
+  ///
+  /// In pl, this message translates to:
+  /// **'Droga dojazdowa: publiczna (szacunek z OpenStreetMap)'**
+  String get offerRoadEstimatePublic;
+
+  /// No description provided for @offerRoadEstimatePrivate.
+  ///
+  /// In pl, this message translates to:
+  /// **'Droga dojazdowa: prywatna (szacunek z OpenStreetMap)'**
+  String get offerRoadEstimatePrivate;
+
+  /// No description provided for @offerUtilityNetworkDistance.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sieć {distance} od działki'**
+  String offerUtilityNetworkDistance(String distance);
+
+  /// No description provided for @offerConnectionOnPlot.
+  ///
+  /// In pl, this message translates to:
+  /// **'Na działce'**
+  String get offerConnectionOnPlot;
+
+  /// No description provided for @offerConnectionAtBoundary.
+  ///
+  /// In pl, this message translates to:
+  /// **'Przy granicy'**
+  String get offerConnectionAtBoundary;
+
+  /// No description provided for @offerConnectionPublicRoad.
+  ///
+  /// In pl, this message translates to:
+  /// **'W drodze publicznej'**
+  String get offerConnectionPublicRoad;
+
+  /// No description provided for @offerConnectionPrivateRoad.
+  ///
+  /// In pl, this message translates to:
+  /// **'W drodze prywatnej'**
+  String get offerConnectionPrivateRoad;
+
+  /// No description provided for @offerConnectionAccepted.
+  ///
+  /// In pl, this message translates to:
+  /// **'przyłącze odebrane'**
+  String get offerConnectionAccepted;
+
+  /// No description provided for @offerConnectionNotAccepted.
+  ///
+  /// In pl, this message translates to:
+  /// **'przyłącze nieodebrane'**
+  String get offerConnectionNotAccepted;
+
+  /// No description provided for @offerSellerDeclaration.
+  ///
+  /// In pl, this message translates to:
+  /// **'Deklaracja sprzedającego'**
+  String get offerSellerDeclaration;
+
+  /// No description provided for @offerUtilitySourceOwner.
+  ///
+  /// In pl, this message translates to:
+  /// **'potwierdzone przez sprzedającego'**
+  String get offerUtilitySourceOwner;
+
+  /// No description provided for @offerUtilitySourceDetected.
+  ///
+  /// In pl, this message translates to:
+  /// **'wykryte w rejestrze'**
+  String get offerUtilitySourceDetected;
+
+  /// No description provided for @offerLegalOverline.
+  ///
+  /// In pl, this message translates to:
+  /// **'Stan prawny'**
+  String get offerLegalOverline;
+
+  /// No description provided for @offerLegalTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Własność i dokumenty'**
+  String get offerLegalTitle;
+
+  /// No description provided for @offerLegalLandRegister.
+  ///
+  /// In pl, this message translates to:
+  /// **'Księga wieczysta'**
+  String get offerLegalLandRegister;
+
+  /// No description provided for @offerLegalOwnership.
+  ///
+  /// In pl, this message translates to:
+  /// **'Własność'**
+  String get offerLegalOwnership;
+
+  /// No description provided for @offerLegalBuildingConditions.
+  ///
+  /// In pl, this message translates to:
+  /// **'Warunki zabudowy'**
+  String get offerLegalBuildingConditions;
+
+  /// No description provided for @offerLegalEncumbrances.
+  ///
+  /// In pl, this message translates to:
+  /// **'Obciążenia'**
+  String get offerLegalEncumbrances;
+
+  /// No description provided for @offerOwnershipFull.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pełna własność'**
+  String get offerOwnershipFull;
+
+  /// No description provided for @offerOwnershipPerpetualUsufruct.
+  ///
+  /// In pl, this message translates to:
+  /// **'Użytkowanie wieczyste'**
+  String get offerOwnershipPerpetualUsufruct;
+
+  /// No description provided for @offerOwnershipShare.
+  ///
+  /// In pl, this message translates to:
+  /// **'Współwłasność (udział)'**
+  String get offerOwnershipShare;
+
+  /// No description provided for @offerConditionsNone.
+  ///
+  /// In pl, this message translates to:
+  /// **'Brak decyzji'**
+  String get offerConditionsNone;
+
+  /// No description provided for @offerConditionsZoningDecision.
+  ///
+  /// In pl, this message translates to:
+  /// **'Decyzja o warunkach zabudowy'**
+  String get offerConditionsZoningDecision;
+
+  /// No description provided for @offerConditionsBuildingPermit.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pozwolenie na budowę'**
+  String get offerConditionsBuildingPermit;
+
+  /// No description provided for @offerEncumbranceMortgage.
+  ///
+  /// In pl, this message translates to:
+  /// **'Hipoteka'**
+  String get offerEncumbranceMortgage;
+
+  /// No description provided for @offerEncumbranceEasement.
+  ///
+  /// In pl, this message translates to:
+  /// **'Służebność'**
+  String get offerEncumbranceEasement;
+
+  /// No description provided for @offerEncumbranceOther.
+  ///
+  /// In pl, this message translates to:
+  /// **'Inne obciążenia'**
+  String get offerEncumbranceOther;
+
+  /// No description provided for @offerLegalNoneReported.
+  ///
+  /// In pl, this message translates to:
+  /// **'Brak zgłoszonych'**
+  String get offerLegalNoneReported;
+
+  /// No description provided for @offerLegalNotProvided.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie podano'**
+  String get offerLegalNotProvided;
+
+  /// No description provided for @offerDocumentsTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dokumenty od sprzedającego'**
+  String get offerDocumentsTitle;
+
+  /// No description provided for @offerDocumentsHint.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zaloguj się i napisz do sprzedającego, aby pobrać dokumenty.'**
+  String get offerDocumentsHint;
+
+  /// No description provided for @offerDocumentsHintSignedIn.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dokumenty pobierzesz po wysłaniu wiadomości do sprzedającego z tego konta.'**
+  String get offerDocumentsHintSignedIn;
+
+  /// No description provided for @offerDocumentVerified.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zweryfikowany'**
+  String get offerDocumentVerified;
+
+  /// No description provided for @offerDocumentPlot.
+  ///
+  /// In pl, this message translates to:
+  /// **'działka {number}'**
+  String offerDocumentPlot(String number);
+
+  /// No description provided for @offerDocumentDownload.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pobierz'**
+  String get offerDocumentDownload;
+
+  /// No description provided for @documentTypeLandRegisterExtract.
+  ///
+  /// In pl, this message translates to:
+  /// **'Odpis z księgi wieczystej'**
+  String get documentTypeLandRegisterExtract;
+
+  /// No description provided for @documentTypeZoningExtract.
+  ///
+  /// In pl, this message translates to:
+  /// **'Wypis z planu miejscowego'**
+  String get documentTypeZoningExtract;
+
+  /// No description provided for @documentTypeSurveyMap.
+  ///
+  /// In pl, this message translates to:
+  /// **'Mapa geodezyjna'**
+  String get documentTypeSurveyMap;
+
+  /// No description provided for @documentTypeZoningDecision.
+  ///
+  /// In pl, this message translates to:
+  /// **'Decyzja o warunkach zabudowy'**
+  String get documentTypeZoningDecision;
+
+  /// No description provided for @documentTypeConnectionAcceptance.
+  ///
+  /// In pl, this message translates to:
+  /// **'Protokół odbioru przyłącza'**
+  String get documentTypeConnectionAcceptance;
+
+  /// No description provided for @fileSizeKb.
+  ///
+  /// In pl, this message translates to:
+  /// **'{value} KB'**
+  String fileSizeKb(String value);
+
+  /// No description provided for @fileSizeMb.
+  ///
+  /// In pl, this message translates to:
+  /// **'{value} MB'**
+  String fileSizeMb(String value);
+
+  /// No description provided for @distanceMeters.
+  ///
+  /// In pl, this message translates to:
+  /// **'{value} m'**
+  String distanceMeters(String value);
+
+  /// No description provided for @distanceKilometers.
+  ///
+  /// In pl, this message translates to:
+  /// **'{value} km'**
+  String distanceKilometers(String value);
+
+  /// No description provided for @offerDescriptionOverline.
+  ///
+  /// In pl, this message translates to:
+  /// **'Od właściciela'**
+  String get offerDescriptionOverline;
+
+  /// No description provided for @offerDescriptionTitle.
+  ///
+  /// In pl, this message translates to:
+  /// **'Opis'**
+  String get offerDescriptionTitle;
+
+  /// No description provided for @offerSellerForAll.
+  ///
+  /// In pl, this message translates to:
+  /// **'{count, plural, one{Za działkę} other{Za wszystkie działki}}'**
+  String offerSellerForAll(int count);
+
+  /// No description provided for @offerSellerNegotiable.
+  ///
+  /// In pl, this message translates to:
+  /// **'do negocjacji'**
+  String get offerSellerNegotiable;
+
+  /// No description provided for @offerSellerNoCommission.
+  ///
+  /// In pl, this message translates to:
+  /// **'bez prowizji'**
+  String get offerSellerNoCommission;
+
+  /// No description provided for @offerSellerWrite.
+  ///
+  /// In pl, this message translates to:
+  /// **'Napisz do właściciela'**
+  String get offerSellerWrite;
+
+  /// No description provided for @offerSellerViewing.
+  ///
+  /// In pl, this message translates to:
+  /// **'Umów oglądanie'**
+  String get offerSellerViewing;
+
+  /// No description provided for @offerSellerMessagesOff.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprzedający nie przyjmuje wiadomości przez PlotFinder — skorzystaj z telefonu lub e-maila.'**
+  String get offerSellerMessagesOff;
+
+  /// No description provided for @offerSellerFallbackName.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprzedający'**
+  String get offerSellerFallbackName;
+
+  /// No description provided for @offerSellerMemberSince.
+  ///
+  /// In pl, this message translates to:
+  /// **'Osoba prywatna · na PlotFinder od {date}'**
+  String offerSellerMemberSince(String date);
+
+  /// No description provided for @offerSellerAdded.
+  ///
+  /// In pl, this message translates to:
+  /// **'Dodano {date}'**
+  String offerSellerAdded(String date);
+
+  /// No description provided for @offerSellerSource.
+  ///
+  /// In pl, this message translates to:
+  /// **'Zobacz ogłoszenie źródłowe'**
+  String get offerSellerSource;
+
+  /// No description provided for @offerContactShowPhone.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pokaż telefon'**
+  String get offerContactShowPhone;
+
+  /// No description provided for @offerContactShowEmail.
+  ///
+  /// In pl, this message translates to:
+  /// **'Pokaż e-mail'**
+  String get offerContactShowEmail;
+
+  /// No description provided for @offerContactMissing.
+  ///
+  /// In pl, this message translates to:
+  /// **'Sprzedający nie podał danych kontaktowych.'**
+  String get offerContactMissing;
+
+  /// No description provided for @offerContactError.
+  ///
+  /// In pl, this message translates to:
+  /// **'Nie udało się pobrać danych kontaktowych. Spróbuj ponownie.'**
+  String get offerContactError;
+
+  /// No description provided for @textSeparator.
+  ///
+  /// In pl, this message translates to:
+  /// **' · '**
+  String get textSeparator;
 }
 
 class _AppLocalizationsDelegate

@@ -650,4 +650,600 @@ class AppLocalizationsPl extends AppLocalizations {
   @override
   String get loadMoreRetry =>
       'Nie udało się wczytać kolejnych ofert. Spróbuj ponownie';
+
+  @override
+  String get offerCopyLink => 'Kopiuj link do oferty';
+
+  @override
+  String get offerLinkCopied => 'Skopiowano link do oferty';
+
+  @override
+  String get offerLoadingError => 'Nie udało się wczytać oferty.';
+
+  @override
+  String get offerNotFound => 'Nie znaleźliśmy tej oferty';
+
+  @override
+  String get offerNotFoundHint =>
+      'Oferta mogła zostać sprzedana albo wycofana przez sprzedającego.';
+
+  @override
+  String offerFallbackTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count działek budowlanych',
+      few: '$count działki budowlane',
+      one: 'Działka budowlana',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String offerTitleWithArea(String title, String area) {
+    return '$title · $area';
+  }
+
+  @override
+  String offerPlotsTogether(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count sąsiednich działek sprzedawanych razem',
+      few: '$count sąsiednie działki sprzedawane razem',
+      one: '$count działka',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String offerPlotsSeparately(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count działek — każdą można kupić osobno',
+      few: '$count działki — każdą można kupić osobno',
+      one: '$count działka',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String offerPhotoCounter(int index, int total) {
+    return '$index / $total';
+  }
+
+  @override
+  String get offerPhotoTakenOnPlot => 'Zrobione na działce';
+
+  @override
+  String offerPhotoTakenOnPlotDate(String date) {
+    return 'Zrobione na działce · $date';
+  }
+
+  @override
+  String offerMapLabelMany(int count, String area) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count działek · $area',
+      few: '$count działki · $area',
+      one: '$count działka · $area',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get offerNumbersOverline => 'W skrócie';
+
+  @override
+  String get offerNumbersTitle => 'Najważniejsze liczby';
+
+  @override
+  String get offerNumbersTotalArea => 'łączna powierzchnia';
+
+  @override
+  String get offerNumbersPricePerMeter => 'cena za m²';
+
+  @override
+  String offerNumbersPlots(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'działek w ofercie',
+      few: 'działki w ofercie',
+      one: 'działka w ofercie',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String offerNumbersPlanSymbol(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'symboli planu',
+      few: 'symbole planu',
+      one: 'symbol planu',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String offerNumbersPogSymbol(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'stref planu ogólnego',
+      few: 'strefy planu ogólnego',
+      one: 'strefa planu ogólnego',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get offerEmptyValue => '—';
+
+  @override
+  String get offerPriceTitle => 'Cena';
+
+  @override
+  String get offerPriceNegotiable => 'Do negocjacji';
+
+  @override
+  String get offerPriceFixed => 'Cena stała';
+
+  @override
+  String get offerPriceEstimateHint =>
+      'Sprzedający nie podał ceny. To szacunkowa wartość według modelu PlotFinder, liczona z transakcji działek w okolicy.';
+
+  @override
+  String get offerShowValuation => 'Zobacz szacunek PlotFinder';
+
+  @override
+  String get offerHideValuation => 'Ukryj szacunek';
+
+  @override
+  String offerPricePerMeterWithArea(String perMeter, String area) {
+    return '$perMeter · $area';
+  }
+
+  @override
+  String get offerPriceSeparately => 'Ceny działek kupowanych osobno';
+
+  @override
+  String get offerPriceNote =>
+      'Cena podana przez sprzedającego. Kupujesz bezpośrednio, bez prowizji.';
+
+  @override
+  String get offerValuationTitle => 'Ocena ceny';
+
+  @override
+  String get offerValuationVerdictBelow => 'Dobra cena';
+
+  @override
+  String get offerValuationVerdictMarket => 'Cena rynkowa';
+
+  @override
+  String get offerValuationVerdictAbove => 'Powyżej rynku';
+
+  @override
+  String offerValuationEstimate(String range) {
+    return 'Szacunek: $range';
+  }
+
+  @override
+  String offerValuationPerMeter(String range) {
+    return '$range dla podobnych działek w okolicy.';
+  }
+
+  @override
+  String get offerValuationPositionBelow =>
+      'Ta oferta jest poniżej przedziału.';
+
+  @override
+  String get offerValuationPositionMarket =>
+      'Ta oferta jest w środku przedziału.';
+
+  @override
+  String get offerValuationPositionAbove =>
+      'Ta oferta jest powyżej przedziału.';
+
+  @override
+  String offerValuationMarker(String price) {
+    return 'Ta oferta $price';
+  }
+
+  @override
+  String get offerValuationNote =>
+      'Szacunek modelu na podstawie podobnych działek, nie operat rzeczoznawcy.';
+
+  @override
+  String get offerBuildOverline => 'Analiza PlotFinder';
+
+  @override
+  String get offerBuildTitle => 'Co możesz tu zbudować';
+
+  @override
+  String offerBuildHeading(String label) {
+    return 'Przeznaczenie: $label';
+  }
+
+  @override
+  String get offerBuildHintWzPossible =>
+      'Działka leży w obszarze uzupełnienia zabudowy planu ogólnego — można wystąpić o decyzję o warunkach zabudowy zgodną z planem ogólnym.';
+
+  @override
+  String get offerBuildHintNeedsMpzp =>
+      'Działka leży poza obszarem uzupełnienia zabudowy — decyzji o warunkach zabudowy nie można wydać, nowa zabudowa będzie możliwa po uchwaleniu planu miejscowego.';
+
+  @override
+  String get offerBuildHintCheckInfill =>
+      'Plan ogólny sam nie daje prawa do budowy: decyzję o warunkach zabudowy wydaje się tylko w obszarze uzupełnienia zabudowy, zgodnie z planem ogólnym. Sprawdź, czy działka w nim leży.';
+
+  @override
+  String get offerBuildHintNoWzWithoutPog =>
+      'Gmina nie ma jeszcze uchwalonego planu ogólnego — od 1 września 2026 r. nowej decyzji o warunkach zabudowy nie można uzyskać, dopóki go nie uchwali. Wydane wcześniej decyzje pozostają ważne.';
+
+  @override
+  String offerBuildZones(String zones) {
+    return 'Przeznaczenie w planie: $zones';
+  }
+
+  @override
+  String offerBuildPogZones(String zones) {
+    return 'Strefy w planie ogólnym: $zones';
+  }
+
+  @override
+  String get offerBuildPlanTypeMpzp =>
+      'Obowiązuje miejscowy plan zagospodarowania przestrzennego';
+
+  @override
+  String get offerBuildPlanTypePog =>
+      'Działka jest objęta planem ogólnym gminy';
+
+  @override
+  String get offerBuildPlanTypePogDraft =>
+      'Działka jest objęta projektem planu ogólnego gminy — POG (projekt)';
+
+  @override
+  String get offerBuildPlanTypeStudium =>
+      'Kierunek zabudowy wskazuje studium gminy';
+
+  @override
+  String get offerBuildPlanTypeWz => 'Wydano decyzję o warunkach zabudowy';
+
+  @override
+  String get offerBuildPlanTypeNone => 'Brak planu miejscowego i decyzji WZ';
+
+  @override
+  String get offerBuildSeeReport =>
+      'Pełna analiza działki — plan, media, ryzyka i wycena w raporcie PlotFinder →';
+
+  @override
+  String offerBuildPlotResult(String number, String result) {
+    return 'Działka $number: $result';
+  }
+
+  @override
+  String offerBuildMore(int count) {
+    return 'i $count więcej';
+  }
+
+  @override
+  String get offerSourceOfficial => 'Dane urzędowe';
+
+  @override
+  String get offerSourceOwner => 'Od właściciela';
+
+  @override
+  String get offerReportCtaTitle =>
+      'Pełny raport dla każdej działki · za darmo';
+
+  @override
+  String get offerReportCtaBody =>
+      'Ryzyko powodzi, grunt, media, nasłonecznienie i wszystkie wpisy z rejestrów. Bezpłatnie, dla każdej działki.';
+
+  @override
+  String get offerReportCtaButton => 'Otwórz raport';
+
+  @override
+  String get offerReportCtaPending => 'Raport jest w przygotowaniu';
+
+  @override
+  String get offerPlotsOverline => 'Ta oferta';
+
+  @override
+  String get offerPlotsTitleSingle => 'Działka w tej ofercie';
+
+  @override
+  String offerPlotsTitleTogether(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count działek sprzedawanych razem',
+      few: '$count działki sprzedawane razem',
+      one: '$count działka',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String offerPlotsTitleSeparately(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count działek, każdą kupisz osobno',
+      few: '$count działki, każdą kupisz osobno',
+      one: '$count działka',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get offerPlotsOpenReport => 'Otwórz raport →';
+
+  @override
+  String get offerPlotsReportPending => 'Raport w przygotowaniu';
+
+  @override
+  String get offerUtilitiesOverline => 'Media i dojazd';
+
+  @override
+  String get offerUtilitiesTitle => 'Co jest na działce';
+
+  @override
+  String get offerUtilitiesSubtitle =>
+      'Stan według właściciela, sprawdzony z mapą uzbrojenia terenu.';
+
+  @override
+  String get offerUtilitiesRoad => 'Dojazd';
+
+  @override
+  String get offerUtilityStatusAvailable => 'Podłączone';
+
+  @override
+  String get offerUtilityStatusListed => 'Dostępne';
+
+  @override
+  String get offerUtilityStatusAtBoundary => 'Przy granicy';
+
+  @override
+  String get offerUtilityStatusInProgress => 'W trakcie podłączania';
+
+  @override
+  String get offerUtilityStatusPlanned => 'Planowane';
+
+  @override
+  String get offerUtilityStatusNotAvailable => 'Brak';
+
+  @override
+  String get offerUtilityStatusUnknown => 'Brak danych';
+
+  @override
+  String get offerRoadAsphalt => 'Droga asfaltowa';
+
+  @override
+  String get offerRoadGravel => 'Droga utwardzona';
+
+  @override
+  String get offerRoadDirt => 'Droga gruntowa';
+
+  @override
+  String get offerRoadEasement => 'Dojazd przez służebność';
+
+  @override
+  String get offerRoadEstimatePublic =>
+      'Droga dojazdowa: publiczna (szacunek z OpenStreetMap)';
+
+  @override
+  String get offerRoadEstimatePrivate =>
+      'Droga dojazdowa: prywatna (szacunek z OpenStreetMap)';
+
+  @override
+  String offerUtilityNetworkDistance(String distance) {
+    return 'Sieć $distance od działki';
+  }
+
+  @override
+  String get offerConnectionOnPlot => 'Na działce';
+
+  @override
+  String get offerConnectionAtBoundary => 'Przy granicy';
+
+  @override
+  String get offerConnectionPublicRoad => 'W drodze publicznej';
+
+  @override
+  String get offerConnectionPrivateRoad => 'W drodze prywatnej';
+
+  @override
+  String get offerConnectionAccepted => 'przyłącze odebrane';
+
+  @override
+  String get offerConnectionNotAccepted => 'przyłącze nieodebrane';
+
+  @override
+  String get offerSellerDeclaration => 'Deklaracja sprzedającego';
+
+  @override
+  String get offerUtilitySourceOwner => 'potwierdzone przez sprzedającego';
+
+  @override
+  String get offerUtilitySourceDetected => 'wykryte w rejestrze';
+
+  @override
+  String get offerLegalOverline => 'Stan prawny';
+
+  @override
+  String get offerLegalTitle => 'Własność i dokumenty';
+
+  @override
+  String get offerLegalLandRegister => 'Księga wieczysta';
+
+  @override
+  String get offerLegalOwnership => 'Własność';
+
+  @override
+  String get offerLegalBuildingConditions => 'Warunki zabudowy';
+
+  @override
+  String get offerLegalEncumbrances => 'Obciążenia';
+
+  @override
+  String get offerOwnershipFull => 'Pełna własność';
+
+  @override
+  String get offerOwnershipPerpetualUsufruct => 'Użytkowanie wieczyste';
+
+  @override
+  String get offerOwnershipShare => 'Współwłasność (udział)';
+
+  @override
+  String get offerConditionsNone => 'Brak decyzji';
+
+  @override
+  String get offerConditionsZoningDecision => 'Decyzja o warunkach zabudowy';
+
+  @override
+  String get offerConditionsBuildingPermit => 'Pozwolenie na budowę';
+
+  @override
+  String get offerEncumbranceMortgage => 'Hipoteka';
+
+  @override
+  String get offerEncumbranceEasement => 'Służebność';
+
+  @override
+  String get offerEncumbranceOther => 'Inne obciążenia';
+
+  @override
+  String get offerLegalNoneReported => 'Brak zgłoszonych';
+
+  @override
+  String get offerLegalNotProvided => 'Nie podano';
+
+  @override
+  String get offerDocumentsTitle => 'Dokumenty od sprzedającego';
+
+  @override
+  String get offerDocumentsHint =>
+      'Zaloguj się i napisz do sprzedającego, aby pobrać dokumenty.';
+
+  @override
+  String get offerDocumentsHintSignedIn =>
+      'Dokumenty pobierzesz po wysłaniu wiadomości do sprzedającego z tego konta.';
+
+  @override
+  String get offerDocumentVerified => 'Zweryfikowany';
+
+  @override
+  String offerDocumentPlot(String number) {
+    return 'działka $number';
+  }
+
+  @override
+  String get offerDocumentDownload => 'Pobierz';
+
+  @override
+  String get documentTypeLandRegisterExtract => 'Odpis z księgi wieczystej';
+
+  @override
+  String get documentTypeZoningExtract => 'Wypis z planu miejscowego';
+
+  @override
+  String get documentTypeSurveyMap => 'Mapa geodezyjna';
+
+  @override
+  String get documentTypeZoningDecision => 'Decyzja o warunkach zabudowy';
+
+  @override
+  String get documentTypeConnectionAcceptance => 'Protokół odbioru przyłącza';
+
+  @override
+  String fileSizeKb(String value) {
+    return '$value KB';
+  }
+
+  @override
+  String fileSizeMb(String value) {
+    return '$value MB';
+  }
+
+  @override
+  String distanceMeters(String value) {
+    return '$value m';
+  }
+
+  @override
+  String distanceKilometers(String value) {
+    return '$value km';
+  }
+
+  @override
+  String get offerDescriptionOverline => 'Od właściciela';
+
+  @override
+  String get offerDescriptionTitle => 'Opis';
+
+  @override
+  String offerSellerForAll(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Za wszystkie działki',
+      one: 'Za działkę',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get offerSellerNegotiable => 'do negocjacji';
+
+  @override
+  String get offerSellerNoCommission => 'bez prowizji';
+
+  @override
+  String get offerSellerWrite => 'Napisz do właściciela';
+
+  @override
+  String get offerSellerViewing => 'Umów oglądanie';
+
+  @override
+  String get offerSellerMessagesOff =>
+      'Sprzedający nie przyjmuje wiadomości przez PlotFinder — skorzystaj z telefonu lub e-maila.';
+
+  @override
+  String get offerSellerFallbackName => 'Sprzedający';
+
+  @override
+  String offerSellerMemberSince(String date) {
+    return 'Osoba prywatna · na PlotFinder od $date';
+  }
+
+  @override
+  String offerSellerAdded(String date) {
+    return 'Dodano $date';
+  }
+
+  @override
+  String get offerSellerSource => 'Zobacz ogłoszenie źródłowe';
+
+  @override
+  String get offerContactShowPhone => 'Pokaż telefon';
+
+  @override
+  String get offerContactShowEmail => 'Pokaż e-mail';
+
+  @override
+  String get offerContactMissing =>
+      'Sprzedający nie podał danych kontaktowych.';
+
+  @override
+  String get offerContactError =>
+      'Nie udało się pobrać danych kontaktowych. Spróbuj ponownie.';
+
+  @override
+  String get textSeparator => ' · ';
 }

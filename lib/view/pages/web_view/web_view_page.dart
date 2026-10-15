@@ -41,7 +41,9 @@ class _WebViewPageState extends State<WebViewPage> {
       body: Stack(
         children: [
           WebViewWidget(controller: _controller),
-          if (_isLoading) const Center(child: CircularProgressIndicator(color: ColorConstants.bgBrand)),
+          if (_isLoading) ...{
+            const Center(child: CircularProgressIndicator(color: ColorConstants.bgBrand)),
+          },
         ],
       ),
     );

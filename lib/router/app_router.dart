@@ -20,5 +20,6 @@ class AppRouter extends RootStackRouter{
     ]),
     AutoRoute(page: SignupRoute.page, path: "/register"),
     AutoRoute(page: WebViewRoute.page, path: "/web-view"),
+    AutoRoute(page: OfferRoute.page, path: "/offer/:offerId"),
   ];
 }

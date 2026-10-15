@@ -3,7 +3,7 @@ import 'package:map_maker_new/cubits/cubit_pagination_mixin/paginated_state.dart
 import 'package:map_maker_new/services/pagination/paginated_response.dart';
 
 mixin PaginationMixin<V, S, P extends PaginatedStateInfinityScroll<V>> on BlocBase<S> {
-  static const int firstPage = 1;
+  static const int _firstPage = 1;
 
   Future<PaginatedResponse<V>> Function(int page) get fetch;
 
@@ -11,14 +11,14 @@ mixin PaginationMixin<V, S, P extends PaginatedStateInfinityScroll<V>> on BlocBa
 
   Object getItemId(V item);
 
-  Future<PaginatedResponse<V>> fetchFirstPage() => fetch(firstPage);
+  Future<PaginatedResponse<V>> fetchFirstPage() => fetch(_firstPage);
 
   Future<void> loadMore() async {
     final S currentState = state;
     if (currentState is! P || currentState.hasReachedEnd || currentState.isLoadingMore) return;
     emit(currentState.copyWith(isLoadingMore: true, hasLoadMoreError: false) as S);
     try {
-      final PaginatedResponse<V> response = await fetch(currentState.items.length ~/ pageSize + firstPage);
+      final PaginatedResponse<V> response = await fetch(currentState.items.length ~/ pageSize + _firstPage);
       _emitPaginatedState((P latestState) => latestState.copyWith(
         items: _mergeItems(latestState.items, response.data),
         nextPage: () => response.nextPage,

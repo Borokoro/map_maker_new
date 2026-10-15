@@ -83,8 +83,9 @@ class OffersMapLayer {
   Future<void> zoomToOffers(List<Offer> offers, {double topPadding = 0}) async {
     final List<Point> points = [
       for (final Offer offer in offers)
-        if (offer.centerPoint case final OfferCenterPoint centerPoint)
+        if (offer.centerPoint case final OfferCenterPoint centerPoint) ...{
           Point(coordinates: Position(centerPoint.lng, centerPoint.lat)),
+        },
     ];
     if (points.isEmpty) return;
     if (points.length == 1) {
@@ -111,7 +112,9 @@ class OffersMapLayer {
       for (final List<List<List<double>>> polygon in offer.previewGeojson?.coordinates ?? const [])
         for (final List<List<double>> ring in polygon)
           for (final List<double> point in ring)
-            if (point.length >= 2) Point(coordinates: Position(point[0], point[1])),
+            if (point.length >= 2) ...{
+              Point(coordinates: Position(point[0], point[1])),
+            },
     ];
     final OfferCenterPoint? centerPoint = offer.centerPoint;
     if (shapePoints.length < 2) {
@@ -258,7 +261,7 @@ class OffersMapLayer {
       'type': 'FeatureCollection',
       'features': [
         for (final Offer offer in offers)
-          if (offer.centerPoint case final OfferCenterPoint centerPoint)
+          if (offer.centerPoint case final OfferCenterPoint centerPoint) ...{
             {
               'type': 'Feature',
               'geometry': {
@@ -271,6 +274,7 @@ class OffersMapLayer {
                 _selectedProperty: offer.offerId == selectedOfferId,
               },
             },
+          },
       ],
     };
   }
@@ -280,7 +284,7 @@ class OffersMapLayer {
       'type': 'FeatureCollection',
       'features': [
         for (final Offer offer in offers)
-          if (offer.previewGeojson case final PreviewGeojson previewGeojson)
+          if (offer.previewGeojson case final PreviewGeojson previewGeojson) ...{
             {
               'type': 'Feature',
               'geometry': {
@@ -292,6 +296,7 @@ class OffersMapLayer {
                 _selectedProperty: offer.offerId == selectedOfferId,
               },
             },
+          },
       ],
     };
   }

@@ -7,6 +7,7 @@ import 'package:map_maker_new/utils/offer_filters_labels_extension.dart';
 import 'package:map_maker_new/utils/text_theme_extension.dart';
 import 'package:map_maker_new/view/pages/search/components/filters/filter_choice_chip.dart';
 import 'package:map_maker_new/view/pages/search/components/filters/range_filter.dart';
+import 'package:map_maker_new/utils/offer_formatters.dart';
 
 class AreaFilter extends StatelessWidget {
   const AreaFilter({
@@ -34,12 +35,14 @@ class AreaFilter extends StatelessWidget {
           max: searchCriteria.areaMax,
           rangeMax: OfferSearchCriteria.areaRangeMax,
           step: OfferSearchCriteria.areaRangeStep,
-          formatValue: (int value) => formatArea(localizations, value),
+          formatValue: (int value) => OfferFormatters.formatArea(localizations, value),
           onChanged: (int? min, int? max) => onChanged(
             searchCriteria.copyWith(areaMin: () => min, areaMax: () => max),
           ),
         ),
-        if (withPlotsCount) _getPlotsCount(context),
+        if (withPlotsCount) ...{
+          _getPlotsCount(context),
+        },
       ].withVerticalElementsSpacing(16),
     );
   }

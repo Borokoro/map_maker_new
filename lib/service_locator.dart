@@ -5,6 +5,7 @@ import 'package:map_maker_new/cubits/saved_offers/saved_offers_cubit.dart';
 import 'package:map_maker_new/cubits/search/search_cubit.dart';
 import 'package:map_maker_new/services/auth_interceptor.dart';
 import 'package:map_maker_new/services/auth_service.dart';
+import 'package:map_maker_new/services/offer_service.dart';
 import 'package:map_maker_new/services/public_offers_service.dart';
 import 'package:map_maker_new/services/saved_offers_service.dart';
 import 'package:map_maker_new/services/token_storage.dart';
@@ -21,6 +22,9 @@ void _initializeServices() {
   );
   serviceLocator.registerSingleton<SavedOffersService>(
     SavedOffersService(dio: serviceLocator()),
+  );
+  serviceLocator.registerSingleton<OfferService>(
+    OfferService(dio: serviceLocator()),
   );
 }
 

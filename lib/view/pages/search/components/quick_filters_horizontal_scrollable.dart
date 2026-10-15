@@ -28,12 +28,15 @@ class QuickFiltersHorizontalScrollable extends StatelessWidget {
     return Container(
       height: quickFiltersHeight,
       padding: StyleConstants.edgeInsetsH16,
-      child: ListView(
+      child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        children: [
-          for (final FilterCategory filterCategory in FilterCategory.values)
-            _getFilterChip(context, filterCategory),
-        ].withHorizontalElementsSpacing(8),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            for (final FilterCategory filterCategory in FilterCategory.values)
+              _getFilterChip(context, filterCategory),
+          ].withHorizontalElementsSpacing(8),
+        ),
       ),
     );
   }

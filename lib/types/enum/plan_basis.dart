@@ -1,22 +1,34 @@
 enum PlanBasis {
-  unknown(apiValue: "unknown"),
-  mpzp(apiValue: "mpzp"),
-  mpzpUnreadable(apiValue: "mpzp_unreadable"),
-  pog(apiValue: "pog"),
-  wz(apiValue: "wz"),
-  pogDraft(apiValue: "pog_draft"),
-  studium(apiValue: "studium"),
-  none(apiValue: "none"),
-  mixed(apiValue: "mixed");
-
-  final String apiValue;
-
-  const PlanBasis({required this.apiValue});
+  unknown,
+  mpzp,
+  mpzpUnreadable,
+  pog,
+  wz,
+  pogDraft,
+  studium,
+  none,
+  mixed;
 
   static PlanBasis fromApiValue(String? apiValue) {
-    return PlanBasis.values.firstWhere(
-      (planBasis) => planBasis.apiValue == apiValue,
-      orElse: () => PlanBasis.unknown,
-    );
+    switch (apiValue) {
+      case "mpzp":
+        return PlanBasis.mpzp;
+      case "mpzp_unreadable":
+        return PlanBasis.mpzpUnreadable;
+      case "pog":
+        return PlanBasis.pog;
+      case "wz":
+        return PlanBasis.wz;
+      case "pog_draft":
+        return PlanBasis.pogDraft;
+      case "studium":
+        return PlanBasis.studium;
+      case "none":
+        return PlanBasis.none;
+      case "mixed":
+        return PlanBasis.mixed;
+      default:
+        return PlanBasis.unknown;
+    }
   }
 }

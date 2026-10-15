@@ -7,6 +7,10 @@ abstract class SavedOffersState extends Equatable {
   List<Object?> get props => [];
 }
 
+class SavedOffersInitial extends SavedOffersState {
+  const SavedOffersInitial();
+}
+
 class SavedOffersLoading extends SavedOffersState {
   const SavedOffersLoading();
 }

@@ -5,6 +5,7 @@ import 'package:map_maker_new/types/enum/plan_basis.dart';
 import 'package:map_maker_new/types/enum/plan_designation.dart';
 import 'package:map_maker_new/types/enum/plan_hint.dart';
 import 'package:map_maker_new/types/models/offer.dart';
+import 'package:map_maker_new/types/models/offer_plot.dart';
 
 class OfferPlanBadge extends Equatable {
   final OfferPlanBadgeKind kind;
@@ -45,24 +46,46 @@ class OfferPlanBadge extends Equatable {
   });
 
   factory OfferPlanBadge.fromOffer(Offer offer) {
-    final PlanBasis basis = PlanBasis.fromApiValue(offer.planBasis);
-    final List<PlanDesignation> designations =
-        offer.designations.map(PlanDesignation.fromApiValue).whereType<PlanDesignation>().toList();
-    final PlanDesignation? designation = PlanDesignation.fromApiValue(offer.designation) ??
-        (designations.length == 1 ? designations.first : null);
+    return OfferPlanBadge.fromPlanData(
+      planBasis: offer.planBasis,
+      designation: offer.designation,
+      designations: offer.designations,
+      infillArea: offer.infillArea,
+    );
+  }
+
+  factory OfferPlanBadge.fromPlot(OfferPlot plot) {
+    return OfferPlanBadge.fromPlanData(
+      planBasis: plot.planBasis,
+      designation: plot.designation,
+      designations: plot.designations,
+      infillArea: plot.infillArea,
+    );
+  }
+
+  factory OfferPlanBadge.fromPlanData({
+    required String planBasis,
+    required String? designation,
+    required List<String> designations,
+    required bool? infillArea,
+  }) {
+    final PlanBasis basis = PlanBasis.fromApiValue(planBasis);
+    final List<PlanDesignation> planDesignations =
+        designations.map(PlanDesignation.fromApiValue).whereType<PlanDesignation>().toList();
+    final PlanDesignation? planDesignation = PlanDesignation.fromApiValue(designation) ??
+        (planDesignations.length == 1 ? planDesignations.first : null);
     final bool hasDesignationBasis = _basesWithDesignation.contains(basis);
 
-    if (hasDesignationBasis && designation != null) {
+    if (hasDesignationBasis && planDesignation != null) {
       return OfferPlanBadge(
         kind: OfferPlanBadgeKind.designation,
         basis: basis,
-        designation: designation,
-        otherDesignationsCount: designations.where((other) => other != designation).toSet().length,
-        tone: _getDesignationTone(designation),
-        hint: _buildingDesignations.contains(designation) ? _getHint(basis, offer.infillArea) : null,
+        designation: planDesignation,
+        otherDesignationsCount: planDesignations.where((other) => other != planDesignation).toSet().length,
+        tone: _getDesignationTone(planDesignation),
+        hint: _buildingDesignations.contains(planDesignation) ? _getHint(basis, infillArea) : null,
       );
-    }
-    if (hasDesignationBasis && designations.length > 1) {
+    } else if (hasDesignationBasis && planDesignations.length > 1) {
       return OfferPlanBadge(
         kind: OfferPlanBadgeKind.mixedDesignations,
         basis: basis,
@@ -78,7 +101,7 @@ class OfferPlanBadge extends Equatable {
       designation: null,
       otherDesignationsCount: 0,
       tone: _getBasisTone(basis),
-      hint: _getHint(basis, offer.infillArea),
+      hint: _getHint(basis, infillArea),
     );
   }
 
@@ -87,8 +110,9 @@ class OfferPlanBadge extends Equatable {
       if (infillArea == true) return PlanHint.wzPossible;
       if (infillArea == false) return PlanHint.needsMpzp;
       return PlanHint.checkInfill;
+    } else if (_basesWithoutWz.contains(basis)) {
+      return PlanHint.noWzWithoutPog;
     }
-    if (_basesWithoutWz.contains(basis)) return PlanHint.noWzWithoutPog;
     return null;
   }
 
@@ -133,6 +157,8 @@ class OfferPlanBadge extends Equatable {
         return PlanBadgeTone.warning;
     }
   }
+
+  bool get isMixed => basis == PlanBasis.mixed || kind == OfferPlanBadgeKind.mixedDesignations;
 
   @override
   List<Object?> get props => [kind, basis, designation, otherDesignationsCount, tone, hint];

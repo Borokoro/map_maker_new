@@ -10,7 +10,7 @@ part 'saved_offers_state.dart';
 
 class SavedOffersCubit extends Cubit<SavedOffersState>
     with PaginationMixin<Offer, SavedOffersState, SavedOffersLoaded> {
-  SavedOffersCubit(this._savedOffersService) : super(const SavedOffersLoading());
+  SavedOffersCubit(this._savedOffersService) : super(const SavedOffersInitial());
   final SavedOffersService _savedOffersService;
 
   @override

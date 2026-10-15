@@ -1,0 +1,619 @@
+{
+  "data": {
+    "offer_id": "e88ce3cb-ab50-49d5-80b9-42c5d15a0eb1",
+    "title": "2 działki — Miastko, 2 004 m²",
+    "description": "Działki nad jeziorem GŁĘBOKIE - Świeszyno k. Miastka\nMalownicze działki w pobliżu Jeziora Głębokiego z dostępem do bezpiecznej plaży miejskiej z ratownikami. Idealne miejsce dla rodzin z dziećmi, oferujące spokój i bliskość natury.\nOferujemy dwie malowniczo położone działki o powierzchni odpowiednio",
+    "address": "",
+    "status": "active",
+    "price": "204800.00",
+    "price_negotiable": true,
+    "sold_separately": true,
+    "allow_messages": true,
+    "has_phone": false,
+    "has_email": false,
+    "source_url": "https://example.com/ogloszenie",
+    "plots_count": 2,
+    "total_area": "2004.32",
+    "price_per_meter": "102.18",
+    "buildable": null,
+    "plan_basis": "mpzp_unreadable",
+    "designation": null,
+    "designations": [],
+    "infill_area": null,
+    "zone_symbols": [],
+    "pog_zone_symbols": [
+      "SN"
+    ],
+    "plan_types": [
+      "mpzp",
+      "pog",
+      "pog_draft"
+    ],
+    "utilities": [
+      "electricity",
+      "internet",
+      "sewage",
+      "water"
+    ],
+    "has_road_access": false,
+    "distance_to_city_m": 53539,
+    "estimate": null,
+    "valuation": {
+      "total": {
+        "low": 33796.0,
+        "likely_low": 54289.0,
+        "median": 95098.0,
+        "likely_high": 145175.0,
+        "high": 241229.0
+      },
+      "per_m2": {
+        "low": 16.9,
+        "likely_low": 27.1,
+        "median": 47.4,
+        "likely_high": 72.4,
+        "high": 120.4
+      },
+      "confidence": "low",
+      "context": {
+        "distance_to_city_m": 53539,
+        "has_road_access": false,
+        "neighbours_median_per_m2": 54.5
+      },
+      "valuation_date": "2026-10-09",
+      "price_verdict": "above"
+    },
+    "is_saved": false,
+    "plots": [
+      {
+        "plot_id": "ee2f4b03-c470-4fe5-b667-ecfa5d996f14",
+        "plot_number": "220106_5.0024.169",
+        "voivodeship": "pomorskie",
+        "county": "powiat bytowski",
+        "commune": "Miastko",
+        "precinct": "Świeszyno",
+        "parcel_number": "169",
+        "location_label": "Miastko, powiat bytowski, pomorskie",
+        "area": "1023.13",
+        "separate_price": "89900.00",
+        "plan_basis": "mpzp_unreadable",
+        "designation": null,
+        "designations": [],
+        "infill_area": null,
+        "has_report": true,
+        "land_register_number": "",
+        "ownership_type": "",
+        "building_conditions": "",
+        "encumbrances": [],
+        "access_road": [],
+        "existing_buildings": "none",
+        "road_access_public_estimate": false,
+        "utilities": [
+          {
+            "utility_id": "67b9cf3c-d0f7-4590-80f7-4b4cc1c041ea",
+            "utility_type": "electricity",
+            "utility_type_display": "Electricity",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:43.236609+02:00",
+            "created_at": "2026-10-09T07:26:03.508911+02:00",
+            "updated_at": "2026-10-09T07:26:43.236609+02:00"
+          },
+          {
+            "utility_id": "35da5d09-3d1a-48d5-ba59-e150fd199409",
+            "utility_type": "gas",
+            "utility_type_display": "Gas",
+            "status": "not_available",
+            "status_display": "Not available",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:43.236609+02:00",
+            "created_at": "2026-10-09T07:26:03.508924+02:00",
+            "updated_at": "2026-10-09T07:26:43.236609+02:00"
+          },
+          {
+            "utility_id": "142d0886-6038-49ce-be2c-1f72ea1d7591",
+            "utility_type": "heating",
+            "utility_type_display": "Heating",
+            "status": "not_available",
+            "status_display": "Not available",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:43.236609+02:00",
+            "created_at": "2026-10-09T07:26:03.508950+02:00",
+            "updated_at": "2026-10-09T07:26:43.236609+02:00"
+          },
+          {
+            "utility_id": "77c276b3-5a9e-47f7-b2b6-0bed8568ed8b",
+            "utility_type": "internet",
+            "utility_type_display": "Internet",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:43.236609+02:00",
+            "created_at": "2026-10-09T07:26:03.508938+02:00",
+            "updated_at": "2026-10-09T07:26:43.236609+02:00"
+          },
+          {
+            "utility_id": "52f95e72-fcb6-46d9-84e2-bf20141085c4",
+            "utility_type": "sewage",
+            "utility_type_display": "Sewage",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:43.236609+02:00",
+            "created_at": "2026-10-09T07:26:03.508898+02:00",
+            "updated_at": "2026-10-09T07:26:43.236609+02:00"
+          },
+          {
+            "utility_id": "ed7feff9-174c-40f6-8312-a26fc7f77f4f",
+            "utility_type": "water",
+            "utility_type_display": "Water",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:43.236609+02:00",
+            "created_at": "2026-10-09T07:26:03.508883+02:00",
+            "updated_at": "2026-10-09T07:26:43.236609+02:00"
+          }
+        ],
+        "documents": [],
+        "geojson": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                17.075240736099303,
+                53.98431951202744
+              ],
+              [
+                17.07532956810875,
+                53.98443188404818
+              ],
+              [
+                17.07539120271523,
+                53.984595173663685
+              ],
+              [
+                17.074772690248953,
+                53.98461557252624
+              ],
+              [
+                17.074683427050076,
+                53.984508947427834
+              ],
+              [
+                17.075205253049486,
+                53.98429021614556
+              ],
+              [
+                17.075240736099303,
+                53.98431951202744
+              ]
+            ]
+          ]
+        }
+      },
+      {
+        "plot_id": "1b32356b-edd2-43c1-bf70-0e5e479e1dc9",
+        "plot_number": "220106_5.0024.177",
+        "voivodeship": "pomorskie",
+        "county": "powiat bytowski",
+        "commune": "Miastko",
+        "precinct": "Świeszyno",
+        "parcel_number": "177",
+        "location_label": "Miastko, powiat bytowski, pomorskie",
+        "area": "981.19",
+        "separate_price": "114900.00",
+        "plan_basis": "mpzp_unreadable",
+        "designation": null,
+        "designations": [],
+        "infill_area": null,
+        "has_report": true,
+        "land_register_number": "",
+        "ownership_type": "",
+        "building_conditions": "",
+        "encumbrances": [],
+        "access_road": [],
+        "existing_buildings": "none",
+        "road_access_public_estimate": null,
+        "utilities": [
+          {
+            "utility_id": "1e790790-b3db-49a1-be1e-d4c366f3b325",
+            "utility_type": "electricity",
+            "utility_type_display": "Electricity",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:42.577745+02:00",
+            "created_at": "2026-10-09T07:26:02.048611+02:00",
+            "updated_at": "2026-10-09T07:26:42.577745+02:00"
+          },
+          {
+            "utility_id": "e4798f03-66ae-4960-8a9c-c19daa6317d8",
+            "utility_type": "gas",
+            "utility_type_display": "Gas",
+            "status": "not_available",
+            "status_display": "Not available",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:42.577745+02:00",
+            "created_at": "2026-10-09T07:26:02.048625+02:00",
+            "updated_at": "2026-10-09T07:26:42.577745+02:00"
+          },
+          {
+            "utility_id": "33e04dcf-1ea7-42e6-8248-c16579a22227",
+            "utility_type": "heating",
+            "utility_type_display": "Heating",
+            "status": "not_available",
+            "status_display": "Not available",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:42.577745+02:00",
+            "created_at": "2026-10-09T07:26:02.048650+02:00",
+            "updated_at": "2026-10-09T07:26:42.577745+02:00"
+          },
+          {
+            "utility_id": "2bdf2b6b-d34f-49d3-8a8e-c1c0711020ba",
+            "utility_type": "internet",
+            "utility_type_display": "Internet",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:42.577745+02:00",
+            "created_at": "2026-10-09T07:26:02.048638+02:00",
+            "updated_at": "2026-10-09T07:26:42.577745+02:00"
+          },
+          {
+            "utility_id": "bedbb3c6-88d2-40a7-a396-e1b1fdc5b366",
+            "utility_type": "sewage",
+            "utility_type_display": "Sewage",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:42.577745+02:00",
+            "created_at": "2026-10-09T07:26:02.048598+02:00",
+            "updated_at": "2026-10-09T07:26:42.577745+02:00"
+          },
+          {
+            "utility_id": "df407b7a-0fdd-4380-a3b0-cbb924a905d9",
+            "utility_type": "water",
+            "utility_type_display": "Water",
+            "status": "at_boundary",
+            "status_display": "At plot boundary",
+            "connection_cost": null,
+            "distance_to_network": null,
+            "provider_name": "",
+            "provider_contact": "",
+            "connection_date": null,
+            "connection_location": "",
+            "connection_accepted": null,
+            "meter_number": "",
+            "monthly_cost": null,
+            "notes": "",
+            "source": "detected",
+            "detected_at": "2026-10-09T07:26:42.577745+02:00",
+            "created_at": "2026-10-09T07:26:02.048583+02:00",
+            "updated_at": "2026-10-09T07:26:42.577745+02:00"
+          }
+        ],
+        "documents": [],
+        "geojson": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                17.075114088791462,
+                53.983691356609576
+              ],
+              [
+                17.075521798325692,
+                53.98382684860918
+              ],
+              [
+                17.075163072968156,
+                53.98409526782989
+              ],
+              [
+                17.074878802288577,
+                53.98401697351916
+              ],
+              [
+                17.075114088791462,
+                53.983691356609576
+              ]
+            ]
+          ]
+        }
+      }
+    ],
+    "photos": [
+      {
+        "photo_id": "1550bed7-d896-4602-af30-cb8d5adec355",
+        "url": "https://example.com/photo-0.jpg",
+        "position": 0,
+        "photo_size": 54981,
+        "taken_on_plot": false,
+        "taken_at": null,
+        "uploaded_at": "2026-10-09T07:26:20.651336+02:00"
+      },
+      {
+        "photo_id": "d00c0f0f-2f1d-4bf8-b810-f46d30f7cd19",
+        "url": "https://example.com/photo-1.jpg",
+        "position": 1,
+        "photo_size": 55726,
+        "taken_on_plot": false,
+        "taken_at": null,
+        "uploaded_at": "2026-10-09T07:26:21.006050+02:00"
+      },
+      {
+        "photo_id": "d68db851-975b-4e67-a5ba-7f121d7655b7",
+        "url": "https://example.com/photo-2.jpg",
+        "position": 2,
+        "photo_size": 73605,
+        "taken_on_plot": false,
+        "taken_at": null,
+        "uploaded_at": "2026-10-09T07:26:21.349618+02:00"
+      },
+      {
+        "photo_id": "39b24066-784d-4596-b612-906a36952459",
+        "url": "https://example.com/photo-3.jpg",
+        "position": 3,
+        "photo_size": 87528,
+        "taken_on_plot": false,
+        "taken_at": null,
+        "uploaded_at": "2026-10-09T07:26:21.691979+02:00"
+      },
+      {
+        "photo_id": "d6d94384-f49c-4c1c-9fb4-48c3e20dc08f",
+        "url": "https://example.com/photo-4.jpg",
+        "position": 4,
+        "photo_size": 52620,
+        "taken_on_plot": false,
+        "taken_at": null,
+        "uploaded_at": "2026-10-09T07:26:22.028559+02:00"
+      }
+    ],
+    "seller": {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "first_name": "Anna",
+      "profile_photo_url": null,
+      "member_since": "2026-09-29"
+    },
+    "geojson": {
+      "type": "MultiPolygon",
+      "coordinates": [
+        [
+          [
+            [
+              17.075114088791462,
+              53.983691356609576
+            ],
+            [
+              17.074878802288577,
+              53.98401697351916
+            ],
+            [
+              17.075163072968156,
+              53.98409526782989
+            ],
+            [
+              17.075521798325692,
+              53.98382684860918
+            ],
+            [
+              17.075114088791462,
+              53.983691356609576
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              17.075240736099303,
+              53.98431951202744
+            ],
+            [
+              17.075205253049486,
+              53.98429021614556
+            ],
+            [
+              17.074683427050076,
+              53.984508947427834
+            ],
+            [
+              17.074772690248953,
+              53.98461557252624
+            ],
+            [
+              17.07539120271523,
+              53.984595173663685
+            ],
+            [
+              17.07532956810875,
+              53.98443188404818
+            ],
+            [
+              17.075240736099303,
+              53.98431951202744
+            ]
+          ]
+        ]
+      ]
+    },
+    "preview_geojson": {
+      "type": "MultiPolygon",
+      "coordinates": [
+        [
+          [
+            [
+              17.075114,
+              53.983691
+            ],
+            [
+              17.074879,
+              53.984017
+            ],
+            [
+              17.075163,
+              53.984095
+            ],
+            [
+              17.075522,
+              53.983827
+            ],
+            [
+              17.075114,
+              53.983691
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              17.075241,
+              53.98432
+            ],
+            [
+              17.075205,
+              53.98429
+            ],
+            [
+              17.074683,
+              53.984509
+            ],
+            [
+              17.074773,
+              53.984616
+            ],
+            [
+              17.075391,
+              53.984595
+            ],
+            [
+              17.07533,
+              53.984432
+            ],
+            [
+              17.075241,
+              53.98432
+            ]
+          ]
+        ]
+      ]
+    },
+    "center_point": {
+      "lat": 53.98419951729002,
+      "lng": 17.07512188019801
+    },
+    "published_at": "2026-10-09T07:25:49.938971+02:00"
+  },
+  "message": "Offer retrieved successfully",
+  "status": 200
+}

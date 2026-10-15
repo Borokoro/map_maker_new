@@ -58,11 +58,12 @@ class FilterSheetLayout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(title, style: textTheme.headingH4_20),
-                if (subtitle != null)
+                if (subtitle != null) ...{
                   Text(
                     subtitle!,
                     style: textTheme.caption12.copyWith(color: ColorConstants.textMuted),
                   ),
+                },
               ],
             ),
           ),
